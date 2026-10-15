@@ -1889,8 +1889,7 @@ func_020639ec kind:function(arm,size=0x14) addr:0x020639ec
 func_02063a00 kind:function(arm,size=0x1c) addr:0x02063a00
 func_02063a1c kind:function(arm,size=0x20) addr:0x02063a1c
 func_02063a3c kind:function(arm,size=0xc) addr:0x02063a3c
-func_02063b64 kind:function(thumb,size=0x2) addr:0x02063b64
-func_02063b6c kind:function(thumb,size=0x6) addr:0x02063b6c
+data_02063a48 kind:data(any) addr:0x02063a48
 __sinit_02063d2c kind:function(arm,size=0xac) addr:0x02063d2c
 data_02063dd8 kind:data(any) addr:0x02063dd8
 data_02063df0 kind:data(any) addr:0x02063df0
