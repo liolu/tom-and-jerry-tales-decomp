@@ -1,0 +1,24 @@
+#include "m2c.h"
+
+s32 func_01ff8000(M2C_UNK, M2C_UNK);                /* extern */
+M2C_UNK func_02030ed4(s32 *);                       /* extern */
+s32 func_02030f40(M2C_UNK, s32 *, M2C_UNK, M2C_UNK); /* extern */
+M2C_UNK func_0203da98(s32, s32);                    /* extern */
+M2C_UNK func_0203dc40(s32, M2C_UNK, M2C_UNK, M2C_UNK); /* extern */
+M2C_UNK func_02051a48();                            /* extern */
+
+void func_0203dbb0(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, M2C_UNK arg3) {
+    s32 sp4;
+    s32 sp0;
+    s32 temp_r0;
+
+    sp4 = 0;
+    sp0 = 0;
+    func_02030ed4(&sp0);
+    if ((func_02030f40(arg0, &sp4, arg1, arg1) < 0) || (sp4 == 0)) {
+        func_02051a48();
+    }
+    temp_r0 = func_01ff8000(arg1, 0x200);
+    func_0203da98(sp4, temp_r0);
+    func_0203dc40(temp_r0, arg1, arg2, arg3);
+}
