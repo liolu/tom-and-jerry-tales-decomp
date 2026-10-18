@@ -31,7 +31,7 @@ reloc_fixes.apply(Path(__file__).resolve().parent.parent, args.version, quiet=Tr
 
 
 # Config
-GAME = "heroes_of_mana"
+GAME = "tom_and_jerry_tales"
 DSD_VERSION = 'v0.12.1'
 WIBO_VERSION = '0.6.16'
 SJISWRAP_VERSION = 'v1.2.2'
