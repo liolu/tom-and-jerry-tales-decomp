@@ -1,4 +1,8 @@
-# Tomjerrytale decompilation (EU)
+# Tom and Jerry Tales decompilation (EU)
+
+<!-- bytematch:start -->
+[![Code](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp.svg?label=Code&measure=matched_code_percent)](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp) [![Data](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp.svg?label=Data&measure=matched_data_percent)](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp) [![Functions](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp.svg?label=Functions&measure=matched_functions)](https://bytematch.dev/liolu/tom-and-jerry-tales-decomp)
+<!-- bytematch:end -->
 
 Nintendo DS, game code `AJTP`. Matching decompilation with Metrowerks mwccarm (compiler version still to be identified: `python tools/probe_compiler.py`).
 
