@@ -12,7 +12,7 @@ extern void func_0203f870();
 extern void func_02047150();
 extern void func_020617bc();
 extern void func_020618ec();
-extern void func_02061968();
+extern void _dmul();
 extern char data_020692ec[];
 extern char data_0206e684[];
 extern char data_0206e6d4[];
@@ -81,7 +81,7 @@ L_02013654:
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ff4cccc
-    bl func_02061968
+    bl _dmul
     bl func_020617bc
     ldr r1, =data_020880c0
     ldrsh r1, [r1, #0x6]

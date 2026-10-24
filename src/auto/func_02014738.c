@@ -6,7 +6,7 @@ extern void func_020119d4();
 extern void func_02011a04();
 extern void func_020617bc();
 extern void func_020618ec();
-extern void func_02061968();
+extern void _dmul();
 extern char data_0206ace8[];
 extern char data_0206ea14[];
 extern char data_020880c0[];
@@ -58,7 +58,7 @@ asm void func_02014738(void) {
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
-    bl func_02061968
+    bl _dmul
     bl func_020617bc
     bl func_020119a4
     ldr r0, =data_020880c0
@@ -68,7 +68,7 @@ asm void func_02014738(void) {
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
-    bl func_02061968
+    bl _dmul
     bl func_020617bc
     bl func_020119d4
     ldr r0, =data_020880c0
@@ -78,7 +78,7 @@ asm void func_02014738(void) {
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
-    bl func_02061968
+    bl _dmul
     bl func_020617bc
     bl func_02011a04
     mov r1, #0x0

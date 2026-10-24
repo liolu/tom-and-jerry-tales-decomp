@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
-asm void func_02062668(void) {
+asm void _deq(void) {
     mov ip, #0x200000
     cmn ip, r1, lsl #0x1
     bhs L_0214c8d4

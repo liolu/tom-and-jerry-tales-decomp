@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02062f0c();
-extern void func_02063118();
+extern void _u32_div_f();
 extern char data_0206b22c[];
 extern char data_020875a8[];
 extern char data_020876d0[];
@@ -16,7 +16,7 @@ asm void func_0201ffb0(void) {
     ldrb r1, [r1, r4]
     add r0, r0, #0x1
     str r0, [r2, #0x40]
-    bl func_02063118
+    bl _u32_div_f
     cmp r1, #0x0
     bne L_02020030
     cmp r4, #0x0

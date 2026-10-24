@@ -11,7 +11,7 @@
     "func_02048338",
     "func_0204839c",
     "func_02048400",
-    "func_02063118",
+    "_u32_div_f",
     "func_020482d4",
     "func_02048464",
     "func_0204852c",
@@ -363,7 +363,7 @@
    "id": "L3-03001",
    "level": 3,
    "functions": [
-    "func_02061860",
+    "_ll_ufrom_d",
     "func_02062ec4",
     "func_0205ff98",
     "func_0204f028",
@@ -839,8 +839,8 @@
    "level": 5,
    "functions": [
     "func_0205de0c",
-    "func_020614a4",
-    "func_02061e80",
+    "_dadd",
+    "_dsub",
     "func_02062234",
     "func_01ff8188",
     "func_01ff8520",

@@ -4,7 +4,7 @@
 extern void func_0203d0d8();
 extern void func_0203d740();
 extern void func_0203d8d8();
-extern void func_02063118();
+extern void _u32_div_f();
 extern char data_0206b158[];
 extern char data_0206e690[];
 extern char data_020875a8[];
@@ -26,7 +26,7 @@ asm void func_020204b8(void) {
     ldr r1, =data_0206b158
     str r0, [r6, #0x44]
     ldrb r1, [r1, #0x3]
-    bl func_02063118
+    bl _u32_div_f
     cmp r1, #0x0
     bne L_0202065c
     mov r3, r6
@@ -67,7 +67,7 @@ L_02020574:
     ldr r3, =0x55555556
     smull r2, r1, r3, r6
     add r1, r1, r6, lsr #0x1f
-    bl func_02063118
+    bl _u32_div_f
     cmp r1, #0x0
     bne L_0202065c
     ldr r2, =data_020875a8

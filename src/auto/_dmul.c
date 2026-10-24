@@ -5,7 +5,7 @@
 /* func_020231e8 from https://github.com/kh-recoded-decomp/kh-recoded-decomp eu/src/asm_stubs/calls/func_020231e8.c (license:
  * MIT), reused by tools/donor_match.py */
 // clang-format off
-asm double func_02061968 (double left, double right)
+asm double _dmul (double left, double right)
 {
     stmfd sp!, {r4, r5, r6, r7, lr}
     eor lr, r1, r3
