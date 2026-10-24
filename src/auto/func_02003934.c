@@ -11,7 +11,6 @@ extern char data_0206e698[];
 extern char data_0206e6a4[];
 extern char data_0206ea1c[];
 extern char data_0206ea3c[];
-extern char data_0206ea3d[];
 extern char data_0206ea40[];
 extern char data_0206ea44[];
 // clang-format off
@@ -78,7 +77,7 @@ L_0200398c:
     mov r2, #0xdc
     bl func_02051f7c
     mov r2, #0x1
-    ldr r0, =data_0206ea3d
+    ldr r0, =data_0206ea3c+1
     add r1, r0, r5
     swpb r0, r2, [r1]
     b L_02003a44

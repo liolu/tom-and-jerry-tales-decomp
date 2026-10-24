@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02051a48();
-extern char data_0208709d[];
+extern char data_0208709c[];
 // clang-format off
 asm void func_020169f8(void) {
     stmfd sp!, {r3, lr}
@@ -12,7 +12,7 @@ asm void func_020169f8(void) {
     bge L_02016a40
     mov r2, #0x50
     mul r3, r0, r2
-    ldr r0, =data_0208709d
+    ldr r0, =data_0208709c+1
     add r2, r1, #0x1
     add lr, r0, r3
     ldrb r0, [r0, r3]

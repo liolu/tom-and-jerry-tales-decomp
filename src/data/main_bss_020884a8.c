@@ -1,0 +1,7 @@
+/* compiler: 2.0/sp1p5 */
+#include "m2c.h"
+
+u16 data_020884ae;
+u16 data_020884a8;
+u16 data_020884aa;
+u16 data_020884ac;
