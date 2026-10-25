@@ -12437,3 +12437,31 @@ src/auto/func_0204db74.c:
 src/auto/func_02016f5c.c:
     complete
     .text       start:0x02016f5c end:0x02017280
+
+src/auto/func_020049ac.c:
+    complete
+    .text       start:0x020049ac end:0x02004ac4
+
+src/auto/func_02005c50.c:
+    complete
+    .text       start:0x02005c50 end:0x02005d04
+
+src/auto/func_02018878.c:
+    complete
+    .text       start:0x02018878 end:0x0201894c
+
+src/auto/func_0203b2c4.c:
+    complete
+    .text       start:0x0203b2c4 end:0x0203b32c
+
+src/auto/func_0203c334.c:
+    complete
+    .text       start:0x0203c334 end:0x0203c408
+
+src/auto/func_0203d0d8.c:
+    complete
+    .text       start:0x0203d0d8 end:0x0203d1b8
+
+src/auto/func_0203e5c0.c:
+    complete
+    .text       start:0x0203e5c0 end:0x0203e69c
