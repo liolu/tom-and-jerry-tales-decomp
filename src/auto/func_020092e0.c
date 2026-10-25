@@ -5,7 +5,7 @@ extern void func_0204b94c();
 extern void func_0204bc14();
 extern void func_0204be48();
 extern void func_020618ec();
-extern void func_020625e4();
+extern void _dls();
 extern char data_0206a320[];
 extern char data_0206e670[];
 extern char data_0206fcac[];
@@ -120,7 +120,7 @@ L_0200944c:
     bl func_020618ec
     mov r2, r7
     mov r3, r6
-    bl func_020625e4
+    bl _dls
     bhs L_020094ec
     ldrb r0, [r5, #0x0]
     cmp r0, #0x0

@@ -2985,7 +2985,7 @@ src/auto/func_02062450.c:
     complete
     .text       start:0x02062450 end:0x02062458
 
-src/auto/func_020625e4.c:
+src/auto/_dls.c:
     complete
     .text       start:0x020625e4 end:0x02062668
 
@@ -2993,7 +2993,7 @@ src/auto/_deq.c:
     complete
     .text       start:0x02062668 end:0x020626dc
 
-src/auto/func_020626dc.c:
+src/auto/_dneq.c:
     complete
     .text       start:0x020626dc end:0x02062750
 
@@ -4993,7 +4993,7 @@ src/auto/func_02062458.c:
     complete
     .text       start:0x02062458 end:0x020624d8
 
-src/auto/func_020624d8.c:
+src/auto/_dgr.c:
     complete
     .text       start:0x020624d8 end:0x02062558
 
@@ -12349,3 +12349,7 @@ src/auto/func_0203f684.c:
 src/auto/func_02040614.c:
     complete
     .text       start:0x02040614 end:0x0204089c
+
+src/auto/func_0205d7e4.c:
+    complete
+    .text       start:0x0205d7e4 end:0x0205d8c4
