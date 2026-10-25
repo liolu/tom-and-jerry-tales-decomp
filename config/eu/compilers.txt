@@ -342,3 +342,5 @@ src/donor/func_0205fcbc.c 2.0/sp1p5
 src/donor/func_02060314.c 2.0/sp1p5
 src/donor/func_02060698.c 2.0/sp1p5
 src/donor/func_02060afc.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/func_0204b008.c 2.0/sp1p5 -thumb
+src/auto/func_0204b054.c 2.0/sp1p5 -thumb

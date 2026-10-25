@@ -1,2 +1,86 @@
     .text       start:0x01ff8000 end:0x01ffa7b8 kind:code align:32
     .bss        start:0x01ffa7c0 end:0x01ffa7c0 kind:bss align:32
+
+src/auto/func_01ffa5ec.c:
+    complete
+    .text       start:0x01ffa5ec end:0x01ffa62c
+
+src/auto/func_01ffa62c.c:
+    complete
+    .text       start:0x01ffa62c end:0x01ffa69c
+
+src/auto/func_01ffa69c.c:
+    complete
+    .text       start:0x01ffa69c end:0x01ffa6c0
+
+src/auto/func_01ffa6c0.c:
+    complete
+    .text       start:0x01ffa6c0 end:0x01ffa724
+
+src/auto/func_01ff8000.c:
+    complete
+    .text       start:0x01ff8000 end:0x01ff803c
+
+src/auto/func_01ff803c.c:
+    complete
+    .text       start:0x01ff803c end:0x01ff8064
+
+src/auto/func_01ff9374.c:
+    complete
+    .text       start:0x01ff9374 end:0x01ff94e8
+
+src/auto/func_01ff94e8.c:
+    complete
+    .text       start:0x01ff94e8 end:0x01ff9518
+
+src/auto/func_01ffa220.c:
+    complete
+    .text       start:0x01ffa220 end:0x01ffa258
+
+src/auto/func_01ffa258.c:
+    complete
+    .text       start:0x01ffa258 end:0x01ffa2dc
+
+src/auto/func_01ffa2dc.c:
+    complete
+    .text       start:0x01ffa2dc end:0x01ffa410
+
+src/auto/func_01ffa410.c:
+    complete
+    .text       start:0x01ffa410 end:0x01ffa438
+
+src/auto/func_01ff98dc.c:
+    complete
+    .text       start:0x01ff98dc end:0x01ff9928
+
+src/auto/func_01ff9928.c:
+    complete
+    .text       start:0x01ff9928 end:0x01ff99e8
+
+src/auto/func_01ff9df0.c:
+    complete
+    .text       start:0x01ff9df0 end:0x01ff9e70
+
+src/auto/func_01ff9e70.c:
+    complete
+    .text       start:0x01ff9e70 end:0x01ff9f5c
+
+src/auto/func_01ffa0b0.c:
+    complete
+    .text       start:0x01ffa0b0 end:0x01ffa0d8
+
+src/auto/func_01ffa0d8.c:
+    complete
+    .text       start:0x01ffa0d8 end:0x01ffa154
+
+src/auto/func_01ffa154.c:
+    complete
+    .text       start:0x01ffa154 end:0x01ffa1d8
+
+src/auto/func_01ffa1d8.c:
+    complete
+    .text       start:0x01ffa1d8 end:0x01ffa220
+
+src/auto/func_01ffa724.c:
+    complete
+    .text       start:0x01ffa724 end:0x01ffa7b8
