@@ -11,11 +11,11 @@ No game assets in this repository: see `extract/README.md`.
 ## Progress
 
 <!-- progress:start -->
-`████████████████░░░░` **80.22%** of the code matched · data 99.82% · 1829/1923 functions
+`████████████████░░░░` **81.65%** of the code matched · data 99.82% · 1833/1923 functions
 
 | Part of the code | Files | Functions | Share of all code |
 |---|---|---|---|
-| Auto-matched (raw m2c output, to clean up) | 1206 | 1206/1206 | 64.73% |
+| Auto-matched (raw m2c output, to clean up) | 1210 | 1210/1210 | 66.16% |
 | NitroSDK (Nintendo's system library) | 221 | 335/335 | 6.38% |
 | Reused from other decompilations, not merged into files yet | 95 | 95/95 | 4.52% |
 | NitroSystem (Nintendo's middleware) | 84 | 134/134 | 2.47% |
