@@ -1,7 +1,7 @@
     .text       start:0x01ff8000 end:0x01ffa7b8 kind:code align:32
     .bss        start:0x01ffa7c0 end:0x01ffa7c0 kind:bss align:32
 
-src/auto/func_01ffa5ec.c:
+src/auto/MIi_DmaSetParams.c:
     complete
     .text       start:0x01ffa5ec end:0x01ffa62c
 
@@ -9,7 +9,7 @@ src/auto/func_01ffa62c.c:
     complete
     .text       start:0x01ffa62c end:0x01ffa69c
 
-src/auto/func_01ffa69c.c:
+src/auto/MIi_DmaSetParams_noInt.c:
     complete
     .text       start:0x01ffa69c end:0x01ffa6c0
 
@@ -85,6 +85,6 @@ src/auto/func_01ffa724.c:
     complete
     .text       start:0x01ffa724 end:0x01ffa7b8
 
-src/auto/func_01ffa490.c:
+src/auto/OS_IrqHandler_ThreadSwitch.c:
     complete
     .text       start:0x01ffa490 end:0x01ffa5ec
