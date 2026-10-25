@@ -356,3 +356,6 @@ src/auto/LZ77UnCompReadNormalWrite8bit.c 2.0/sp1p5 -thumb
 src/auto/RLUnCompReadByCallbackWrite16bit.c 2.0/sp1p5 -thumb
 src/auto/func_0200dc50.c 2.0/sp1p5 -O1
 src/auto/func_02049744.c 2.0/sp1p5 -O2,p
+src/auto/func_02028f80.c 2.0/sp1p5 -O1
+src/auto/func_02009f80.c 2.0/sp1p5 -O2,p
+src/auto/func_0200bfdc.c 2.0/sp1p5 -O1
