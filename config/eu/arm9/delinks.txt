@@ -12325,3 +12325,27 @@ src/auto/func_02009f80.c:
 src/auto/func_0200bfdc.c:
     complete
     .text       start:0x0200bfdc end:0x0200c138
+
+src/auto/func_02041610.c:
+    complete
+    .text       start:0x02041610 end:0x02041640
+
+src/auto/func_02048ff4.c:
+    complete
+    .text       start:0x02048ff4 end:0x020490fc
+
+src/auto/func_02039dfc.c:
+    complete
+    .text       start:0x02039dfc end:0x02039e28
+
+src/auto/func_0203f4a4.c:
+    complete
+    .text       start:0x0203f4a4 end:0x0203f5e4
+
+src/auto/func_0203f684.c:
+    complete
+    .text       start:0x0203f684 end:0x0203f6c0
+
+src/auto/func_02040614.c:
+    complete
+    .text       start:0x02040614 end:0x0204089c
