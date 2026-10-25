@@ -12477,3 +12477,51 @@ src/auto/func_02032c40.c:
 src/auto/func_0204247c.c:
     complete
     .text       start:0x0204247c end:0x02042944
+
+src/auto/IntrWait.c:
+    complete
+    .text       start:0x020004d2 end:0x020004d6
+
+src/auto/Mod.c:
+    complete
+    .text       start:0x0200014e end:0x02000154
+
+src/auto/Sqrt.c:
+    complete
+    .text       start:0x020005ee end:0x020005f2
+
+src/auto/SoftReset.c:
+    complete
+    .text       start:0x020003ca end:0x020003ce
+
+src/auto/VBlankIntrWait.c:
+    complete
+    .text       start:0x02000358 end:0x0200035e
+
+src/auto/WaitByLoop.c:
+    complete
+    .text       start:0x02000082 end:0x02000086
+
+src/auto/LZ77UnCompReadByCallbackWrite16bit.c:
+    complete
+    .text       start:0x0200058e end:0x02000592
+
+src/auto/RLUnCompReadNormalWrite8bit.c:
+    complete
+    .text       start:0x0200021e end:0x02000222
+
+src/auto/func_0204eff4.c:
+    complete
+    .text       start:0x0204eff4 end:0x0204f028
+
+src/auto/func_0204ff64.c:
+    complete
+    .text       start:0x0204ff64 end:0x020500ac
+
+src/auto/func_02050d4c.c:
+    complete
+    .text       start:0x02050d4c end:0x02050e30
+
+src/auto/func_02063934.c:
+    complete
+    .text       start:0x02063934 end:0x02063960

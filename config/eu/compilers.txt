@@ -359,3 +359,11 @@ src/auto/func_02049744.c 2.0/sp1p5 -O2,p
 src/auto/func_02028f80.c 2.0/sp1p5 -O1
 src/auto/func_02009f80.c 2.0/sp1p5 -O2,p
 src/auto/func_0200bfdc.c 2.0/sp1p5 -O1
+src/auto/IntrWait.c 2.0/sp1p5 -thumb
+src/auto/Mod.c 2.0/sp1p5 -thumb
+src/auto/Sqrt.c 2.0/sp1p5 -thumb
+src/auto/SoftReset.c 2.0/sp1p5 -thumb
+src/auto/VBlankIntrWait.c 2.0/sp1p5 -thumb
+src/auto/WaitByLoop.c 2.0/sp1p5 -thumb
+src/auto/LZ77UnCompReadByCallbackWrite16bit.c 2.0/sp1p5 -thumb
+src/auto/RLUnCompReadNormalWrite8bit.c 2.0/sp1p5 -thumb
