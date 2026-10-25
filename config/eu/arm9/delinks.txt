@@ -12381,3 +12381,7 @@ src/auto/func_0203f60c.c:
 src/auto/func_0203d578.c:
     complete
     .text       start:0x0203d578 end:0x0203d740
+
+src/auto/func_02008800.c:
+    complete
+    .text       start:0x02008800 end:0x020092e0
