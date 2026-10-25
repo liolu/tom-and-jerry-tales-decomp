@@ -344,3 +344,15 @@ src/donor/func_02060698.c 2.0/sp1p5
 src/donor/func_02060afc.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/func_0204b008.c 2.0/sp1p5 -thumb
 src/auto/func_0204b054.c 2.0/sp1p5 -thumb
+src/auto/BitUnPack.c 2.0/sp1p5 -thumb
+src/auto/CpuFastSet.c 2.0/sp1p5 -thumb
+src/auto/CpuSet.c 2.0/sp1p5 -thumb
+src/auto/Div.c 2.0/sp1p5 -thumb
+src/auto/GetCRC16.c 2.0/sp1p5 -thumb
+src/auto/Halt.c 2.0/sp1p5 -thumb
+src/auto/HuffUnCompReadByCallback.c 2.0/sp1p5 -thumb
+src/auto/IsDebugger.c 2.0/sp1p5 -thumb
+src/auto/LZ77UnCompReadNormalWrite8bit.c 2.0/sp1p5 -thumb
+src/auto/RLUnCompReadByCallbackWrite16bit.c 2.0/sp1p5 -thumb
+src/auto/func_0200dc50.c 2.0/sp1p5 -O1
+src/auto/func_02049744.c 2.0/sp1p5 -O2,p
