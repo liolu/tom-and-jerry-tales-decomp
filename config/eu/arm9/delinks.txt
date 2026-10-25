@@ -12385,3 +12385,23 @@ src/auto/func_0203d578.c:
 src/auto/func_02008800.c:
     complete
     .text       start:0x02008800 end:0x020092e0
+
+src/auto/func_02044c5c.c:
+    complete
+    .text       start:0x02044c5c end:0x02044df4
+
+src/auto/func_020316f0.c:
+    complete
+    .text       start:0x020316f0 end:0x0203179c
+
+src/auto/func_02031fd8.c:
+    complete
+    .text       start:0x02031fd8 end:0x02032180
+
+src/auto/func_020321ec.c:
+    complete
+    .text       start:0x020321ec end:0x020322e0
+
+src/auto/func_0203d924.c:
+    complete
+    .text       start:0x0203d924 end:0x0203da98
