@@ -4537,10 +4537,10 @@ void func_02062234(M2C_UNK, M2C_UNK);
 void func_02062a8c(M2C_UNK, M2C_UNK);
 #endif
 #ifndef M2C_SELF_func_02062d04
-void func_02062d04(M2C_UNK, M2C_UNK);
+void _ll_mod(M2C_UNK, M2C_UNK);
 #endif
 #ifndef M2C_SELF_func_02062ec4
-M2C_UNK func_02062ec4(void);
+M2C_UNK _ll_udiv(void);
 #endif
 #ifndef M2C_SELF_func_02063314
 M2C_UNK func_02063314(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);

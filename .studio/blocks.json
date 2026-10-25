@@ -364,7 +364,7 @@
    "level": 3,
    "functions": [
     "_ll_ufrom_d",
-    "func_02062ec4",
+    "_ll_udiv",
     "func_0205ff98",
     "func_0204f028",
     "func_02005a3c",
@@ -575,7 +575,7 @@
    "id": "L4-03001",
    "level": 4,
    "functions": [
-    "func_02062d04",
+    "_ll_mod",
     "func_0205bc74",
     "func_0204a3b8",
     "func_0205c3d4",
