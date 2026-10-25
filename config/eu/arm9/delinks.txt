@@ -12413,3 +12413,15 @@ src/auto/func_020309a4.c:
 src/auto/func_02056640.c:
     complete
     .text       start:0x02056640 end:0x02056870
+
+src/auto/func_020376e8.c:
+    complete
+    .text       start:0x020376e8 end:0x02037a38
+
+src/auto/func_0203a74c.c:
+    complete
+    .text       start:0x0203a74c end:0x0203a95c
+
+src/auto/func_0203e12c.c:
+    complete
+    .text       start:0x0203e12c end:0x0203e348
