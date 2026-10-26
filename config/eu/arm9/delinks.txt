@@ -11884,3 +11884,7 @@ src/auto/FSi_FindPathCommand.c:
 src/auto/RtcCommonCallback.c:
     complete
     .text       start:0x02056bd0 end:0x02057120
+
+src/auto/FSi_GetPathCommand.c:
+    complete
+    .text       start:0x02053f44 end:0x020542f0
