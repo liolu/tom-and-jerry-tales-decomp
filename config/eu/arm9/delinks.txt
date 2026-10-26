@@ -4301,10 +4301,6 @@ src/auto/__convert_from_newlines.c:
     complete
     .text       start:0x02059550 end:0x02059554
 
-src/auto/func_0205ffe4.c:
-    complete
-    .text       start:0x0205ffe4 end:0x0205ffe8
-
 src/auto/func_02062458.c:
     complete
     .text       start:0x02062458 end:0x020624d8
@@ -11868,3 +11864,11 @@ src/auto/func_0202801c.c:
 src/auto/func_0203c740.c:
     complete
     .text       start:0x0203c740 end:0x0203cc68
+
+src/auto/__dorounddecup.c:
+    complete
+    .text       start:0x0205ff98 end:0x0205ffe8
+
+src/auto/func_02044b1c.c:
+    complete
+    .text       start:0x02044b1c end:0x02044c5c
