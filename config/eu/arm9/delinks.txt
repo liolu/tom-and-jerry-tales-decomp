@@ -11872,3 +11872,15 @@ src/auto/__dorounddecup.c:
 src/auto/func_02044b1c.c:
     complete
     .text       start:0x02044b1c end:0x02044c5c
+
+src/auto/__ieee754_log.c:
+    complete
+    .text       start:0x0205e2f8 end:0x0205ea30
+
+src/auto/FSi_FindPathCommand.c:
+    complete
+    .text       start:0x02053d60 end:0x02053f44
+
+src/auto/RtcCommonCallback.c:
+    complete
+    .text       start:0x02056bd0 end:0x02057120
