@@ -23,9 +23,9 @@ void func_02014cf0(void);
 void func_02014e34(void);
 void func_02015194(void);
 void func_020296ec(void);
-void func_02051a48(void);
-void func_020591fc(void);
-void func_020592b0(void);
+void OS_Terminate(void);
+void STD_SearchString(void);
+void STD_CompareString(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_02044df4(void) {
@@ -60,7 +60,7 @@ L_02044e44:
     bne L_02044e70
     ldr r1, =data_0206de28
     add r0, r4, #0x2c
-    bl func_020591fc
+    bl STD_SearchString
     cmp r0, #0x0
     beq L_02044e8c
 L_02044e70:
@@ -98,12 +98,12 @@ L_02044e8c:
 L_02044ee8:
     ldr r1, =data_0206de2c
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     beq L_02044f10
     ldr r1, =data_0206de34
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02044f1c
 L_02044f10:
@@ -166,12 +166,12 @@ L_02044fcc:
 L_02044fe4:
     ldr r1, =data_0206de3c
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     beq L_0204500c
     ldr r1, =data_0206de44
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045034
 L_0204500c:
@@ -185,7 +185,7 @@ L_0204500c:
     swpb r0, r0, [r1]
     b L_02045034
 L_02045030:
-    bl func_02051a48
+    bl OS_Terminate
 L_02045034:
     ldr r1, [r4, #0x0]
     mov r0, #0x0
@@ -327,7 +327,7 @@ L_02045204:
     beq L_02045238
     ldr r1, =data_0206de28
     add r0, r4, #0x2c
-    bl func_020591fc
+    bl STD_SearchString
     cmp r0, #0x0
     beq L_02045254
 L_02045238:

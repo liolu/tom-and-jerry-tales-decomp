@@ -11,7 +11,7 @@ typedef struct {
     s32 ff4;
 } O;
 
-extern void func_0204b918(void *, void *, void *);
+extern void VEC_Add(void *, void *, void *);
 extern s32 data_020692ec;
 
 void func_02006074(O *o) {
@@ -43,6 +43,6 @@ void func_02006074(O *o) {
         o->ff0 = 0;
     }
     if (*(u16 *) ((u8 *) o + 0x1698) == 0) {
-        func_0204b918((u8 *) o + 0xac, (u8 *) o + 0xec, (u8 *) o + 0xac);
+        VEC_Add((u8 *) o + 0xac, (u8 *) o + 0xec, (u8 *) o + 0xac);
     }
 }

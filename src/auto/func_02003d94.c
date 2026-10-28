@@ -4,9 +4,9 @@
 extern void func_01ff8000();
 extern void func_02035458();
 extern void func_020364ec();
-extern void func_0204d91c();
-extern void func_0204d934();
-extern void func_02051fd0();
+extern void G3X_SetEdgeColorTable();
+extern void G3X_SetToonTable();
+extern void MI_CpuFill8();
 extern char data_02063f9c[];
 extern char data_0206ad9c[];
 extern char data_0206e6a4[];
@@ -18,11 +18,11 @@ asm void func_02003d94(void) {
     ldr r0, =data_0206fcac
     ldr r2, =0x16ddc
     mov r1, #0x0
-    bl func_02051fd0
+    bl MI_CpuFill8
     ldr r0, =data_0206ea1c
     ldr r2, =0x1290
     mov r1, #0x0
-    bl func_02051fd0
+    bl MI_CpuFill8
     ldr r0, =data_0206e6a4
     bl func_02035458
     mov r7, #0x0
@@ -56,14 +56,14 @@ L_02003dd4:
     bic r1, r1, #0x3000
     orr r1, r1, #0x20
     strh r1, [r2, #0x0]
-    bl func_0204d91c
+    bl G3X_SetEdgeColorTable
     ldr r3, =0x4000060
     ldr r1, =0xffffcffd
     ldrh r2, [r3, #0x0]
     ldr r0, =data_0206ad9c
     and r1, r2, r1
     strh r1, [r3, #0x0]
-    bl func_0204d934
+    bl G3X_SetToonTable
     ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 }
 // clang-format on

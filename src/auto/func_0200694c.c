@@ -2,7 +2,7 @@
 
 extern void func_02006c10(void *, int, void *);
 extern void func_0203437c(s32, void *);
-extern void func_0204b918(void *, void *, void *);
+extern void VEC_Add(void *, void *, void *);
 extern u8 data_02086a88;
 extern s32 data_02086ac0[][3];
 
@@ -18,7 +18,7 @@ void func_0200694c(s32 arg0, int arg1) {
     do {
         if (data_02086ac0[arg0][i] != -1) {
             func_0203437c(data_02086ac0[arg0][i], a);
-            func_0204b918(a, b, a);
+            VEC_Add(a, b, a);
         }
         i++;
     } while (data_02086a88 > i);

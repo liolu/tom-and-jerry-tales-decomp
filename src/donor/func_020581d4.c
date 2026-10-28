@@ -83,8 +83,8 @@ typedef struct OSThread {
     void *userParam;
     s32 error;
 } OSThread;
-extern OSThreadInfo data_021b0484;
-extern void func_020502b8(OSThreadQueue *queue);
+extern OSThreadInfo OSi_ThreadInfo;
+extern void OS_SleepThread(OSThreadQueue *queue);
 extern void OS_UnpauseThread(OSThreadQueue *queue);
 extern OSMutex *OS_RemoveMutexFromQueue(OSMutexQueue *queue);
 extern OSThread *OS_SelectThread(void);
@@ -96,7 +96,7 @@ static inline void OS_InitThreadQueue(OSThreadQueue *queue) {
     queue->head = 0;
 }
 static inline OSThreadInfo *OS_GetThreadInfo(void) {
-    return &data_021b0484;
+    return &OSi_ThreadInfo;
 }
 static inline OSThread *OS_GetCurrentThread(void) {
     return OS_GetThreadInfo()->current;
@@ -108,8 +108,8 @@ static inline u32 OS_GetThreadId(OSThread *thread) {
     return thread->id;
 }
 extern u32 OS_EnableIRQ(void);
-extern u32 func_020517f8(void);
-extern u32 func_0205180c(u32 irq_flag);
+extern u32 OS_DisableInterrupts(void);
+extern u32 OS_RestoreInterrupts(u32 irq_flag);
 extern u32 OS_EnableFIQ(void);
 extern u32 OS_DisableFIQ(void);
 extern u32 OS_RestoreFIQ(u32 fiq_flag);
@@ -202,9 +202,9 @@ typedef struct UnkCardRom {
     u32 unk_020[0x80];
 } UnkCardRom;
 extern UnkCardCmd data_0210bf00;
-extern UnkCardCommon data_021b25a0;
-extern u32 data_021b2bc0;
-extern UnkCardRom data_021b2be0;
+extern UnkCardCommon cardi_common;
+extern u32 cardi_rom_base;
+extern UnkCardRom rom_stat;
 extern BOOL data_0210bee0;
 extern void OS_Terminate(void);
 extern u32 OS_GetLockID(void);
@@ -217,7 +217,7 @@ extern s32 PXI_SendWordByFifo(u32 tag, u32 data, BOOL err);
 extern void func_0207a074(void);
 extern s32 func_020779a4(u16 lockId);
 extern s32 func_020779c0(u16 lockId);
-extern void func_02051d94(u32 dma);
+extern void MI_StopDma(u32 dma);
 extern u32 func_020798c0(void);
 extern void func_02067d60(u32 dma, const void *src, void *dst, u32 size);
 extern void func_02077480(u32 mask, void (*handler)(void));
@@ -227,37 +227,37 @@ extern u32 func_020776b0(u32 mask);
 extern void WaitByLoop(s32 count);
 extern u32 func_0207bd04(void);
 static inline void CARDi_WaitAndLock(UnkCardCommon *p, UnkCardCallback callback, void *arg) {
-    u32 prevIRQState = func_020517f8();
+    u32 prevIRQState = OS_DisableInterrupts();
     while (p->unk_114 & 4) {
-        func_020502b8(&p->unk_10c);
+        OS_SleepThread(&p->unk_10c);
     }
     p->unk_114 |= 4;
     p->unk_038 = callback;
     p->unk_03c = arg;
-    func_0205180c(prevIRQState);
+    OS_RestoreInterrupts(prevIRQState);
 }
 static inline void CARDi_EndTask(UnkCardCommon *p) {
     const UnkCardCallback callback = p->unk_038;
     void *const arg                = p->unk_03c;
     {
-        u32 prevIRQState = func_020517f8();
+        u32 prevIRQState = OS_DisableInterrupts();
         p->unk_114 &= ~0x4C;
         OS_UnpauseThread(&p->unk_10c);
         if (p->unk_114 & 0x10) {
             OS_WakeupThreadDirect(&p->unk_044);
         }
-        func_0205180c(prevIRQState);
+        OS_RestoreInterrupts(prevIRQState);
     }
     if (callback != 0) {
         callback(arg);
     }
 }
-extern void func_020572bc(UnkCardTask task);
+extern void CARDi_SetTask(UnkCardTask task);
 extern void func_0205d3f8(u16 lockId, u32 target);
 extern void func_0205d47c(u16 lockId, u32 target);
 extern void func_0205d508(void);
 extern BOOL func_0205d60c(void);
-extern void func_0205751c(void);
+extern void CARD_CheckEnabled(void);
 extern void func_0205d634(BOOL enable);
 extern BOOL func_0205d644(void);
 extern BOOL func_0205d690(void);
@@ -277,13 +277,13 @@ extern BOOL func_0205ddb8(UnkCardRom *rom);
 extern void func_0205de44(u32 hi, u32 lo);
 extern void func_0205dea4(void);
 extern void func_0205def8(void);
-extern BOOL func_02057e9c(UnkCardRom *rom);
+extern BOOL CARDi_TryReadCardDma(UnkCardRom *rom);
 extern void func_0205e12c(UnkCardRom *rom);
 extern u32 func_0205e214(void);
 extern void func_0205813c(UnkCardCommon *common);
 extern void func_020581d4(u32 dma, const void *src, void *dst, u32 len, UnkCardCallback callback, void *arg, BOOL async);
 extern void CARD_Init(void);
-extern BOOL func_02058330(void);
+extern BOOL CARD_WaitRomAsync(void);
 extern void *func_0205e470(void);
 extern void func_0205e47c(u32 tag, u32 data, BOOL err);
 extern void func_0205e4b0(void *arg);
@@ -294,59 +294,59 @@ extern BOOL CARD_IsPulledOut(void);
 extern void func_0205e6ec(void);
 extern void func_0205e778(u32 id);
 extern void func_0205e7d8(u32 data, s32 wait);
-extern u32 data_021b2bc0;
-extern UnkCardRom data_021b2be0 __attribute__((aligned(32)));
+extern u32 cardi_rom_base;
+extern UnkCardRom rom_stat __attribute__((aligned(32)));
 extern u8 *data_020c3c88;
 static inline u32 CARDi_GetRomControl(void) {
     return *(u32 *) (data_020c3c88 + 0x60);
 }
 static inline BOOL CARDi_NextPage(void) {
-    UnkCardCommon *const p = &data_021b25a0;
+    UnkCardCommon *const p = &cardi_common;
     p->unk_01c += 0x200;
     p->unk_020 += 0x200;
     return (p->unk_024 -= 0x200) != 0;
 }
 static inline void CARDi_ReadRomDone(void) {
-    UnkCardCommon *const p = &data_021b25a0;
+    UnkCardCommon *const p = &cardi_common;
     func_0205e778(func_0205e214());
     p->unk_000->unk_00 = 0;
     CARDi_EndTask(p);
 }
 static inline u32 CARDi_GetSrcPage(void) {
-    return data_021b25a0.unk_01c & ~0x1FF;
+    return cardi_common.unk_01c & ~0x1FF;
 }
 extern BOOL func_0205ddb8(UnkCardRom *rom);
 extern void func_0205de44(u32 hi, u32 lo);
 extern void func_0205dea4(void);
 extern void func_0205def8(void);
-extern BOOL func_02057e9c(UnkCardRom *rom);
+extern BOOL CARDi_TryReadCardDma(UnkCardRom *rom);
 extern void func_0205e12c(UnkCardRom *rom);
 extern u32 func_0205e214(void);
 extern void func_0205813c(UnkCardCommon *common);
 void func_020581d4(u32 dma, const void *src, void *dst, u32 len, UnkCardCallback callback, void *arg, BOOL async) {
-    UnkCardRom *const rom  = &data_021b2be0;
-    UnkCardCommon *const p = &data_021b25a0;
+    UnkCardRom *const rom  = &rom_stat;
+    UnkCardCommon *const p = &cardi_common;
 
-    func_0205751c();
+    CARD_CheckEnabled();
     CARDi_WaitAndLock(p, callback, arg);
     p->unk_028 = dma;
     p->unk_020 = (u32) dst;
-    p->unk_01c = (u32) src + data_021b2bc0;
+    p->unk_01c = (u32) src + cardi_rom_base;
     p->unk_024 = len;
     if (dma <= 3) {
-        func_02051d94(dma);
+        MI_StopDma(dma);
     }
-    if (func_02057e9c(rom)) {
+    if (CARDi_TryReadCardDma(rom)) {
         if (!async) {
-            func_02058330();
+            CARD_WaitRomAsync();
         }
     } else if (async) {
-        func_020572bc(func_0205813c);
+        CARDi_SetTask(func_0205813c);
     } else {
         p->unk_104 = OS_GetCurrentThread();
         func_0205813c(p);
     }
 }
 extern void CARD_Init(void);
-extern BOOL func_02058330(void);
+extern BOOL CARD_WaitRomAsync(void);
 extern void *func_0205e470(void);

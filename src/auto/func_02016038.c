@@ -1,7 +1,7 @@
 #include "m2c.h"
 
-void *func_02015fb4();                              /* extern */
-M2C_UNK func_02051a48();                            /* extern */
+void *func_02015fb4();
+M2C_UNK OS_Terminate();
 
 u8 func_02016038(void) {
     void *temp_r0;
@@ -10,6 +10,6 @@ u8 func_02016038(void) {
     if (temp_r0 != NULL) {
         return M2C_FIELD(temp_r0, u8 *, 0x2E);
     }
-    func_02051a48();
+    OS_Terminate();
     return 0U;
 }

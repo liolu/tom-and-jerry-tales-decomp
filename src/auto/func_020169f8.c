@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_0208709c[];
 // clang-format off
 asm void func_020169f8(void) {
@@ -24,7 +24,7 @@ asm void func_020169f8(void) {
     swpb r0, r0, [r3]
     ldmfd sp!, {r3, pc}
 L_02016a40:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, pc}
 }
 // clang-format on

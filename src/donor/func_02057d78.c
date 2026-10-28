@@ -23,17 +23,17 @@ typedef struct UnkCardRom {
     u32 unk_00c[5];
     u32 unk_020[0x80];
 } UnkCardRom;
-extern UnkCardCommon data_021b25a0;
-extern UnkCardRom data_021b2be0;
+extern UnkCardCommon cardi_common;
+extern UnkCardRom rom_stat;
 extern void func_02052374(s32, s32, s32, M2C_UNK);
-extern void func_02057d18(u32 hi, u32 lo);
+extern void CARDi_SetRomOp(u32 hi, u32 lo);
 #pragma opt_rotateloops off
 #pragma opt_propagation off
 void func_02057d78(void) {
-    UnkCardCommon *const p = &data_021b25a0;
-    UnkCardRom *const rom  = &data_021b2be0;
+    UnkCardCommon *const p = &cardi_common;
+    UnkCardRom *const rom  = &rom_stat;
 
     func_02052374(p->unk_028, 0x04100010, p->unk_020, 0x200);
-    func_02057d18(0xB7000000 | (p->unk_01c >> 8), p->unk_01c << 24);
+    CARDi_SetRomOp(0xB7000000 | (p->unk_01c >> 8), p->unk_01c << 24);
     *(volatile u32 *) 0x040001A4 = rom->unk_004;
 }

@@ -15,12 +15,12 @@ typedef struct {
     u32 rest : 29;
 } E;
 extern E data_021a6f08[16];
-s32 func_020592b0(s32, void *);
+s32 STD_CompareString(s32, void *);
 s32 func_0203feb4(void *arg0) {
     s32 i = 0;
     E *p  = data_021a6f08;
     do {
-        if (p->b2 && func_020592b0(p->f0, arg0) == 0) {
+        if (p->b2 && STD_CompareString(p->f0, arg0) == 0) {
             return data_021a6f08[i].f18;
         }
         i++;

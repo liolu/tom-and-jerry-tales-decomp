@@ -30,7 +30,7 @@ typedef struct B {
 
 A *func_0203a95c(s16);
 B *func_0203a58c(s16);
-void func_02051f18(void *, void *, s32);
+void MIi_CpuCopy32(void *, void *, s32);
 void func_02037bb8(void *);
 
 void func_020380fc(s32 arg0, s32 arg1) {
@@ -47,7 +47,7 @@ void func_020380fc(s32 arg0, s32 arg1) {
     if (n != 0) {
         do {
             t = n->next;
-            func_02051f18(m, n, 0x3C);
+            MIi_CpuCopy32(m, n, 0x3C);
             n->next                    = t;
             n->p0                      = a->f8;
             n->p4                      = a->f2c;

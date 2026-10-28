@@ -205,9 +205,9 @@ static inline void *UnkSndArc_OffsetToPtr(const void *base, u32 offset) {
     }
     return (u8 *) base + offset;
 }
-extern UnkSndArc *data_021af4f0;
+extern UnkSndArc *sCurrent;
 void *func_020484c8(int index) {
-    UnkSndArc *arc        = data_021af4f0;
+    UnkSndArc *arc        = sCurrent;
     UnkSndArcTable *table = UnkSndArc_OffsetToPtr(arc->info, arc->info->playerOffset);
 
     if (table == 0) {

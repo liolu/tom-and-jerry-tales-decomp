@@ -12,10 +12,10 @@ void func_020306fc(void);
 void func_02030878(void);
 void func_02030898(void);
 void func_02039d0c(void);
-void func_0204b918(void);
-void func_0204b9bc(void);
-void func_0204baa0(void);
-void func_0204be48(void);
+void VEC_Add(void);
+void VEC_CrossProduct(void);
+void VEC_Normalize(void);
+void FX_Atan2Idx(void);
 extern char data_020692ec[];
 extern char data_0206acc8[];
 extern char data_0206accc[];
@@ -382,7 +382,7 @@ asm void func_020079f4(void) {
     ldr r1, =data_02086b08
     mov r0, #0x28
     ldr r1, [r1, #0x10]
-    bl func_0204be48
+    bl FX_Atan2Idx
     mov r0, r0, asr #0x8
     sub r1, r0, #0x40
     ldrh r2, [r5, #0xea]
@@ -440,10 +440,10 @@ asm void func_020079f4(void) {
     add r0, r5, #0x88
     add r1, r1, #0x1c
     add r2, r5, #0x7c
-    bl func_0204b9bc
+    bl VEC_CrossProduct
     add r0, r5, #0x7c
     mov r1, r0
-    bl func_0204baa0
+    bl VEC_Normalize
     ldr r0, =data_02087038
     add r1, sp, #0x14
     ldr r2, [r0, #0x0]
@@ -453,7 +453,7 @@ asm void func_020079f4(void) {
     add r0, r5, #0xac
     add r1, sp, #0x14
     mov r2, r0
-    bl func_0204b918
+    bl VEC_Add
     and r0, r4, #0x7
     add r1, r5, #0x48
     add r0, r0, r0, lsl #0x1
@@ -508,7 +508,7 @@ asm void func_020079f4(void) {
     ldr r2, [r2, #0xa8]
     sub r0, r0, r3
     sub r1, r2, r1
-    bl func_0204be48
+    bl FX_Atan2Idx
     mov r0, r0, lsl #0x8
     mov r0, r0, lsr #0x10
     add r0, r0, #0x80

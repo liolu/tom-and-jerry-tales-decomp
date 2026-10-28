@@ -2,7 +2,7 @@
 typedef struct {
     s32 m[16];
 } MtxFx44;
-s32 func_0204b77c(s32, s32);
+s32 FX_Div(s32, s32);
 s32 func_0204b820(void);
 s64 func_0204b7fc(void);
 
@@ -16,7 +16,7 @@ void func_0204db74(s32 fovySin, s32 fovyCos, s32 aspect, s32 n, s32 f, s32 scale
     s32 t;
     s64 t2;
     volatile u32 *p;
-    one_tan = func_0204b77c(fovyCos, fovySin);
+    one_tan = FX_Div(fovyCos, fovySin);
     if (scaleW != 0x1000) {
         one_tan = (one_tan * scaleW) / 0x1000;
     }

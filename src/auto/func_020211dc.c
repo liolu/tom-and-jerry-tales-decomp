@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-void func_02051fd0(void);
+void MI_CpuFill8(void);
 // clang-format off
 asm void func_020211dc(void) {
     stmdb sp!, {r3, r4, r5, lr}
@@ -9,7 +9,7 @@ asm void func_020211dc(void) {
     mov r0, r4
     mov r1, #0x0
     mov r2, #0x58
-    bl func_02051fd0
+    bl MI_CpuFill8
     str r5, [r4, #0x40]
     mov r1, #0xa
     str r1, [r4, #0x0]

@@ -6,7 +6,7 @@ extern void func_02001654();
 extern void func_02002b94();
 extern void func_02002bd8();
 extern void func_02002be8();
-extern void func_0204b77c();
+extern void FX_Div();
 extern char data_0206acc8[];
 // clang-format off
 asm void func_020144b0(void) {
@@ -21,7 +21,7 @@ asm void func_020144b0(void) {
     ldrh r1, [r4, #0x4c]
     ldr r0, [r4, #0x40]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r4, #0x44]
     ldr r0, [r4, #0x4]
     cmp r0, #0x0
@@ -29,10 +29,10 @@ asm void func_020144b0(void) {
     ldr r1, =data_0206acc8
     ldr r0, [r4, #0x28]
     ldr r1, [r1, #0x0]
-    bl func_0204b77c
+    bl FX_Div
     mov r1, r0
     ldr r0, [r4, #0x40]
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r4, #0x44]
 L_02014510:
     ldr r0, [r4, #0x50]

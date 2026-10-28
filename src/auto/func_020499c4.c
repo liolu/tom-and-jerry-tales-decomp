@@ -6,7 +6,7 @@ typedef struct {
 typedef struct {
     O49 *o;
 } P49;
-extern void func_0204af64(void *, s32, s32);
+extern void NNSi_SndFaderSet(void *, s32, s32);
 void func_020499c4(P49 *p, s32 b, s32 c) {
     O49 *o = p->o;
     if (o == 0) {
@@ -15,5 +15,5 @@ void func_020499c4(P49 *p, s32 b, s32 c) {
     if (((s32) (o->flags << 28) >> 31) != 0) {
         return;
     }
-    func_0204af64(&o->pad[0xE8], b << 8, c);
+    NNSi_SndFaderSet(&o->pad[0xE8], b << 8, c);
 }

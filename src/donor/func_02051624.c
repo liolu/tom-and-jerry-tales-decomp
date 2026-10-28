@@ -12,15 +12,15 @@ typedef struct {
     s32 needResetTimer;
     u64 tickCounter;
 } OSiTickState;
-extern OSiTickState data_021b0798;
-extern void func_0204eef4(u32 arg0, void (*arg1)(s32), s32 arg2);
+extern OSiTickState OSi_UseTick;
+extern void OSi_EnterTimerCallback(u32 arg0, void (*arg1)(s32), s32 arg2);
 void func_02051624(void) {
-    data_021b0798.tickCounter++;
-    if (data_021b0798.needResetTimer != 0) {
-        *(s16 *) 0x04000102          = 0;
-        *(s16 *) 0x04000100          = 0;
-        *(s16 *) 0x04000102          = 0xC1;
-        data_021b0798.needResetTimer = 0;
+    OSi_UseTick.tickCounter++;
+    if (OSi_UseTick.needResetTimer != 0) {
+        *(s16 *) 0x04000102        = 0;
+        *(s16 *) 0x04000100        = 0;
+        *(s16 *) 0x04000102        = 0xC1;
+        OSi_UseTick.needResetTimer = 0;
     }
-    func_0204eef4(0, (void (*)(s32)) func_02051624, 0);
+    OSi_EnterTimerCallback(0, (void (*)(s32)) func_02051624, 0);
 }

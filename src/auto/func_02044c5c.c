@@ -15,7 +15,7 @@ typedef struct {
     s32 count;
     s32 n;
 } Anim;
-s32 func_0204b77c(s32, s32);
+s32 FX_Div(s32, s32);
 void func_01ffa2dc(Q *, Q *, Q *, s32);
 
 static inline Key *nextKey(Anim *a, s32 *idx) {
@@ -63,7 +63,7 @@ s32 func_02044c5c(Anim *a, s32 t, Q *out, s32 snap) {
         } else {
             Q q0 = prev->q;
             Q q1 = cur->q;
-            func_01ffa2dc(&q0, &q1, out, func_0204b77c(t - (prev->frame << 12), (cur->frame - prev->frame) << 12));
+            func_01ffa2dc(&q0, &q1, out, FX_Div(t - (prev->frame << 12), (cur->frame - prev->frame) << 12));
         }
     }
     return 1;

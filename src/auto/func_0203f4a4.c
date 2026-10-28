@@ -1,15 +1,15 @@
 #include "m2c.h"
 
-void func_02046d00(void);
+void NNS_SndInit(void);
 void func_0204703c(void *);
 void func_020470cc(void *, s32);
 void func_02048058(void *, void *, s32, s32);
-s32 func_020486e0(void *, s32);
-s32 func_0204888c(s32);
-s32 func_020493cc(s32);
+s32 NNS_SndHeapCreate(void *, s32);
+s32 NNS_SndHeapSaveState(s32);
+s32 NNS_SndArcPlayerSetup(s32);
 void func_02049744(s32, s32);
 void func_020499f4(void *);
-void func_02051a48(void);
+void OS_Terminate(void);
 extern s32 data_0206db50;
 extern u8 data_0206db7c[];
 extern u8 data_020ba3e0[];
@@ -28,17 +28,17 @@ void func_0203f4a4(void) {
     u16 i;
 
     if (*(s32 *) (data_020ba3e0 + 4) == 1) {
-        func_02051a48();
+        OS_Terminate();
     }
-    func_02046d00();
-    temp_r0                         = func_020486e0(data_020ba580, 0xEC800);
+    NNS_SndInit();
+    temp_r0                         = NNS_SndHeapCreate(data_020ba580, 0xEC800);
     *(s32 *) (data_020ba3e0 + 0x20) = temp_r0;
     if (temp_r0 == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     func_02048058(data_020ba430, data_0206db7c, *(s32 *) (data_020ba3e0 + 0x20), 0);
-    if (func_020493cc(*(s32 *) (data_020ba3e0 + 0x20)) == 0) {
-        func_02051a48();
+    if (NNS_SndArcPlayerSetup(*(s32 *) (data_020ba3e0 + 0x20)) == 0) {
+        OS_Terminate();
     }
     func_02049744(0xA, *(s32 *) (data_020ba3e0 + 0x20));
     func_0204703c((void *) &data_020ba280[88]);
@@ -55,5 +55,5 @@ void func_0203f4a4(void) {
     *(s32 *) (data_020ba3e0 + 4) = 1;
     func_020470cc((void *) &data_020ba280[88], data_0206db50);
     *(s32 *) (data_020ba3e0 + 0x34) = 0;
-    *(s32 *) (data_020ba3e0 + 0x18) = func_0204888c(*(s32 *) (data_020ba3e0 + 0x20));
+    *(s32 *) (data_020ba3e0 + 0x18) = NNS_SndHeapSaveState(*(s32 *) (data_020ba3e0 + 0x20));
 }

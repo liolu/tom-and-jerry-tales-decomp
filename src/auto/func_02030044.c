@@ -3,7 +3,7 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_020222b8();
 extern void func_0203c24c();
-extern void func_0204c27c();
+extern void GXx_SetMasterBrightness_();
 extern void r0();
 extern char data_02088424[];
 // clang-format off
@@ -36,10 +36,10 @@ L_02030098:
     bl func_020222b8
     ldr r0, =0x400006c
     mvn r1, #0xf
-    bl func_0204c27c
+    bl GXx_SetMasterBrightness_
     ldr r0, =0x400106c
     mvn r1, #0xf
-    bl func_0204c27c
+    bl GXx_SetMasterBrightness_
     mov r3, #0x4000000
     ldr r0, =data_02088424
     ldr r2, [r3, #0x0]

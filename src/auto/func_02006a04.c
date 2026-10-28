@@ -4,7 +4,7 @@
 extern void func_02006b08();
 extern void func_02006c10();
 extern void func_02033d1c();
-extern void func_0204b918();
+extern void VEC_Add();
 extern char data_020692e0[];
 extern char data_02086a88[];
 extern char data_02086aa8[];
@@ -64,7 +64,7 @@ L_02006aac:
     mov r0, r7
     mov r1, r6
     mov r2, r7
-    bl func_0204b918
+    bl VEC_Add
     add r0, r9, #0x1
     mov r0, r0, lsl #0x10
     ldrb r1, [r5, #0x0]

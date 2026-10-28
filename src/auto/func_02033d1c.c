@@ -15,7 +15,7 @@ typedef struct {
 extern H data_0208ecd4;
 extern A data_02091be4[];
 extern C data_0208ed9c[];
-extern void func_02051f18(void *, void *, int);
+extern void MIi_CpuCopy32(void *, void *, int);
 extern void func_02033c6c(u16, u16);
 
 s32 func_02033d1c(s16 arg0, void *arg1) {
@@ -33,7 +33,7 @@ s32 func_02033d1c(s16 arg0, void *arg1) {
         i++;
     } while (i < 0x1e);
     data_02091be4[idx].id = arg0;
-    func_02051f18(arg1, (u8 *) &data_02091be4[idx] + 8, 12);
+    MIi_CpuCopy32(arg1, (u8 *) &data_02091be4[idx] + 8, 12);
     if (data_0208ed9c[data_02091be4[idx].id].f != 0) {
         data_02091be4[idx].fl = 1;
     } else {

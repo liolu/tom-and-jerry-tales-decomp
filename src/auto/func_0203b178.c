@@ -1,7 +1,7 @@
 #include "m2c.h"
 extern u8 data_020b8144[];
 extern u8 data_020b8140[];
-s32 func_020592b0(void *, void *);
+s32 STD_CompareString(void *, void *);
 s32 func_0203b178(void *arg0) {
     s32 i;
     u8 *p;
@@ -9,7 +9,7 @@ s32 func_0203b178(void *arg0) {
     if ((s32) * (u16 *) (data_020b8140 + 2) > 0) {
         p = data_020b8144;
         do {
-            if (func_020592b0(p + 0x1c, arg0) == 0) {
+            if (STD_CompareString(p + 0x1c, arg0) == 0) {
                 return i;
             }
             i++;

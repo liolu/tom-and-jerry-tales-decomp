@@ -3,7 +3,7 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_020087b0();
 extern void func_02030878();
-extern void func_02059508();
+extern void abs();
 extern char data_0206ea14[];
 extern char data_02086b08[];
 // clang-format off
@@ -82,7 +82,7 @@ L_020086cc:
     cmp r0, #0x0
     mov r0, r4
     beq L_02008774
-    bl func_02059508
+    bl abs
     cmp r0, #0x4
     bge L_02008700
     ldr r0, =data_02086b08
@@ -122,7 +122,7 @@ L_0200873c:
     str r0, [r2, #0x14]
     ldmfd sp!, {r4, pc}
 L_02008774:
-    bl func_02059508
+    bl abs
     cmp r0, #0xc
     ldmlefd sp!, {r4, pc}
     ldr r0, =data_02086b08

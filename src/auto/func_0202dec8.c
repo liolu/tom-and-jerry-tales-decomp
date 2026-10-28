@@ -28,7 +28,7 @@ extern void func_0203d498();
 extern void func_0203d740();
 extern void func_0203d8d8();
 extern void func_0204221c();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_0206ccb0[];
 extern char data_0206cd2c[];
 extern char data_0206cd44[];
@@ -465,7 +465,7 @@ L_0202e4b8:
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0x17]
     ldrb r3, [sp, #0x18]
-    bl func_0205bdf4
+    bl sprintf
     b L_0202e52c
 L_0202e510:
     ldrb r2, [sp, #0x16]
@@ -474,13 +474,13 @@ L_0202e510:
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0x18]
     ldrb r3, [sp, #0x17]
-    bl func_0205bdf4
+    bl sprintf
 L_0202e52c:
     ldrb r2, [sp, #0x14]
     ldrb r3, [sp, #0x15]
     ldr r1, =data_0206cddc
     mov r0, r8
-    bl func_0205bdf4
+    bl sprintf
     ldr r6, [r5, #0x18]
     mov r0, r9
     mov r1, r6

@@ -1,14 +1,14 @@
 #include "m2c.h"
 
-M2C_UNK func_02032464();                            /* extern */
-M2C_UNK func_02051a48();                            /* extern */
+M2C_UNK func_02032464();
+M2C_UNK OS_Terminate();
 
 void func_02032384(void *arg0) {
     u16 var_r6;
     void *temp_r1;
 
     if (arg0 == NULL) {
-        func_02051a48();
+        OS_Terminate();
     }
     var_r6 = 0;
     do {

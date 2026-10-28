@@ -29,87 +29,87 @@ extern u8 data_0206e320;
 extern u8 data_0206e324;
 extern u8 data_0206e328;
 extern u8 data_0206e32c;
-extern void func_02060278(Buf *, void *, s32);
-extern void func_020600f4(Buf *, Buf *, Buf *);
+extern void __str2dec(Buf *, void *, s32);
+extern void __timesdec(Buf *, Buf *, Buf *);
 void func_02060314(Buf *dst, s32 n) {
     Buf tmp2;
     Buf tmp;
 
     switch (n) {
         case -64:
-            func_02060278(dst, &data_0206e25c, -20);
+            __str2dec(dst, &data_0206e25c, -20);
             return;
         case -53:
-            func_02060278(dst, &data_0206e28c, -16);
+            __str2dec(dst, &data_0206e28c, -16);
             return;
         case -32:
-            func_02060278(dst, &data_0206e2b4, -10);
+            __str2dec(dst, &data_0206e2b4, -10);
             return;
         case -16:
-            func_02060278(dst, &data_0206e2cc, -5);
+            __str2dec(dst, &data_0206e2cc, -5);
             return;
         case -8:
-            func_02060278(dst, &data_0206e2dc, -3);
+            __str2dec(dst, &data_0206e2dc, -3);
             return;
         case -7:
-            func_02060278(dst, &data_0206e2e4, -3);
+            __str2dec(dst, &data_0206e2e4, -3);
             return;
         case -6:
-            func_02060278(dst, &data_0206e2ec, -2);
+            __str2dec(dst, &data_0206e2ec, -2);
             return;
         case -5:
-            func_02060278(dst, &data_0206e2f4, -2);
+            __str2dec(dst, &data_0206e2f4, -2);
             return;
         case -4:
-            func_02060278(dst, &data_0206e2fc, -2);
+            __str2dec(dst, &data_0206e2fc, -2);
             return;
         case -3:
-            func_02060278(dst, &data_0206e300, -1);
+            __str2dec(dst, &data_0206e300, -1);
             return;
         case -2:
-            func_02060278(dst, &data_0206e304, -1);
+            __str2dec(dst, &data_0206e304, -1);
             return;
         case -1:
-            func_02060278(dst, &data_0206e308, -1);
+            __str2dec(dst, &data_0206e308, -1);
             return;
         case 0:
-            func_02060278(dst, &data_0206e30c, 0);
+            __str2dec(dst, &data_0206e30c, 0);
             return;
         case 1:
-            func_02060278(dst, &data_0206e310, 0);
+            __str2dec(dst, &data_0206e310, 0);
             return;
         case 2:
-            func_02060278(dst, &data_0206e314, 0);
+            __str2dec(dst, &data_0206e314, 0);
             return;
         case 3:
-            func_02060278(dst, &data_0206e318, 0);
+            __str2dec(dst, &data_0206e318, 0);
             return;
         case 4:
-            func_02060278(dst, &data_0206e31c, 1);
+            __str2dec(dst, &data_0206e31c, 1);
             return;
         case 5:
-            func_02060278(dst, &data_0206e320, 1);
+            __str2dec(dst, &data_0206e320, 1);
             return;
         case 6:
-            func_02060278(dst, &data_0206e324, 1);
+            __str2dec(dst, &data_0206e324, 1);
             return;
         case 7:
-            func_02060278(dst, &data_0206e328, 2);
+            __str2dec(dst, &data_0206e328, 2);
             return;
         case 8:
-            func_02060278(dst, &data_0206e32c, 2);
+            __str2dec(dst, &data_0206e32c, 2);
             return;
         default:
             func_02060314(&tmp2, ((s32) (n + ((u32) (n & 0x80000000) >> 31)) >> 1));
-            func_020600f4(dst, &tmp2, &tmp2);
+            __timesdec(dst, &tmp2, &tmp2);
             if (n & 1) {
                 tmp = *dst;
                 if (n > 0) {
-                    func_02060278(&tmp2, &data_0206e310, 0);
+                    __str2dec(&tmp2, &data_0206e310, 0);
                 } else {
-                    func_02060278(&tmp2, &data_0206e308, -1);
+                    __str2dec(&tmp2, &data_0206e308, -1);
                 }
-                func_020600f4(dst, &tmp, &tmp2);
+                __timesdec(dst, &tmp, &tmp2);
             }
             return;
     }

@@ -5,7 +5,7 @@ extern void func_01ff8000();
 extern void func_02030ed4();
 extern void func_02030ee0();
 extern void func_020312cc();
-extern void func_02052064();
+extern void MI_CpuCopy8();
 extern char data_0206e698[];
 extern char data_0206e6a4[];
 extern char data_02086ff4[];
@@ -60,7 +60,7 @@ asm void func_02011bdc(void) {
     add r3, r3, r4
     ldrh r3, [r3, #0x4]
     mul r2, r3, r2
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r1, =data_02086ff4
     add r0, sp, #0x0
     ldrb r2, [r1, #0x1]

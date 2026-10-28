@@ -48,7 +48,7 @@ s32 func_0203d8d8(s8 *, u8 *);
 u16 func_0203d740(s8 *, u16, u16, u8 *, u8, s32, s32);
 void func_0203ac18(void);
 void func_0203a74c(Ent *);
-void func_0204d760(void);
+void G3X_Reset(void);
 void func_02051868(void);
 void func_0203cc68(s32, s32);
 static inline void VEC_Set(V3 *v, s32 x, s32 y, s32 z) {
@@ -93,7 +93,7 @@ void func_0200c898(s32 id) {
     func_0203d740(rec->name, x, y, font, b, c, (s32) &data_020b8b44[m]);
     func_0203ac18();
     func_0203a74c(data_02086d90.cur);
-    func_0204d760();
+    G3X_Reset();
     *(volatile u32 *) 0x4000540 = 1;
     func_02051868();
     func_0203cc68(0, 0);

@@ -5,7 +5,7 @@ extern void func_0203ff1c();
 extern void func_02040094();
 extern void func_02040228();
 extern void func_0204f490();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_020693b0[];
 extern char data_020693d0[];
 extern char data_0206c4dc[];
@@ -44,14 +44,14 @@ asm void func_02028dc0(void) {
     ldr r0, =data_02087eb0
     ldr r1, =data_0206c4ec
     ldr r2, [r3, r2, lsl #0x2]
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02087e98
     ldr r2, =data_020693d0
     ldrb r3, [r0, #0x1]
     ldr r0, =data_02087ed0
     ldr r1, =data_0206c4f8
     ldr r2, [r2, r3, lsl #0x2]
-    bl func_0205bdf4
+    bl sprintf
     b L_02028e84
 L_02028e40:
     cmp r0, #0x1
@@ -63,14 +63,14 @@ L_02028e40:
     ldr r0, =data_02087eb0
     ldr r1, =data_0206c500
     ldr r2, [r3, r2, lsl #0x2]
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02087e98
     ldr r2, =data_020693d0
     ldrb r3, [r0, #0x1]
     ldr r0, =data_02087ed0
     ldr r1, =data_0206c50c
     ldr r2, [r2, r3, lsl #0x2]
-    bl func_0205bdf4
+    bl sprintf
 L_02028e84:
     ldr r0, =data_02087e98
     ldr r1, =data_0206c4dc

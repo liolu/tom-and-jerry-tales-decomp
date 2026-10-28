@@ -11,7 +11,7 @@ typedef struct {
 void *func_01ff8000(void *, s32);
 T *func_0203a58c(s16);
 s16 *func_0203a95c(s16);
-void func_02051ee8(void *, void *, s32);
+void MIi_CpuCopy16(void *, void *, s32);
 void func_020419fc(void *a, s32 id, void *c) {
     T *t = func_0203a58c(*func_0203a95c(id));
     void *n;
@@ -19,7 +19,7 @@ void func_020419fc(void *a, s32 id, void *c) {
         return;
     }
     n = func_01ff8000(c, 0x3C);
-    func_02051ee8(a, n, 0x3C);
+    MIi_CpuCopy16(a, n, 0x3C);
     *(void **) ((u8 *) n + 0x38) = t->head;
     t->head                      = n;
     t->cnt                       = t->cnt + 1;

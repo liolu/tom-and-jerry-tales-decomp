@@ -1,12 +1,12 @@
 /* compiler: 2.0/sp1p5  */
 /* ldexp from projets/lego-star-wars-ii-the-original-trilogy/src/auto/ldexp.c (same code in another game of this workspace),
  * reused by tools/donor_match.py */
-extern int func_020613f0(double x);
-extern double func_0205fbb8(double x, double y);
+extern int __fpclassifyd(double x);
+extern double copysign(double x, double y);
 double func_0205fcbc(double x, int n) {
     int k, hx, lx;
 
-    if (func_020613f0(x) <= 2 || x == 0.0) {
+    if (__fpclassifyd(x) <= 2 || x == 0.0) {
         return x;
     }
     hx = ((int *) (&x))[1];
@@ -28,7 +28,7 @@ double func_0205fcbc(double x, int n) {
     }
     k = k + n;
     if (k > 0x7FE) {
-        return 1e300 * func_0205fbb8(1e300, x);
+        return 1e300 * copysign(1e300, x);
     }
     if (k > 0) {
         ((int *) (&x))[1] = (hx & 0x800FFFFF) | (k << 20);
@@ -36,9 +36,9 @@ double func_0205fcbc(double x, int n) {
     }
     if (k <= -54) {
         if (n > 50000) {
-            return 1e300 * func_0205fbb8(1e300, x);
+            return 1e300 * copysign(1e300, x);
         } else {
-            return 1e-300 * func_0205fbb8(1e-300, x);
+            return 1e-300 * copysign(1e-300, x);
         }
     }
     k += 54;

@@ -10,13 +10,13 @@ typedef struct {
 } E;
 extern G data_0208872c;
 extern E data_0208873c[];
-int func_0204d0ec(void);
-int func_0204d0fc(void);
-void func_02051a48(void);
+int GX_GetBankForTex(void);
+int GX_GetBankForTexPltt(void);
+void OS_Terminate(void);
 
 void func_020314d0(void) {
-    int m = func_0204d0ec();
-    int k = func_0204d0fc();
+    int m = GX_GetBankForTex();
+    int k = GX_GetBankForTexPltt();
     int t6, t6b, t7;
     char *t7b, *t8;
     unsigned short i;
@@ -26,7 +26,7 @@ void func_020314d0(void) {
     data_0208872c.s2  = 0;
     data_0208872c.cnt = 0;
     if (m == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     i = 0;
     do {
@@ -56,7 +56,7 @@ void func_020314d0(void) {
     } while (i < 4);
     data_0208872c.v4 = 0;
     if (m == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (k & 0x10) {
         data_0208872c.v4 += 0x10000;

@@ -10,7 +10,7 @@ typedef struct {
 extern u16 data_020b8140;
 extern E data_020b82fc[];
 s32 func_0203b1d4(void);
-void func_02051f18(void *, void *, s32);
+void MIi_CpuCopy32(void *, void *, s32);
 s32 func_0203b2c4(void *src, s16 id) {
     s32 idx;
     E *e;
@@ -20,7 +20,7 @@ s32 func_0203b2c4(void *src, s16 id) {
         data_020b8140++;
     }
     e->id = id;
-    func_02051f18(src, e->name, 0xC);
+    MIi_CpuCopy32(src, e->name, 0xC);
     e->f10 = 0;
     e->f14 = 0;
     e->f16 = 0;

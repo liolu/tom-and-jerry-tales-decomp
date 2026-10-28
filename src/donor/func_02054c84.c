@@ -166,21 +166,21 @@ typedef struct FS_File {
     } methodArgs;
 } FS_File;
 extern BOOL func_02054738(FS_File *file, u32 command);
-extern FS_Record *func_02054908(const char *name, s32 nameLen);
+extern FS_Record *FS_FindArchive(const char *name, s32 nameLen);
 extern BOOL func_02054c84(FS_File *file, const char *path, FS_FileIdentifier *iden, FS_FilePosition *dirPosition);
-extern FS_FilePosition data_021b23cc;
+extern FS_FilePosition current_dir_pos;
 BOOL func_02054c84(FS_File *file, const char *path, FS_FileIdentifier *iden, FS_FilePosition *dirPosition) {
     FS_FilePosition position;
 
     if (*(u8 *) path == '/' || *(u8 *) path == '\\') {
-        position.record   = data_021b23cc.record;
+        position.record   = current_dir_pos.record;
         position.id       = 0;
         position.position = 0;
         position.index    = 0;
         path++;
     } else {
         s32 idx;
-        position = data_021b23cc;
+        position = current_dir_pos;
 
         for (idx = 0; idx <= 3; idx++) {
             u8 nextChar = *(u8 *) (path + idx);
@@ -188,7 +188,7 @@ BOOL func_02054c84(FS_File *file, const char *path, FS_FileIdentifier *iden, FS_
             if (nextChar == 0 || nextChar == '/' || nextChar == '\\') {
                 break;
             } else if (nextChar == ':') {
-                FS_Record *rec = func_02054908(path, idx);
+                FS_Record *rec = FS_FindArchive(path, idx);
 
                 if (rec == 0) {
                     return 0;

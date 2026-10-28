@@ -19,22 +19,22 @@ typedef struct {
     u32 pad[8];
     void *read_func;
 } RomStat;
-extern CardCommon data_021b25a0;
-extern RomStat data_021b2bc0;
-extern void func_02057408(void);
-extern void *func_0205833c(void);
-extern void func_02058528(void);
+extern CardCommon cardi_common;
+extern RomStat cardi_rom_base;
+extern void CARDi_InitCommon(void);
+extern void *CARDi_GetRomAccessor(void);
+extern void CARD_InitPulledOutCallback(void);
 void func_020582cc(void) {
-    CardCommon *const p = &data_021b25a0;
+    CardCommon *const p = &cardi_common;
     if (!p->flag) {
         p->flag = 1;
         p->src = p->dst = p->len = 0;
         p->dma                   = (u32) ~0;
         p->callback              = 0;
         p->callback_arg          = 0;
-        data_021b2bc0.pad[0]     = 0;
-        func_02057408();
-        data_021b2bc0.read_func = func_0205833c();
-        func_02058528();
+        cardi_rom_base.pad[0]    = 0;
+        CARDi_InitCommon();
+        cardi_rom_base.read_func = CARDi_GetRomAccessor();
+        CARD_InitPulledOutCallback();
     }
 }

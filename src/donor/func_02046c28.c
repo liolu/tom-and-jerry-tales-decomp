@@ -1,7 +1,7 @@
 /* compiler: 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto */
 /* NNS_FndGetAllocatableSizeForFrmHeapEx from https://github.com/RonyxDumb/mkds src/arm9/02017f24_Mem_Frame_SomeFn4.c (license:
  * none), reused by tools/donor_match.py */
-extern int func_02059508(int val);
+extern int abs(int val);
 typedef unsigned short int u16;
 typedef unsigned long u32;
 extern const u16(*ctrdgi_fl_maxtime);
@@ -58,7 +58,7 @@ u32 func_02046c28(NNSFndHeapHandle heap, int alignment) {
     ((void) 0);
     ((void) 0);
 
-    alignment = func_02059508(alignment);
+    alignment = abs(alignment);
 
     {
         const NNSiFndFrmHeapHead *pFrmHeapHd = GetFrmHeapHeadPtrFromHeapHead(heap);

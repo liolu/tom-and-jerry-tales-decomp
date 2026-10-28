@@ -2,4 +2,4 @@
 #include "m2c.h"
 
 u32 data_021b22c8[6];
-u32 data_021b22e0[24];
+u32 sCallbackTable[24];

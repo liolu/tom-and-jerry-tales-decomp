@@ -31,7 +31,7 @@ void func_020401e8(void);
 void func_02047108(void);
 void func_0204d600(void);
 void func_0204f490(void);
-void func_0205172c(void);
+void OS_SetTick(void);
 extern char data_020692ec[];
 extern char data_0206af34[];
 extern char data_0206af40[];
@@ -291,7 +291,7 @@ L_02017858:
     ldr r1, =data_020871f4
     ldr r0, [r1, #0x28]
     ldr r1, [r1, #0x2c]
-    bl func_0205172c
+    bl OS_SetTick
     ldr r2, =data_02086fa8+0x12
     ldr r1, =data_02086fbe
     ldrsh r4, [r2, #0x0]
@@ -375,7 +375,7 @@ L_020179c4:
     ldr r1, =data_020871f4
     ldr r0, [r1, #0x28]
     ldr r1, [r1, #0x2c]
-    bl func_0205172c
+    bl OS_SetTick
     bl func_0203f948
     ldr r0, =data_0206e6d4
     mov r1, #0x1

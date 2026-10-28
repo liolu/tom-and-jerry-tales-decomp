@@ -4,7 +4,7 @@
 extern void func_0200e7f4();
 extern void func_0200e978();
 extern void func_020150e4();
-extern void func_0205918c();
+extern void STD_CopyString();
 extern char data_0206e6d4[];
 extern char data_02087064[];
 extern char data_0208708c[];
@@ -40,7 +40,7 @@ asm void func_0200e3b4(void) {
     ldrb r4, [r10, #0x158]
     add r0, r6, #0xe
     swpb r2, r4, [r3]
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [r10, #0x4]
     add r1, r6, #0x58
     str r0, [r6, #0x30]

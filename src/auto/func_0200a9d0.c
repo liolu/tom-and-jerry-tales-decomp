@@ -28,8 +28,8 @@ extern void func_02043ab0();
 extern void func_02043fd0();
 extern void func_0204d600();
 extern void func_0204f490();
-extern void func_02051a48();
-extern void func_0205918c();
+extern void OS_Terminate();
+extern void STD_CopyString();
 extern char data_020692ec[];
 extern char data_0206a3bc[];
 extern char data_0206a3c4[];
@@ -110,22 +110,22 @@ L_0200aa98:
     b L_0200aac8
 L_0200aab0:
     ldr r1, =data_0206a3bc
-    bl func_0205918c
+    bl STD_CopyString
     b L_0200aae4
 L_0200aabc:
     ldr r1, =data_0206a3c4
-    bl func_0205918c
+    bl STD_CopyString
     b L_0200aae4
 L_0200aac8:
     ldr r1, =data_0206a3d0
-    bl func_0205918c
+    bl STD_CopyString
     b L_0200aae4
 L_0200aad4:
     ldr r1, =data_0206a3dc
-    bl func_0205918c
+    bl STD_CopyString
     b L_0200aae4
 L_0200aae0:
-    bl func_02051a48
+    bl OS_Terminate
 L_0200aae4:
     ldr r0, =data_02086d2c
     bl func_0204398c
@@ -250,7 +250,7 @@ L_0200ac48:
     add sp, sp, #0x8
     ldmfd sp!, {r4, pc}
 L_0200acb0:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x8
     ldmfd sp!, {r4, pc}
 }

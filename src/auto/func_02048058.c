@@ -151,9 +151,9 @@ typedef struct FS_File {
         FS_FileArgs_OpenFromID openFromId;
     } methodArgs;
 } FS_File;
-extern BOOL func_02054e44(FS_FileIdentifier *id, const char *path);
+extern BOOL FS_ConvertPathToFileID(FS_FileIdentifier *id, const char *path);
 extern void func_02054c5c(FS_File *file);
-extern BOOL func_02054ecc(FS_File *file, FS_FileIdentifier id);
+extern BOOL FS_OpenFileFast(FS_File *file, FS_FileIdentifier id);
 typedef struct UnkSndArcInfo {
     u8 magic[4];
     u32 size;
@@ -198,26 +198,26 @@ typedef struct UnkSndArc {
     void *symb;
     UnkSndArcInfo *info;
 } UnkSndArc;
-extern UnkSndArc *data_021af4f0;
-extern BOOL func_020480d4(UnkSndArc *arc, void *heap, BOOL loadSymb);
+extern UnkSndArc *sCurrent;
+extern BOOL NNS_SndArcSetup(UnkSndArc *arc, void *heap, BOOL loadSymb);
 void func_02048058(UnkSndArc *arc, const char *path, void *heap, BOOL loadSymb) {
     arc->info = 0;
     arc->fat  = 0;
     arc->symb = 0;
 
-    if (!func_02054e44(&arc->fileId, path)) {
+    if (!FS_ConvertPathToFileID(&arc->fileId, path)) {
         return;
     }
 
     func_02054c5c(&arc->file);
-    if (!func_02054ecc(&arc->file, arc->fileId)) {
+    if (!FS_OpenFileFast(&arc->file, arc->fileId)) {
         return;
     }
 
     arc->fileOpened = 1;
 
-    if (func_020480d4(arc, heap, loadSymb)) {
-        data_021af4f0 = arc;
+    if (NNS_SndArcSetup(arc, heap, loadSymb)) {
+        sCurrent = arc;
     }
 }
-extern BOOL func_020480d4(UnkSndArc *arc, void *heap, BOOL loadSymb);
+extern BOOL NNS_SndArcSetup(UnkSndArc *arc, void *heap, BOOL loadSymb);

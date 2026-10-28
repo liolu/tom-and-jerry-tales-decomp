@@ -2,4 +2,4 @@
 #include "m2c.h"
 
 u32 data_027e0080[1];
-u32 data_027e0084[7];
+u32 OSi_IrqThreadQueue[7];

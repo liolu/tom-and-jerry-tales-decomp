@@ -16,10 +16,10 @@ extern TS data_020886bc;
 extern TP data_020886d0[];
 extern TP data_020886f8[];
 extern s32 data_0206cf1c;
-void func_02055990(void);
-s32 func_02055a70(TP *);
+void TP_RequestSamplingAsync(void);
+s32 TP_WaitCalibratedResult(TP *);
 s32 func_02055cc0(void);
-void func_02055ebc(TP *, TP *);
+void TP_GetCalibratedPoint(TP *, TP *);
 
 s32 func_020309a4(TP *out, s16 *idx) {
     TP t;
@@ -31,8 +31,8 @@ s32 func_020309a4(TP *out, s16 *idx) {
     out[0] = data_020886d0[data_020886bc.n];
     *idx   = -1;
     if (data_020886bc.mode == 0) {
-        func_02055990();
-        if (func_02055a70(&out[1]) != 0) {
+        TP_RequestSamplingAsync();
+        if (TP_WaitCalibratedResult(&out[1]) != 0) {
             cnt = data_020886bc.n + 1;
             for (i = 0; i < cnt; i++) {
                 out[i] = data_020886d0[i];
@@ -54,7 +54,7 @@ s32 func_020309a4(TP *out, s16 *idx) {
             if (k < 0) {
                 k += data_020886bc.n + 1;
             }
-            func_02055ebc(&cal, &data_020886f8[k]);
+            TP_GetCalibratedPoint(&cal, &data_020886f8[k]);
             if (*idx < 0 && cal.valid == 0) {
                 *idx = i + 1;
             }

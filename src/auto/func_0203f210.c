@@ -11,7 +11,7 @@ typedef struct {
 extern G data_020b8ea0;
 extern u8 data_020ba280[];
 extern u8 data_0206db2c[];
-extern void func_02050b24(void *, int);
+extern void DC_FlushRange(void *, int);
 extern u16 func_0203f33c(void);
 extern void func_0203f2ec(void);
 extern s32 func_02058870(void (*)(void), int, int, int, u16, u16, u16);
@@ -21,7 +21,7 @@ extern void *func_0203f1cc(s32);
 s32 func_0203f210(int arg0, int arg1, int arg2) {
     s32 r;
     u16 x;
-    func_02050b24(data_020ba280, data_020b8ea0.f24);
+    DC_FlushRange(data_020ba280, data_020b8ea0.f24);
     x = (func_0203f33c() != 0) ? 1 : (data_020b8ea0.fc & 0xfffe);
     r = func_02058870(func_0203f2ec, arg2, arg0, arg1, x, 5, 1);
     if (r != 2) {

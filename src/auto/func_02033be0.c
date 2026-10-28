@@ -2,7 +2,7 @@
 
 extern char data_0208ece4[];
 void func_02032598(void);
-void func_02052064(void);
+void MI_CpuCopy8(void);
 // clang-format off
 asm void func_02033be0(void) {
     stmdb sp!, {r3, r4, r5, lr}
@@ -12,7 +12,7 @@ asm void func_02033be0(void) {
     mov r5, r0
     mov r1, r4
     mov r2, #0xa4
-    bl func_02052064
+    bl MI_CpuCopy8
     add r0, r5, #0xa4
     bl func_02032598
     str r0, [r4, #0xb4]

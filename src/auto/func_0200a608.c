@@ -1,14 +1,14 @@
 #include "m2c.h"
 
-M2C_UNK func_0204c1b0();                            /* extern */
-M2C_UNK func_0204c1f8(M2C_UNK, M2C_UNK, M2C_UNK);   /* extern */
-M2C_UNK func_0204c260(M2C_UNK);                     /* extern */
-M2C_UNK func_0204c3bc(M2C_UNK);                     /* extern */
-M2C_UNK func_0204c64c(M2C_UNK);                     /* extern */
-M2C_UNK func_0204c948(M2C_UNK);                     /* extern */
-M2C_UNK func_0204cb20(M2C_UNK);                     /* extern */
-M2C_UNK func_0204cc28(M2C_UNK);                     /* extern */
-M2C_UNK func_0204ccd0(M2C_UNK);                     /* extern */
+M2C_UNK func_0204c1b0();
+M2C_UNK func_0204c1f8(M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK func_0204c260(M2C_UNK);
+M2C_UNK GX_SetBankForBG(M2C_UNK);
+M2C_UNK GX_SetBankForOBJ(M2C_UNK);
+M2C_UNK func_0204c948(M2C_UNK);
+M2C_UNK func_0204cb20(M2C_UNK);
+M2C_UNK GX_SetBankForSubBG(M2C_UNK);
+M2C_UNK GX_SetBankForSubOBJ(M2C_UNK);
 
 void func_0200a608(void) {
     *(s32 *) 0x04001000 |= 0x10000;
@@ -16,10 +16,10 @@ void func_0200a608(void) {
     *(u16 *) 0x04000304 &= ~0x8000;
     func_0204c1f8(1, 0, 1);
     func_0204c260(0);
-    func_0204c3bc(0x10);
-    func_0204c64c(0x40);
+    GX_SetBankForBG(0x10);
+    GX_SetBankForOBJ(0x40);
     func_0204c948(0xB);
     func_0204cb20(0x20);
-    func_0204cc28(4);
-    func_0204ccd0(0x100);
+    GX_SetBankForSubBG(4);
+    GX_SetBankForSubOBJ(0x100);
 }

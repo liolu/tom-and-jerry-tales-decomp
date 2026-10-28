@@ -24,12 +24,12 @@ void func_0203de64(void);
 void func_0203f60c(void);
 void func_0203f930(void);
 void func_0204221c(void);
-void func_0205172c(void);
-void func_0205918c(void);
-void func_0205bdf4(void);
+void OS_SetTick(void);
+void STD_CopyString(void);
+void sprintf(void);
 void func_02061808(void);
-void func_020618ec(void);
-void func_02063314(void);
+void _dflt(void);
+void _ddiv(void);
 extern char data_020692ec[];
 extern char data_0206a994[];
 extern char data_0206abb8[];
@@ -77,7 +77,7 @@ asm void func_02010294(void) {
     add r0, sp, #0x54
     mov r3, r5
     str r4, [sp, #0x0]
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_02087210
     add r0, sp, #0x54
     ldr r1, [r1, #0x0]
@@ -131,7 +131,7 @@ L_020103a8:
     bne L_020103d8
     mov r0, #0x0
     mov r1, r0
-    bl func_0205172c
+    bl OS_SetTick
     bl func_0200fab8
 L_020103d8:
     ldr r0, =data_0206e6d4
@@ -266,7 +266,7 @@ L_0201058c:
     beq L_020105f8
     ldr r1, =data_0206ac90
     add r0, sp, #0x54
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x32
     mov r1, #0x2
     bl func_0201168c
@@ -357,7 +357,7 @@ L_020106dc:
     beq L_02010750
     ldr r1, =data_0206ac90
     add r0, sp, #0x54
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x32
     mov r1, #0x2
     bl func_0201168c
@@ -386,7 +386,7 @@ L_02010750:
     ldrh r3, [r1, #0x6a]
     ldr r1, =data_0206ac94
     add r0, sp, #0x54
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_020b8b44
     ldr r0, [r0, #0x0]
     bl func_0203cd5c
@@ -430,7 +430,7 @@ L_02010810:
     beq L_0201086c
     ldr r1, =data_0206ac90
     add r0, sp, #0x54
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0xa
     mov r1, #0x2
     bl func_0201168c
@@ -521,7 +521,7 @@ L_0201094c:
     beq L_020109b8
     ldr r1, =data_0206ac90
     add r0, sp, #0x54
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x20
     mov r1, #0x5
     bl func_0201168c
@@ -626,10 +626,10 @@ L_02010abc:
     mov r0, #0x94
     ldrh r1, [r1, #0x88]
     mul r0, r1, r0
-    bl func_020618ec
+    bl _dflt
     ldr r3, =0x40590000
     mov r2, #0x0
-    bl func_02063314
+    bl _ddiv
     bl func_02061808
     mov r0, r0, lsl #0x10
     mov r0, r0, lsr #0x10
@@ -650,7 +650,7 @@ L_02010abc:
     ldr r1, =data_0206abb8
     ldrb r2, [r0, #0x2]
     add r0, sp, #0x34
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_0206a994
     mov r1, #0x0
     ldrb r0, [r0, #0x3]
@@ -722,7 +722,7 @@ L_02010c40:
 L_02010c6c:
     ldr r1, =data_0206ac58
     add r0, sp, #0x10
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, =data_02086fa8
     ldrb r2, [r0, #0x1]
     add r1, r0, #0x1
@@ -738,7 +738,7 @@ L_02010c6c:
     movhi r0, #0x0
     strhib r0, [sp, #0x10]
     add r0, sp, #0x14
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x1
     str r0, [sp, #0x0]
     mov r0, #0x0

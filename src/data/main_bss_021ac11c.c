@@ -1,5 +1,5 @@
 /* compiler: 2.0/sp1p5 */
 #include "m2c.h"
 
-u32 data_021ac11c[1];
-u32 data_021ac120[8];
+u32 sRootListInitialized[1];
+u32 sRootList[8];

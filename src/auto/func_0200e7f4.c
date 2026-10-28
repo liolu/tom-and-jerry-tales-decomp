@@ -5,8 +5,8 @@ extern void func_02014d48();
 extern void func_02030ed4();
 extern void func_02030ee0();
 extern void func_02040570();
-extern void func_02051a48();
-extern void func_0205918c();
+extern void OS_Terminate();
+extern void STD_CopyString();
 extern char data_0206a910[];
 // clang-format off
 asm void func_0200e7f4(void) {
@@ -26,7 +26,7 @@ asm void func_0200e7f4(void) {
     mov r5, r0
     mov r1, r7
     add r0, r5, #0x8
-    bl func_0205918c
+    bl STD_CopyString
     ldrh r1, [r4, #0x2]
     add r0, r5, #0x3c
     str r1, [r5, #0x4]
@@ -62,7 +62,7 @@ L_0200e8a4:
     swpb r1, r1, [r0]
     b L_0200e8b8
 L_0200e8b4:
-    bl func_02051a48
+    bl OS_Terminate
 L_0200e8b8:
     ldr r0, [r5, #0x40]
     cmp r0, #0x7

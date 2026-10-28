@@ -7,8 +7,8 @@ typedef int s32;
 typedef volatile u32 vu32;
 typedef volatile u16 vu16;
 typedef s32 BOOL;
-extern u32 func_020517f8(void);
-extern u32 func_0205180c(u32 state);
+extern u32 OS_DisableInterrupts(void);
+extern u32 OS_RestoreInterrupts(u32 state);
 extern s32 func_02053674(u32 tag, u32 data, BOOL err);
 typedef union UnkPxiFifoMessage {
     struct {
@@ -25,13 +25,13 @@ static inline s32 PxiSetToFifo(u32 data) {
         (*(vu16 *) 0x04000184) |= 0xc000;
         return -1;
     }
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
     if ((*(vu16 *) 0x04000184) & 2) {
-        func_0205180c(enabled);
+        OS_RestoreInterrupts(enabled);
         return -2;
     }
     (*(vu32 *) 0x04000188) = data;
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
     return 0;
 }
 s32 func_02053674(u32 tag, u32 data, BOOL err) {

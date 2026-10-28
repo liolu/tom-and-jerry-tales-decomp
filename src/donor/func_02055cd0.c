@@ -11,8 +11,8 @@ typedef u32 REGType32;
 typedef u64 REGType64;
 typedef vu16 REGType16v;
 typedef u32 OSIntrMode;
-extern OSIntrMode func_020517f8(void);
-extern OSIntrMode func_0205180c(OSIntrMode state);
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 static inline void CP_SetDivImm32_32_NS_(u32 numer, u32 denom) {
     *(REGType32 *) (0x04000000 + 0x290) = numer;
     *(REGType64 *) (0x04000000 + 0x298) = denom;
@@ -65,7 +65,7 @@ u32 func_02055cd0(TPCalibrateParam *calibrate, u16 raw_x1, u16 raw_y1, u16 dx1, 
     rx_width = raw_x1 - raw_x2;
     dx_width = dx1 - dx2;
 
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
 
     CP_SetDiv32_32(((u32) rx_width) << 8, (u32) dx_width);
 
@@ -76,19 +76,19 @@ u32 func_02055cd0(TPCalibrateParam *calibrate, u16 raw_x1, u16 raw_y1, u16 dx1, 
     CP_SetDiv32_32(((u32) ry_width) << 8, (u32) dy_width);
 
     if (!((tmp32) < 0x8000 && (tmp32) >= -0x8000)) {
-        (void) func_0205180c(enabled);
+        (void) OS_RestoreInterrupts(enabled);
         return 1;
     }
     calibrate->xDotSize = (s16) tmp32;
     tmp32               = (s16) ((((s32) (raw_x1 + raw_x2) << 8) - ((s32) (dx1 + dx2) * calibrate->xDotSize)) >> (8 - 2 + 1));
     if (!((tmp32) < 0x8000 && (tmp32) >= -0x8000)) {
-        (void) func_0205180c(enabled);
+        (void) OS_RestoreInterrupts(enabled);
         return 1;
     }
     calibrate->x0 = (s16) tmp32;
 
     tmp32 = CP_GetDivResult32();
-    (void) func_0205180c(enabled);
+    (void) OS_RestoreInterrupts(enabled);
 
     if (!((tmp32) < 0x8000 && (tmp32) >= -0x8000)) {
         return 1;

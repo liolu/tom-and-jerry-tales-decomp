@@ -3,10 +3,10 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203eabc();
 extern void func_0203eb44();
-extern void func_02050b24();
-extern void func_020575ac();
-extern void func_020575f8();
-extern void func_02057608();
+extern void DC_FlushRange();
+extern void CARD_GetResultCode();
+extern void CARD_LockBackup();
+extern void CARD_UnlockBackup();
 extern void func_02057a58();
 extern char data_0206d4e0[];
 // clang-format off
@@ -44,7 +44,7 @@ asm void func_0203ec9c(void) {
     mov r11, #0x6
 L_0203ed18:
     mov r0, r5
-    bl func_020575f8
+    bl CARD_LockBackup
     mov r0, #0x0
     str r0, [sp, #0x0]
     stmib sp, {r0, r11}
@@ -57,7 +57,7 @@ L_0203ed18:
     mov r2, #0x8
     mov r3, #0x0
     bl func_02057a58
-    bl func_020575ac
+    bl CARD_GetResultCode
     mov r6, r0
     mov r1, #0x0
     mov r2, r7
@@ -70,7 +70,7 @@ L_0203ed60:
     blt L_0203ed60
     mov r0, r7
     mov r1, #0x8
-    bl func_02050b24
+    bl DC_FlushRange
     cmp r6, #0x0
     bne L_0203ed9c
     add r10, r10, #0x8
@@ -79,7 +79,7 @@ L_0203ed60:
     b L_0203edbc
 L_0203ed9c:
     mov r0, r5
-    bl func_02057608
+    bl CARD_UnlockBackup
     ldr r0, =data_0206d4e0
     mov r1, #0x0
     str r1, [r0, #0x4]
@@ -88,14 +88,14 @@ L_0203ed9c:
     ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 L_0203edbc:
     mov r0, r5
-    bl func_02057608
+    bl CARD_UnlockBackup
     cmp r4, #0x0
     beq L_0203ed18
     mov r0, r5
     bl func_0203eb44
     ldr r1, [sp, #0x14]
     mov r0, r9
-    bl func_02050b24
+    bl DC_FlushRange
     mov r0, #0x0
     add sp, sp, #0x20
     ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}

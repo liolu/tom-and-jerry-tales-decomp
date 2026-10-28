@@ -7,8 +7,8 @@ extern void func_02030878();
 extern void func_02030898();
 extern void func_0203c568();
 extern void func_0203fa64();
-extern void func_0204be48();
-extern void func_02051ee8();
+extern void FX_Atan2Idx();
+extern void MIi_CpuCopy16();
 extern char data_02087410[];
 // clang-format off
 asm void func_0201bdcc(void) {
@@ -41,7 +41,7 @@ asm void func_0201bdcc(void) {
     sub r0, r3, r2
     mov r0, r0, lsl #0xc
     mov r1, r1, lsl #0xc
-    bl func_0204be48
+    bl FX_Atan2Idx
     ldr ip, [sp, #0x20]
     ldr r3, [r4, #0x24]
     ldr r2, [sp, #0x24]
@@ -51,7 +51,7 @@ asm void func_0201bdcc(void) {
     mov r5, r0
     mov r0, r3, lsl #0xc
     mov r1, r1, lsl #0xc
-    bl func_0204be48
+    bl FX_Atan2Idx
     sub r0, r0, r5
     strh r0, [r4, #0x32]
 L_0201be74:
@@ -237,7 +237,7 @@ L_0201c0b8:
     add r1, r1, #0x1
     add r0, r3, r0, lsl #0x1
     add r1, r3, r1, lsl #0x1
-    bl func_02051ee8
+    bl MIi_CpuCopy16
     b L_0201c160
 L_0201c13c:
     add r1, r4, #0x4

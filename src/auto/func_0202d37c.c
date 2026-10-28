@@ -4,7 +4,7 @@
 extern void func_0203d740();
 extern void func_0203d8d8();
 extern void func_0204221c();
-extern void func_02062f0c();
+extern void _s32_div_f();
 extern char data_020640b8[];
 extern char data_0206cc1c[];
 extern char data_0206e690[];
@@ -25,7 +25,7 @@ asm void func_0202d37c(void) {
     mov r1, r1, lsl #0x10
     mov r11, r1, lsr #0x10
     mov r1, r11
-    bl func_02062f0c
+    bl _s32_div_f
     ldr r4, =data_020881b8
     and r5, r0, #0xff
     mov r6, #0x0

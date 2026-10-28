@@ -399,8 +399,8 @@ typedef enum {
 } OSIntrMode_Fiq;
 typedef u32 OSIntrMode;
 extern OSIntrMode OS_EnableInterrupts(void);
-extern OSIntrMode func_020517f8(void);
-extern OSIntrMode func_0205180c(OSIntrMode state);
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 extern OSIntrMode OS_EnableInterrupts_IrqAndFiq(void);
 extern OSIntrMode OS_DisableInterrupts_IrqAndFiq(void);
 extern OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state);
@@ -668,7 +668,7 @@ extern BOOL OS_IsThreadTerminated(const OSThread *thread);
 extern OSThread *OS_SelectThread(void);
 extern void OS_RescheduleThread(void);
 extern void OS_YieldThread(void);
-extern void func_020502b8(OSThreadQueue *queue);
+extern void OS_SleepThread(OSThreadQueue *queue);
 extern void OS_SleepThreadDirect(OSThread *thread, OSThreadQueue *queue);
 extern void OS_WakeupThread(OSThreadQueue *queue);
 extern void OS_WakeupThreadDirect(OSThread *thread);
@@ -2698,8 +2698,8 @@ extern BOOL func_02054738(FSFile *p_file, FSCommandType command);
 extern FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command);
 extern void func_02053814(FSFile *p_file, FSResult ret);
 extern FSFile *FSi_NextCommand(FSArchive *p_arc);
-extern void func_02054660(FSFile *p_file);
-extern BOOL func_020546f4(FSFile *p_file);
+extern void FSi_ExecuteAsyncCommand(FSFile *p_file);
+extern BOOL FSi_ExecuteSyncCommand(FSFile *p_file);
 extern FSArchive *arc_list;
 extern FSDirPos current_dir_pos;
 extern u32 FSi_GetPackedName(const char *name, int name_len);
@@ -2707,8 +2707,8 @@ extern FSResult FSi_ReadMemCallback(FSArchive *p_arc, void *dst, u32 pos, u32 si
 extern FSResult FSi_WriteMemCallback(FSArchive *p_arc, const void *src, u32 pos, u32 size);
 extern FSResult FSi_ReadMemoryCore(FSArchive *p_arc, void *dst, u32 pos, u32 size);
 extern FSFile *FSi_NextCommand(FSArchive *p_arc);
-extern void func_02054660(FSFile *p_file);
-extern BOOL func_020546f4(FSFile *p_file);
+extern void FSi_ExecuteAsyncCommand(FSFile *p_file);
+extern BOOL FSi_ExecuteSyncCommand(FSFile *p_file);
 BOOL func_02054738(FSFile *p_file, FSCommandType command) {
     FSArchive *const p_arc = p_file->arc;
     const int bit          = (1 << command);
@@ -2718,11 +2718,11 @@ BOOL func_02054738(FSFile *p_file, FSCommandType command) {
     p_file->stat |= 0x00000001;
 
     {
-        OSIntrMode bak_psr = func_020517f8();
+        OSIntrMode bak_psr = OS_DisableInterrupts();
 
         if (p_arc->flag & 0x00000080) {
             func_02053814(p_file, FS_RESULT_CANCELED);
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
             return 0;
         }
 
@@ -2736,34 +2736,34 @@ BOOL func_02054738(FSFile *p_file, FSCommandType command) {
 
         if (!FS_IsArchiveSuspended(p_arc) && !FSi_IsArchiveRunning(p_arc)) {
             p_arc->flag |= 0x00000010;
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
 
             if ((p_arc->proc_flag & (1 << FS_COMMAND_ACTIVATE)) != 0) {
                 (void) (*p_arc->proc)(p_file, FS_COMMAND_ACTIVATE);
             }
 
-            bak_psr = func_020517f8();
+            bak_psr = OS_DisableInterrupts();
             p_file->stat |= 0x00000040;
 
             if (!FS_IsFileSyncMode(p_file)) {
-                (void) func_0205180c(bak_psr);
-                func_02054660(p_file);
+                (void) OS_RestoreInterrupts(bak_psr);
+                FSi_ExecuteAsyncCommand(p_file);
                 return 1;
             }
 
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
         } else if (!FS_IsFileSyncMode(p_file)) {
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
             return 1;
         } else {
             do {
-                func_020502b8(p_file->queue);
+                OS_SleepThread(p_file->queue);
             } while (!(p_file->stat & 0x00000040));
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
         }
     }
 
-    return func_020546f4(p_file);
+    return FSi_ExecuteSyncCommand(p_file);
 }
 extern void FSi_EndArchive(void);
 extern void FS_InitArchive(FSArchive *p_arc);

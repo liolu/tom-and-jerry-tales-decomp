@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203d498();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_0206a59c[];
 extern char data_0206a71c[];
 extern char data_0206a748[];
@@ -51,11 +51,11 @@ L_0200d150:
     bls L_0200d16c
     ldr r1, =data_0206a71c
     rsb r2, r2, #0x8
-    bl func_0205bdf4
+    bl sprintf
     b L_0200d174
 L_0200d16c:
     ldr r1, =data_0206a71c
-    bl func_0205bdf4
+    bl sprintf
 L_0200d174:
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
@@ -71,11 +71,11 @@ L_0200d174:
     bls L_0200d1b4
     ldr r1, =data_0206a748
     rsb r2, r2, #0x8
-    bl func_0205bdf4
+    bl sprintf
     b L_0200d1bc
 L_0200d1b4:
     ldr r1, =data_0206a748
-    bl func_0205bdf4
+    bl sprintf
 L_0200d1bc:
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
@@ -116,11 +116,11 @@ L_0200d23c:
     bls L_0200d258
     ldr r1, =data_0206a71c
     rsb r2, r2, #0x8
-    bl func_0205bdf4
+    bl sprintf
     b L_0200d260
 L_0200d258:
     ldr r1, =data_0206a71c
-    bl func_0205bdf4
+    bl sprintf
 L_0200d260:
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
@@ -136,11 +136,11 @@ L_0200d260:
     bls L_0200d2a0
     ldr r1, =data_0206a778
     rsb r2, r2, #0x8
-    bl func_0205bdf4
+    bl sprintf
     b L_0200d2a8
 L_0200d2a0:
     ldr r1, =data_0206a778
-    bl func_0205bdf4
+    bl sprintf
 L_0200d2a8:
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
@@ -178,7 +178,7 @@ L_0200d320:
     bhs L_0200d380
     ldr r1, =data_0206a7a4
     add r0, sp, #0x4
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -190,7 +190,7 @@ L_0200d320:
     add r0, sp, #0x4
     ldrb r2, [r1, #0x2]
     ldr r1, =data_0206a7c8
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_020b8b94
     add r0, sp, #0x4
     str r1, [sp, #0x0]
@@ -205,7 +205,7 @@ L_0200d380:
     bne L_0200d3b8
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -221,7 +221,7 @@ L_0200d3b8:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r2, #0x2
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -241,7 +241,7 @@ L_0200d3f4:
     ldr r2, [r1, #0x4]
     ldr r1, =data_0206a7a4
     sub r2, r3, r2
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -256,7 +256,7 @@ L_0200d3f4:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r3, r2
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_020b8b94
     add r0, sp, #0x4
     str r1, [sp, #0x0]
@@ -278,7 +278,7 @@ L_0200d48c:
     ldr r2, [r1, #0x4]
     ldr r1, =data_0206a7c8
     sub r2, r3, r2
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -296,7 +296,7 @@ L_0200d4d0:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r2, #0x11
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -314,7 +314,7 @@ L_0200d514:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r2, #0xe
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -330,7 +330,7 @@ L_0200d558:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r2, #0x10
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -346,7 +346,7 @@ L_0200d594:
     ldr r1, =data_0206a7c8
     add r0, sp, #0x4
     sub r2, r2, #0xf
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -458,11 +458,11 @@ L_0200d71c:
     bls L_0200d748
     ldr r1, =data_0206a7ec
     rsb r2, r2, #0x23
-    bl func_0205bdf4
+    bl sprintf
     b L_0200d750
 L_0200d748:
     ldr r1, =data_0206a7ec
-    bl func_0205bdf4
+    bl sprintf
 L_0200d750:
     ldr ip, =data_020b8b94
     ldr r1, =data_0206e698
@@ -477,7 +477,7 @@ L_0200d750:
     bhs L_0200d7a4
     ldr r1, =data_0206a810
     add r0, sp, #0x4
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
     add r0, sp, #0x4
@@ -494,7 +494,7 @@ L_0200d7a4:
     ldr r1, =data_0206a810
     add r0, sp, #0x4
     rsb r2, r2, #0x23
-    bl func_0205bdf4
+    bl sprintf
     ldr ip, =data_020b8b6c
     ldr r1, =data_0206e698
     add r0, sp, #0x4

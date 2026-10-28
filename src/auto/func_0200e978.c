@@ -6,10 +6,10 @@ extern void func_02014cf0();
 extern void func_02030ed4();
 extern void func_02030ee0();
 extern void func_02040570();
-extern void func_02051a48();
-extern void func_0205918c();
-extern void func_020591fc();
-extern void func_020592b0();
+extern void OS_Terminate();
+extern void STD_CopyString();
+extern void STD_SearchString();
+extern void STD_CompareString();
 extern char data_0206a8cc[];
 extern char data_0206a914[];
 extern char data_0206a918[];
@@ -42,7 +42,7 @@ asm void func_0200e978(void) {
     bl func_02030ed4
     ldr r1, =data_0206a914
     mov r0, r7
-    bl func_020591fc
+    bl STD_SearchString
     mov r6, r0
     mov r1, #0x0
     swpb r1, r1, [r6]
@@ -51,10 +51,10 @@ asm void func_0200e978(void) {
     mov r4, r0
     mov r1, r7
     add r0, r4, #0x8
-    bl func_0205918c
+    bl STD_CopyString
     ldr r1, =data_0206a918
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ea74
     ldr r1, =data_0206a91c
@@ -69,7 +69,7 @@ asm void func_0200e978(void) {
     add r0, r4, #0x40
     add r1, r6, #0xc
     str r2, [r4, #0x4]
-    bl func_0205918c
+    bl STD_CopyString
     ldrh r0, [r6, #0x2e]
     add r1, r4, #0x3c
     strh r0, [r4, #0x60]
@@ -98,12 +98,12 @@ L_0200ea58:
     strh r0, [r4, #0x28]
     b L_0200eefc
 L_0200ea6c:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200eefc
 L_0200ea74:
     ldr r1, =data_0206a924
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200eb38
     ldr r1, =data_0206a928
@@ -151,12 +151,12 @@ L_0200eb1c:
     strh r0, [r4, #0x30]
     b L_0200eefc
 L_0200eb30:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200eefc
 L_0200eb38:
     ldr r1, =data_0206a8cc
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ebb8
     ldr r1, =data_0206a930
@@ -187,12 +187,12 @@ L_0200eba4:
     strh r0, [r4, #0x30]
     b L_0200eefc
 L_0200ebb0:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200eefc
 L_0200ebb8:
     ldr r1, =data_0206a938
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ec14
     ldr r1, =data_0206a93c
@@ -217,7 +217,7 @@ L_0200ebf0:
 L_0200ec14:
     ldr r1, =data_0206a944
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ec98
     ldr r1, =data_0206a948
@@ -251,7 +251,7 @@ L_0200ec14:
 L_0200ec98:
     ldr r1, =data_0206a950
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ed30
     ldr r1, =data_0206a954
@@ -288,12 +288,12 @@ L_0200ed14:
     strh r0, [r4, #0x30]
     b L_0200eefc
 L_0200ed28:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200eefc
 L_0200ed30:
     ldr r1, =data_0206a95c
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200eda4
     ldr r1, =data_0206a960
@@ -323,7 +323,7 @@ L_0200ed30:
 L_0200eda4:
     ldr r1, =data_0206a968
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ede8
     ldr r1, =data_0206a96c
@@ -341,7 +341,7 @@ L_0200eda4:
 L_0200ede8:
     ldr r1, =data_0206a974
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200ee78
     ldr r1, =data_0206a97c
@@ -376,12 +376,12 @@ L_0200ee5c:
     strh r0, [r4, #0x30]
     b L_0200eefc
 L_0200ee70:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200eefc
 L_0200ee78:
     ldr r1, =data_0206a988
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200eebc
     mov r1, r4
@@ -399,7 +399,7 @@ L_0200ee78:
 L_0200eebc:
     ldr r1, =data_0206a98c
     add r0, r6, #0x1
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0200eef8
     mov r1, r4
@@ -413,7 +413,7 @@ L_0200eebc:
     strh r0, [r4, #0x30]
     b L_0200eefc
 L_0200eef8:
-    bl func_02051a48
+    bl OS_Terminate
 L_0200eefc:
     add r0, sp, #0x0
     mov r1, r5

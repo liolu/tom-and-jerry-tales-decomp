@@ -82,7 +82,7 @@ void func_02040228(void);
 void func_0204221c(void);
 void func_0204d600(void);
 void func_0204f490(void);
-void func_02051a48(void);
+void OS_Terminate(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_02023c58(void) {
@@ -1091,7 +1091,7 @@ L_02024ae4:
     bl func_02040094
     b L_02024bcc
 L_02024bc8:
-    bl func_02051a48
+    bl OS_Terminate
 L_02024bcc:
     ldr r2, =data_020877d0
     ldrb r0, [r2, #0x4]

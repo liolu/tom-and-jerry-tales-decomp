@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 void func_02006074(u8 *);
-void func_0204b94c(u8 *, u8 *, void *);
+void VEC_Subtract(u8 *, u8 *, void *);
 extern s32 data_020692ec;
 extern u8 data_0206fcac[];
 
@@ -21,7 +21,7 @@ void func_02005fe4(void) {
             var_r8  = 0;
             var_r10 = data_0206fcac;
             do {
-                func_0204b94c(var_r10 + 0xA0, var_r9 + 0x34, sp0);
+                VEC_Subtract(var_r10 + 0xA0, var_r9 + 0x34, sp0);
                 var_r10 += 0x1864;
                 var_r8 += 1;
             } while (var_r8 < 0xF);

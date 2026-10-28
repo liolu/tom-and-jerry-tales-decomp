@@ -11,10 +11,10 @@ extern void func_0203cf6c();
 extern void func_0203cff0();
 extern void func_0203d498();
 extern void func_0204f490();
-extern void func_020515ac();
-extern void func_0205172c();
-extern void func_02051a48();
-extern void func_0205bdf4();
+extern void OS_InitTick();
+extern void OS_SetTick();
+extern void OS_Terminate();
+extern void sprintf();
 extern char data_02063e98[];
 extern char data_02063ea8[];
 extern char data_02063ecc[];
@@ -115,7 +115,7 @@ L_0200f0d8:
     mov r0, r8
     mov r1, r7
     add r2, r9, #0x1
-    bl func_0205bdf4
+    bl sprintf
     str r6, [sp, #0x0]
     add r0, r9, #0xc
     str r5, [sp, #0x4]
@@ -204,7 +204,7 @@ L_0200f22c:
     mov r0, r9
     mov r1, r8
     mov r2, r10
-    bl func_0205bdf4
+    bl sprintf
     str r7, [sp, #0x0]
     add r0, r10, #0x28
     mov r2, r0, lsl #0x10
@@ -370,7 +370,7 @@ L_0200f4a4:
     mov r0, r9
     mov r1, r8
     add r2, r10, #0x1
-    bl func_0205bdf4
+    bl sprintf
     str r7, [sp, #0x0]
     mov r1, r10, lsl #0x10
     stmib sp, {r6, r7}
@@ -419,7 +419,7 @@ L_0200f564:
     mov r0, r9
     mov r1, r8
     mov r2, r10
-    bl func_0205bdf4
+    bl sprintf
     str r7, [sp, #0x0]
     add r0, r10, #0x28
     mov r2, r0, lsl #0x10
@@ -477,7 +477,7 @@ L_0200f644:
     mov r0, r9
     mov r1, r11
     add r2, r10, #0x1
-    bl func_0205bdf4
+    bl sprintf
     str r8, [sp, #0x0]
     str r8, [sp, #0x4]
     str r8, [sp, #0x8]
@@ -553,7 +553,7 @@ L_0200f770:
     mov r0, r9
     mov r1, r8
     mov r2, r10
-    bl func_0205bdf4
+    bl sprintf
     str r7, [sp, #0x0]
     add r0, r10, #0x16
     mov r2, r0, lsl #0x10
@@ -628,10 +628,10 @@ L_0200f7c4:
     mov r1, #0x0
     str r1, [r0, #0x44]
     str r1, [r0, #0x48]
-    bl func_020515ac
+    bl OS_InitTick
     mov r0, #0x0
     mov r1, r0
-    bl func_0205172c
+    bl OS_SetTick
     ldr r0, =data_02086fa8
     mov r2, #0x0
     add r1, r0, #0x4
@@ -639,11 +639,11 @@ L_0200f7c4:
     add sp, sp, #0x30
     ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 L_0200f8cc:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x30
     ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 L_0200f8d8:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x30
     ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 }

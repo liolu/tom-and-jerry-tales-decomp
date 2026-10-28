@@ -11,9 +11,9 @@ extern E data_020b8144[];
 extern char data_0206d4c8[];
 s32 func_0203b178(void);
 s32 func_020312e0(void *, void *);
-void func_02051a48(void);
-char *func_0205918c(char *, const char *);
-char *func_0205928c(char *, const char *);
+void OS_Terminate(void);
+char *STD_CopyString(char *, const char *);
+char *STD_ConcatenateString(char *, const char *);
 
 s32 func_0203b204(char *name) {
     char buf[0x40];
@@ -23,13 +23,13 @@ s32 func_0203b204(char *name) {
         s32 r;
         id                = data_020b8140.cnt;
         data_020b8140.cnt = id + 1;
-        func_0205918c(buf, data_0206d4c8);
-        func_0205928c(buf, name);
+        STD_CopyString(buf, data_0206d4c8);
+        STD_ConcatenateString(buf, name);
         e = &data_020b8144[id];
         r = func_020312e0(buf, e);
-        func_0205918c(e->s, name);
+        STD_CopyString(e->s, name);
         if (r < 0) {
-            func_02051a48();
+            OS_Terminate();
         }
     }
     return id;

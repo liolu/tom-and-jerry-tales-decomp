@@ -1,20 +1,20 @@
 #include "m2c.h"
 
-M2C_UNK func_02002608();                            /* extern */
-M2C_UNK func_02003f98();                            /* extern */
-M2C_UNK func_020301ec(M2C_UNK *, M2C_UNK);          /* extern */
-M2C_UNK func_020301f0();                            /* extern */
-M2C_UNK func_02035164();                            /* extern */
-M2C_UNK func_02035208(M2C_UNK);                     /* extern */
-M2C_UNK func_0203ac7c();                            /* extern */
-M2C_UNK func_0204d760();                            /* extern */
-M2C_UNK func_0204d7cc();                            /* extern */
+M2C_UNK func_02002608();
+M2C_UNK func_02003f98();
+M2C_UNK func_020301ec(M2C_UNK *, M2C_UNK);
+M2C_UNK func_020301f0();
+M2C_UNK func_02035164();
+M2C_UNK func_02035208(M2C_UNK);
+M2C_UNK func_0203ac7c();
+M2C_UNK G3X_Reset();
+M2C_UNK G3X_ClearFifo();
 extern M2C_UNK data_0206a414;
 extern M2C_UNK data_0206a424;
 
 void func_0200acfc(void) {
-    func_0204d7cc();
-    func_0204d760();
+    G3X_ClearFifo();
+    G3X_Reset();
     func_02002608();
     *(s32 *) 0x04000444 = 0;
     func_02035208(1);

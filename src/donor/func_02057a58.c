@@ -40,28 +40,28 @@ typedef struct OSiThreadInfo {
     void *next;
     void *entryPoint;
 } OSiThreadInfo;
-extern CardCommon data_021b25a0;
-extern OSiThreadInfo data_021b0484;
-extern M2C_UNK func_02000b58(s32);
-extern s32 func_020517f8();
-extern M2C_UNK func_0205180c(s32);
-extern void func_020502b8(s32 arg0);
-extern void func_020572bc(CardTask task);
+extern CardCommon cardi_common;
+extern OSiThreadInfo OSi_ThreadInfo;
+extern M2C_UNK OSi_ReferSymbol(s32);
+extern s32 OS_DisableInterrupts();
+extern M2C_UNK OS_RestoreInterrupts(s32);
+extern void OS_SleepThread(s32 arg0);
+extern void CARDi_SetTask(CardTask task);
 extern void func_02057880(CardCommon *common);
 s32 func_02057a58(void *src, void *dst, u32 size, CardCallback callback, void *callbackArg, s32 isAsync, u32 command,
                   u32 commandArg, u32 mode) {
-    void *common = &data_021b25a0;
+    void *common = &cardi_common;
     s32 irqFlags;
 
-    func_02000b58(0x2000B80);
-    irqFlags = func_020517f8();
+    OSi_ReferSymbol(0x2000B80);
+    irqFlags = OS_DisableInterrupts();
     while (((CardCommon *) common)->flags & 4) {
-        func_020502b8((s32) & ((CardCommon *) common)->unk_10c);
+        OS_SleepThread((s32) & ((CardCommon *) common)->unk_10c);
     }
     ((CardCommon *) common)->flags |= 4;
     ((CardCommon *) common)->callback    = callback;
     ((CardCommon *) common)->callbackArg = callbackArg;
-    func_0205180c(irqFlags);
+    OS_RestoreInterrupts(irqFlags);
     ((CardCommon *) common)->src        = src;
     ((CardCommon *) common)->dst        = dst;
     ((CardCommon *) common)->size       = size;
@@ -69,10 +69,10 @@ s32 func_02057a58(void *src, void *dst, u32 size, CardCallback callback, void *c
     ((CardCommon *) common)->commandArg = commandArg;
     ((CardCommon *) common)->mode       = mode;
     if (isAsync) {
-        func_020572bc(func_02057880);
+        CARDi_SetTask(func_02057880);
         return 1;
     }
-    data_021b25a0.thread = data_021b0484.entryPoint;
+    cardi_common.thread = OSi_ThreadInfo.entryPoint;
     func_02057880(common);
     return ((CardCommon *) common)->cmd->state == 0;
 }

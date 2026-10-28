@@ -2,8 +2,8 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203d8d8();
-extern void func_02051a48();
-extern void func_02052064();
+extern void OS_Terminate();
+extern void MI_CpuCopy8();
 // clang-format off
 asm void func_0203e724(void) {
     stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -15,7 +15,7 @@ asm void func_0203e724(void) {
     cmp r0, #0x0
     mov r8, #0x0
     bne L_0203e74c
-    bl func_02051a48
+    bl OS_Terminate
 L_0203e74c:
     mov r7, #0x1
     mov r6, r7
@@ -50,7 +50,7 @@ L_0203e7ac:
     sub r10, r9, r0
     mov r1, r11
     mov r2, r10
-    bl func_02052064
+    bl MI_CpuCopy8
     add r1, r11, r10
     mov r0, #0x0
     swpb r0, r0, [r1]

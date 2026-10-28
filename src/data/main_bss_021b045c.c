@@ -2,4 +2,4 @@
 #include "m2c.h"
 
 u32 data_021b045c[1];
-u32 data_021b0460[9];
+u32 OSi_SystemCallbackInSwitchThread[9];

@@ -10,22 +10,22 @@ void func_02030ed4(void);
 void func_02030ee0(void);
 void func_020312cc(void);
 void func_02035ab0(void);
-void func_0204b918(void);
-void func_02051a48(void);
-void func_02052064(void);
-void func_0205918c(void);
+void VEC_Add(void);
+void OS_Terminate(void);
+void MI_CpuCopy8(void);
+void STD_CopyString(void);
 void func_020591c0(void);
-void func_02059264(void);
-void func_020592b0(void);
-void func_0205bdf4(void);
+void STD_GetStringLength(void);
+void STD_CompareString(void);
+void sprintf(void);
 void func_0205c3d4(void);
 void func_02062234(void);
 void func_02062750(void);
-void func_02062824(void);
-void func_020628a0(void);
-void func_02062a8c(void);
+void _ffix(void);
+void _fmul(void);
+void _fsub(void);
 extern char data_02064110[];
-extern char data_020690b8[];
+extern char __upper_mapC[];
 extern char data_0206ddc4[];
 extern char data_0206ddd8[];
 extern char data_0206dde0[];
@@ -45,7 +45,7 @@ asm void func_02042b4c(void) {
     ldr r5, [r1, #0x0]
     str r1, [sp, #0x0]
     mov r0, r5
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x100
     add r0, r0, #0x43
@@ -57,7 +57,7 @@ asm void func_02042b4c(void) {
     mov r2, r7
     ble @3
     add r3, sp, #0x100
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, r3, #0x43
 @1
     ldrsb r0, [r3, #0x0]
@@ -97,7 +97,7 @@ asm void func_02042b4c(void) {
     adds r0, r1, #0x9
     beq @4
     mov r1, r5
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne @4
 @6
@@ -127,7 +127,7 @@ asm void func_02042b4c(void) {
     str r0, [sp, #0x1c]
     ldr r2, [sp, #0x1c]
     add r0, sp, #0x184
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_0206e698
     add r0, sp, #0x2c
     bl func_02030ed4
@@ -207,7 +207,7 @@ asm void func_02042b4c(void) {
     ldr r2, [sp, #0x30]
     ldr r3, [r0, #0x0]
     mov r0, r8
-    bl func_0205bdf4
+    bl sprintf
     ldr r11, [sp, #0x30]
     add r0, r11, #0x20
     str r0, [sp, #0x30]
@@ -245,7 +245,7 @@ asm void func_02042b4c(void) {
     cmp r0, #0x0
     mov r0, r8
     blt @43
-    bl func_02059264
+    bl STD_GetStringLength
     mov r5, r0
     add r0, sp, #0x100
     mov r10, #0x0
@@ -257,7 +257,7 @@ asm void func_02042b4c(void) {
     mov r2, r10
     ble @19
     add r3, sp, #0x100
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, r3, #0x2
 @17
     ldrsb r0, [r3, #0x0]
@@ -297,7 +297,7 @@ asm void func_02042b4c(void) {
     adds r0, r1, #0x9
     beq @20
     mov r1, r8
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne @20
 @22
@@ -328,7 +328,7 @@ asm void func_02042b4c(void) {
     cmpne r0, #0x0
     beq @30
     mov r0, r8
-    bl func_02059264
+    bl STD_GetStringLength
     mov r5, r0
     mov r10, #0x0
     add r0, sp, #0xc1
@@ -338,7 +338,7 @@ asm void func_02042b4c(void) {
     cmp r5, #0x0
     mov r2, r10
     ble @26
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0xc1
 @24
     ldrsb r0, [r3, #0x0]
@@ -378,7 +378,7 @@ asm void func_02042b4c(void) {
     adds r0, r1, #0x9
     beq @27
     mov r1, r8
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne @27
 @29
@@ -417,7 +417,7 @@ asm void func_02042b4c(void) {
     bl func_020037f8
     mov r0, r8
     str r6, [sp, #0x24]
-    bl func_02059264
+    bl STD_GetStringLength
     mov r6, r0
     mov r7, #0x0
     add r0, sp, #0x80
@@ -427,7 +427,7 @@ asm void func_02042b4c(void) {
     cmp r6, #0x0
     mov r1, r7
     ble @34
-    ldr r0, =data_020690b8
+    ldr r0, =__upper_mapC
     add r2, sp, #0x80
 @32
     ldrsb r3, [r2, #0x0]
@@ -480,11 +480,11 @@ asm void func_02042b4c(void) {
     swpb r0, r0, [r1]
     mov r1, r8
     add r0, r6, #0x9
-    bl func_0205918c
+    bl STD_CopyString
     mov r1, r6
     add r0, sp, #0x24
     mov r2, #0x8
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r0, =data_021ac118
     ldr r0, [r0, #0x0]
     add r1, r0, #0x1
@@ -521,7 +521,7 @@ asm void func_02042b4c(void) {
     add r1, r0, #0xa0
     swpb r0, r2, [r1]
 @40
-    bl func_02051a48
+    bl OS_Terminate
     b @81
 @41
     cmp r5, #0xf
@@ -543,14 +543,14 @@ asm void func_02042b4c(void) {
     ldr r3, [r1, #0x0]
     ldr r1, =data_0206dde4
     mov r2, r11
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, [r4, #0xc]
     bl func_02004330
     mov r2, r0
     ldr r0, =data_0206e7e8
     ldr r1, =data_0206ddec
     add r3, sp, #0x40
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_0206e7e8
     mov r0, r4
     mov r2, #0x3
@@ -575,7 +575,7 @@ asm void func_02042b4c(void) {
     b @44
 @43
     mov r1, r11
-    bl func_0205918c
+    bl STD_CopyString
 @44
     ldr r0, [sp, #0x30]
     mov r2, #0x0
@@ -666,17 +666,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x0]
     mov r0, r4
     bls @51
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @52
 @51
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @52
-    bl func_02062824
+    bl _ffix
     str r0, [r9, #0x4]
     ldr r10, [sp, #0x30]
     mov r1, #0x0
@@ -685,17 +685,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x4]
     mov r0, r4
     bls @53
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @54
 @53
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @54
-    bl func_02062824
+    bl _ffix
     str r0, [r9, #0x8]
     ldr r10, [sp, #0x30]
     mov r1, #0x0
@@ -704,17 +704,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x8]
     mov r0, r4
     bls @55
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @56
 @55
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @56
-    bl func_02062824
+    bl _ffix
     str r0, [r9, #0xc]
     ldr r0, [sp, #0x10]
     add r1, sp, #0x34
@@ -725,7 +725,7 @@ asm void func_02042b4c(void) {
     str r0, [sp, #0x3c]
     add r0, r9, #0x4
     mov r2, r0
-    bl func_0204b918
+    bl VEC_Add
     ldr r0, [sp, #0x30]
     add r7, r7, #0x1
     add r0, r0, #0xc
@@ -819,17 +819,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x0]
     mov r0, r4
     bls @64
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @65
 @64
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @65
-    bl func_02062824
+    bl _ffix
     strh r0, [r9, #0x4]
     ldr r10, [sp, #0x30]
     mov r1, #0x0
@@ -838,17 +838,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x4]
     mov r0, r4
     bls @66
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @67
 @66
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @67
-    bl func_02062824
+    bl _ffix
     strh r0, [r9, #0x6]
     ldr r10, [sp, #0x30]
     mov r1, #0x0
@@ -857,17 +857,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x8]
     mov r0, r4
     bls @68
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @69
 @68
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @69
-    bl func_02062824
+    bl _ffix
     strh r0, [r9, #0x8]
     ldr r10, [sp, #0x30]
     mov r1, #0x0
@@ -876,17 +876,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0xc]
     mov r0, r4
     bls @70
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @71
 @70
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @71
-    bl func_02062824
+    bl _ffix
     strh r0, [r9, #0xa]
     ldr r0, [sp, #0x30]
     add r7, r7, #0x1
@@ -986,17 +986,17 @@ asm void func_02042b4c(void) {
     ldr r1, [r10, #0x0]
     mov r0, r4
     bls @79
-    bl func_020628a0
+    bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
     bl func_02062234
     b @80
 @79
-    bl func_020628a0
+    bl _fmul
     mov r1, #0x3f000000
-    bl func_02062a8c
+    bl _fsub
 @80
-    bl func_02062824
+    bl _ffix
     str r0, [r9, #0x4]
     ldr r0, [sp, #0x30]
     add r7, r7, #0x1

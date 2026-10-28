@@ -10,8 +10,8 @@ extern void func_020119d4();
 extern void func_02011a04();
 extern void func_0203f870();
 extern void func_02047150();
-extern void func_020617bc();
-extern void func_020618ec();
+extern void _dfix();
+extern void _dflt();
 extern void _dmul();
 extern char data_020692ec[];
 extern char data_0206e684[];
@@ -76,13 +76,13 @@ L_0201361c:
 L_02013654:
     ldr r0, =data_020880c0
     ldrsh r0, [r0, #0xe]
-    bl func_020618ec
+    bl _dflt
     mov r2, r0
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ff4cccc
     bl _dmul
-    bl func_020617bc
+    bl _dfix
     ldr r1, =data_020880c0
     ldrsh r1, [r1, #0x6]
     smull r2, r1, r0, r1

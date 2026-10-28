@@ -2,5 +2,5 @@
 #include "m2c.h"
 
 u32 data_021b2520[8];
-u32 data_021b2540[24];
-u32 data_021b25a0[392];
+u32 cardi_arg[24];
+u32 cardi_common[392];

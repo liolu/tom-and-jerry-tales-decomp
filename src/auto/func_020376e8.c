@@ -25,7 +25,7 @@ s32 func_020372f8(Body *, Body *, V4 *, s32, s32 *);
 s32 func_02037134(Body *, Body *, V4 *, s32, s32 *);
 s32 func_02037264(Body *, Body *, V4 *, s32, s32 *);
 s32 func_020371cc(Body *, Body *, V4 *, s32, s32 *);
-void func_02051a48(void);
+void OS_Terminate(void);
 Ent *func_0203a95c(s32);
 void func_0203a58c(s32);
 void func_02039280(Ent *, Ent *, s32, V4 *, s32);
@@ -91,7 +91,7 @@ s32 func_020376e8(Body *a, Body *b, V4 *out, s32 *arg, s32 p) {
             break;
         default:
             r = 0;
-            func_02051a48();
+            OS_Terminate();
             break;
     }
     if (r != 0) {

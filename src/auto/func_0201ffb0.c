@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_02062f0c();
+extern void _s32_div_f();
 extern void _u32_div_f();
 extern char data_0206b22c[];
 extern char data_020875a8[];
@@ -36,7 +36,7 @@ L_02020004:
     mov r1, r6
     ldrsb r0, [r5, r4]
     add r0, r0, #0x1
-    bl func_02062f0c
+    bl _s32_div_f
     add r2, r5, r4
     swpb r0, r1, [r2]
     ldrsb r0, [r5, r4]

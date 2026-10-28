@@ -5,7 +5,7 @@ extern void func_020079f4();
 extern void func_02008234();
 extern void func_02008378();
 extern void func_02008460();
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_0206a31c[];
 extern char data_02086b08[];
 // clang-format off
@@ -84,7 +84,7 @@ L_02007430:
     add sp, sp, #0x4
     ldmfd sp!, {r3, r4, pc}
 L_0200743c:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x4
     ldmfd sp!, {r3, r4, pc}
 }

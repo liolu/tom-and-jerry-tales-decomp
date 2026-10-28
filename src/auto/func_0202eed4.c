@@ -14,9 +14,9 @@ extern void func_0204398c();
 extern void func_02043ab0();
 extern void func_02043fd0();
 extern void func_02045d74();
-extern void func_02056ab0();
-extern void func_02056b98();
-extern void func_0205bdf4();
+extern void RTC_Init();
+extern void RTC_GetDateTime();
+extern void sprintf();
 extern char data_0206cde8[];
 extern char data_0206cdf4[];
 extern char data_0206ce00[];
@@ -72,10 +72,10 @@ L_0202ef64:
     sub r0, r4, #0x1
     swpb r0, r0, [r1]
     bl func_0201631c
-    bl func_02056ab0
+    bl RTC_Init
     add r0, sp, #0x14
     add r1, sp, #0x8
-    bl func_02056b98
+    bl RTC_GetDateTime
     cmp r0, #0x0
     bne L_0202efe0
     ldr r2, =data_0206e6d4
@@ -102,7 +102,7 @@ L_0202efe0:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206cde8
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -123,7 +123,7 @@ L_0202f030:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206cdf4
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -144,7 +144,7 @@ L_0202f080:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206ce00
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404

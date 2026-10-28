@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-M2C_UNK func_0203c24c(M2C_UNK, M2C_UNK, M2C_UNK);   /* extern */
+M2C_UNK func_0203c24c(M2C_UNK, M2C_UNK, M2C_UNK);
 
 void func_0201159c(s32 arg0) {
     if (arg0 != 0) {

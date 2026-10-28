@@ -8,7 +8,7 @@ void func_020306fc(void);
 void func_0203d740(void);
 void func_0203d8d8(void);
 void func_0204221c(void);
-void func_0205bdf4(void);
+void sprintf(void);
 extern char data_0206cdbc[];
 extern char data_0206cdcc[];
 extern char data_0206cddc[];
@@ -55,7 +55,7 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0xf]
     ldrb r3, [sp, #0x10]
-    bl func_0205bdf4
+    bl sprintf
     b @3
 @2
     ldrb r2, [sp, #0xe]
@@ -63,13 +63,13 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0x10]
     ldrb r3, [sp, #0xf]
-    bl func_0205bdf4
+    bl sprintf
 @3
     ldrb r2, [sp, #0xc]
     ldrb r3, [sp, #0xd]
     ldr r1, =data_0206cddc
     add r0, sp, #0x11
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_020881e0
     ldrb r2, [r4, #0x28]
     mov r0, #0x38
@@ -212,7 +212,7 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0xf]
     ldrb r3, [sp, #0x10]
-    bl func_0205bdf4
+    bl sprintf
     b @10
 @9
     ldrb r2, [sp, #0xe]
@@ -220,13 +220,13 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0x10]
     ldrb r3, [sp, #0xf]
-    bl func_0205bdf4
+    bl sprintf
 @10
     ldrb r2, [sp, #0xc]
     ldrb r3, [sp, #0xd]
     ldr r1, =data_0206cddc
     add r0, sp, #0x11
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_020881e0
     ldrb r2, [r4, #0x28]
     mov r0, #0x38
@@ -323,7 +323,7 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0xf]
     ldrb r3, [sp, #0x10]
-    bl func_0205bdf4
+    bl sprintf
     b @14
 @13
     ldrb r2, [sp, #0xe]
@@ -331,13 +331,13 @@ asm void func_0202f5e8(void) {
     str r2, [sp, #0x0]
     ldrb r2, [sp, #0x10]
     ldrb r3, [sp, #0xf]
-    bl func_0205bdf4
+    bl sprintf
 @14
     ldrb r2, [sp, #0xc]
     ldrb r3, [sp, #0xd]
     ldr r1, =data_0206cddc
     add r0, sp, #0x11
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_020881e0
     ldrb r2, [r4, #0x28]
     mov r0, #0x38

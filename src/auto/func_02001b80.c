@@ -21,9 +21,9 @@ extern unsigned char data_02087188;
 extern char data_02064104[];
 extern short data_02064348[];
 int func_020306fc(int);
-void func_0204b918(void *, void *, void *);
-void func_0204b9bc(void *, void *, void *);
-void func_0204bbb8(int, void *, void *, void *);
+void VEC_Add(void *, void *, void *);
+void VEC_CrossProduct(void *, void *, void *);
+void VEC_MultAdd(int, void *, void *, void *);
 
 void func_02001b80(void) {
     V3 a;
@@ -53,10 +53,10 @@ void func_02001b80(void) {
     } else {
         a = *(V3 *) (data_0206ea14 + 0x94);
     }
-    func_0204b9bc(&a, data_02064104, &b);
-    func_0204b9bc(&b, &a, data_0206e9e8.o->v8c);
-    func_0204b918(data_0206ea14 + 0xAC, &a, data_0206e9e8.o->v80);
-    func_0204b918(data_0206e9e8.o->v80, &a, data_0206e9e8.o->v80);
-    func_0204bbb8(-0x4D9F, &a, data_0206e9e8.o->v80, &data_0206e9e8.o->f74);
+    VEC_CrossProduct(&a, data_02064104, &b);
+    VEC_CrossProduct(&b, &a, data_0206e9e8.o->v8c);
+    VEC_Add(data_0206ea14 + 0xAC, &a, data_0206e9e8.o->v80);
+    VEC_Add(data_0206e9e8.o->v80, &a, data_0206e9e8.o->v80);
+    VEC_MultAdd(-0x4D9F, &a, data_0206e9e8.o->v80, &data_0206e9e8.o->f74);
     data_0206e9e8.o->f78 = *(int *) (data_0206ea14 + 0xC8) + 0x3800;
 }

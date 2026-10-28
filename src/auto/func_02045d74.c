@@ -3,9 +3,9 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02044df4();
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_020592b0();
-extern char data_020690b8[];
+extern void STD_GetStringLength();
+extern void STD_CompareString();
+extern char __upper_mapC[];
 extern char data_0206de58[];
 extern char data_021a90a4[];
 extern char data_021a910c[];
@@ -22,12 +22,12 @@ asm void func_02045d74(void) {
     ldr r2, [r2, #0x34]
     mov r10, r0
     str r2, [sp, #0x0]
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     addeq sp, sp, #0x10c
     ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
     mov r0, r10
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0xcb
     mov r1, r10
@@ -37,7 +37,7 @@ asm void func_02045d74(void) {
     cmp r4, #0x0
     mov r2, r7
     ble L_02045e14
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0xcb
 L_02045dd8:
     ldrsb r0, [r3, #0x0]
@@ -76,7 +76,7 @@ L_02045e3c:
     adds r0, r1, #0x9
     beq L_02045e28
     mov r1, r10
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045e28
 L_02045e64:
@@ -113,7 +113,7 @@ L_02045ecc:
 L_02045ed0:
     mov r1, r10
     add r0, r9, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045eec
     mov r0, r9
@@ -160,7 +160,7 @@ L_02045f70:
     cmp r6, #0x0
     beq L_02046364
     mov r0, r6
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x8a
     mov r1, r6
@@ -170,7 +170,7 @@ L_02045f70:
     cmp r4, #0x0
     mov r2, r9
     ble L_02045fe8
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x8a
 L_02045fac:
     ldrsb r0, [r3, #0x0]
@@ -210,7 +210,7 @@ L_02046014:
     adds r0, r1, #0x9
     beq L_02045ffc
     mov r1, r6
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045ffc
 L_0204603c:
@@ -225,7 +225,7 @@ L_0204603c:
     cmp r0, #0x0
     bne L_02046364
     mov r0, r10
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x49
     mov r1, r10
@@ -235,7 +235,7 @@ L_0204603c:
     cmp r4, #0x0
     mov r1, r8
     ble L_020460d4
-    ldr r0, =data_020690b8
+    ldr r0, =__upper_mapC
     add r2, sp, #0x49
 L_02046098:
     ldrsb r3, [r2, #0x0]
@@ -274,7 +274,7 @@ L_020460fc:
     adds r0, r1, #0x9
     beq L_020460e4
     mov r1, r10
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_020460e4
 L_02046124:
@@ -298,7 +298,7 @@ L_02046124:
     cmp r0, #0x0
     beq L_02046274
     mov r0, r6
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x8
     mov r1, r6
@@ -308,7 +308,7 @@ L_02046124:
     cmp r4, #0x0
     mov r2, r9
     ble L_020461e0
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x8
 L_020461a4:
     ldrsb r0, [r3, #0x0]
@@ -348,7 +348,7 @@ L_0204620c:
     adds r0, r1, #0x9
     beq L_020461f4
     mov r1, r6
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_020461f4
 L_02046234:

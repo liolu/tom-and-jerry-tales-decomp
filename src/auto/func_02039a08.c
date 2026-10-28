@@ -45,7 +45,7 @@ typedef struct {
 extern u32 func_0203adac(void);
 extern void func_020376e8(Obj *, void *, void *, void *, void *);
 extern Ent *func_0203a95c(s16);
-extern void func_0204b918(s32 *, void *, void *);
+extern void VEC_Add(s32 *, void *, void *);
 extern u32 func_02036eb4(void *, s32);
 extern void func_02036f18(void *);
 extern void func_020374e8(Obj *, void *, void *, void *, void *);
@@ -116,7 +116,7 @@ void func_02039a08(Own *arg0) {
             if (k < 0x1117) {
                 k = 0x1117;
             }
-            func_0204b918(o->f4, o->f14, &sp10);
+            VEC_Add(o->f4, o->f14, &sp10);
             if (func_02036eb4(&sp10, k) != 0) {
                 func_02036f18(&sp8);
                 cnt = func_02036eb4(&sp10, o->f20);

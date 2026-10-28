@@ -1,24 +1,24 @@
 #include "m2c.h"
 
-M2C_UNK func_020015f0();                            /* extern */
-M2C_UNK func_02016e04();                            /* extern */
-M2C_UNK func_020219d8(M2C_UNK);                     /* extern */
-M2C_UNK func_020314d0();                            /* extern */
-M2C_UNK func_020321ec();                            /* extern */
-M2C_UNK func_0203253c();                            /* extern */
-M2C_UNK func_02032bc8();                            /* extern */
-M2C_UNK func_020330b4();                            /* extern */
-M2C_UNK func_02033910(M2C_UNK *);                   /* extern */
-M2C_UNK func_020352dc(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK); /* extern */
-M2C_UNK func_0203a294();                            /* extern */
-M2C_UNK func_0203b96c(M2C_UNK);                     /* extern */
-M2C_UNK func_0203b980(M2C_UNK);                     /* extern */
-M2C_UNK func_0203cd2c();                            /* extern */
-M2C_UNK func_0203feb4(M2C_UNK *);                   /* extern */
-M2C_UNK func_0203ff6c(M2C_UNK *);                   /* extern */
-void *func_020401e8();                              /* extern */
-M2C_UNK func_0204d600(s32, M2C_UNK, M2C_UNK, M2C_UNK, s32); /* extern */
-M2C_UNK func_0204d760();                            /* extern */
+M2C_UNK func_020015f0();
+M2C_UNK func_02016e04();
+M2C_UNK func_020219d8(M2C_UNK);
+M2C_UNK func_020314d0();
+M2C_UNK func_020321ec();
+M2C_UNK func_0203253c();
+M2C_UNK func_02032bc8();
+M2C_UNK func_020330b4();
+M2C_UNK func_02033910(M2C_UNK *);
+M2C_UNK func_020352dc(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK func_0203a294();
+M2C_UNK func_0203b96c(M2C_UNK);
+M2C_UNK func_0203b980(M2C_UNK);
+M2C_UNK func_0203cd2c();
+M2C_UNK func_0203feb4(M2C_UNK *);
+M2C_UNK func_0203ff6c(M2C_UNK *);
+void *func_020401e8();
+M2C_UNK func_0204d600(s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
+M2C_UNK G3X_Reset();
 extern M2C_UNK data_02063f84;
 extern M2C_UNK data_02063fac;
 extern M2C_UNK data_0206a394;
@@ -34,7 +34,7 @@ void func_0200a8a0(void) {
     func_0204d600(0x04000050, 0x10, 1, 0xB, 4);
     M2C_FIELD((void *) 0x04000000, s32 *, 0)      = (s32) ((M2C_FIELD((void *) 0x04000000, s32 *, 0) & ~0x1F00) | 0x1100);
     M2C_FIELD((void *) 0x04000000, s32 *, 0x1000) = (s32) (M2C_FIELD((void *) 0x04000000, s32 *, 0x1000) & ~0x1F00);
-    func_0204d760();
+    G3X_Reset();
     func_020314d0();
     func_020321ec();
     func_0203253c();

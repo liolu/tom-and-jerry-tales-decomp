@@ -4,17 +4,17 @@
 typedef unsigned char u8;
 typedef long s32;
 typedef s32 M2C_UNK;
-extern M2C_UNK data_021b0460;
+extern M2C_UNK OSi_SystemCallbackInSwitchThread;
 void func_0204ff1c(u8 *param_1) {
     u8 *prev = ((void *) 0);
-    u8 *cur  = *(u8 **) ((u8 *) &data_021b0460 + 0x2C);
+    u8 *cur  = *(u8 **) ((u8 *) &OSi_SystemCallbackInSwitchThread + 0x2C);
 
     while (cur != ((void *) 0) && cur != param_1) {
         prev = cur;
         cur  = *(u8 **) (cur + 0x68);
     }
     if (prev == ((void *) 0)) {
-        *(u8 **) ((u8 *) &data_021b0460 + 0x2C) = *(u8 **) (param_1 + 0x68);
+        *(u8 **) ((u8 *) &OSi_SystemCallbackInSwitchThread + 0x2C) = *(u8 **) (param_1 + 0x68);
         return;
     }
     *(u8 **) (prev + 0x68) = *(u8 **) (param_1 + 0x68);

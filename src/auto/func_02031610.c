@@ -1,10 +1,10 @@
 #include "m2c.h"
 
-void func_02051a48(void);
+void OS_Terminate(void);
 
 s32 func_02031610(s32 *arg0) {
     if (arg0 == NULL) {
-        func_02051a48();
+        OS_Terminate();
     }
     switch ((s8) *arg0) {
         case 2:
@@ -19,6 +19,6 @@ s32 func_02031610(s32 *arg0) {
         case 7:
             return 0x10;
     }
-    func_02051a48();
+    OS_Terminate();
     return 0;
 }

@@ -8,7 +8,7 @@ typedef struct {
 u32 func_0203adac(void);
 E *func_0203a95c(s16);
 u8 *func_0203a58c(s16);
-s32 func_020592b0(void *, void *);
+s32 STD_CompareString(void *, void *);
 void func_0203a388(u16);
 void func_02005c50(void *name, s32 mode) {
     u16 i;
@@ -24,7 +24,7 @@ void func_02005c50(void *name, s32 mode) {
         e = func_0203a95c(i);
         if (e->id != -1) {
             p = func_0203a58c(e->id);
-            if (name != 0 && func_020592b0(p + 0xC, name) == 0) {
+            if (name != 0 && STD_CompareString(p + 0xC, name) == 0) {
                 if (mode == 2) {
                     func_0203a388(e->f2);
                 } else if (mode == 1) {

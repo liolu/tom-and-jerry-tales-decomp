@@ -8,11 +8,11 @@ extern void func_02037384();
 extern void func_02039d0c();
 extern void func_0203a58c();
 extern void func_0203a95c();
-extern void func_0204b404();
-extern void func_0204b918();
-extern void func_0204b94c();
-extern void func_0204b980();
-extern void func_02059508();
+extern void MTX_MultVec33();
+extern void VEC_Add();
+extern void VEC_Subtract();
+extern void VEC_DotProduct();
+extern void abs();
 extern char data_020692ec[];
 extern char data_020a0f48[];
 extern char data_020a2e8c[];
@@ -109,7 +109,7 @@ L_02006724:
     str r0, [r8, #0x74]
 L_020067d4:
     ldr r0, [sp, #0x50]
-    bl func_02059508
+    bl abs
     cmp r0, #0x3e8
     ldrlt r0, [r8, #0x74]
     mov r1, #0x1
@@ -156,7 +156,7 @@ L_020067d4:
     ldr r1, [r5, #0x4]
     mov r0, r9
     add r2, sp, #0x40
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r0, [r5, #0x10]
     mov r0, r0, lsl #0x1f
     movs r0, r0, lsr #0x1f
@@ -164,15 +164,15 @@ L_020067d4:
     ldr r1, [r5, #0x0]
     add r0, r5, #0x14
     add r2, sp, #0x1c
-    bl func_0204b404
+    bl MTX_MultVec33
     add r0, sp, #0x40
     add r1, sp, #0x1c
     mov r2, r0
-    bl func_0204b94c
+    bl VEC_Subtract
 L_020068c8:
     add r0, sp, #0x40
     add r1, sp, #0x28
-    bl func_0204b980
+    bl VEC_DotProduct
     cmp r0, #0x0
     add r0, sp, #0x28
     add r1, sp, #0x34
@@ -188,7 +188,7 @@ L_020068fc:
     mov r0, r9
     add r1, sp, #0x34
     mov r2, r9
-    bl func_0204b918
+    bl VEC_Add
 L_0200690c:
     ldr r0, =data_020a0f48
     add r6, r6, #0x1

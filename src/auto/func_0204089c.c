@@ -17,12 +17,12 @@ extern char data_0206dc3c[];
 extern char data_0206dc40[];
 extern char data_0206dc48[];
 extern int data_0206dbc0;
-int func_0205c108(void *, void *);
+int strcmp(void *, void *);
 V3 *func_02041610(void);
 int func_02041c94(int, int, int);
 void func_02041640(void);
 void func_020415b8(void *);
-void func_0205bdf4(void *, void *, int, int, void *);
+void sprintf(void *, void *, int, int, void *);
 void func_02040d5c(void *, int, int);
 void func_02041654(int, int, int);
 
@@ -38,7 +38,7 @@ void func_0204089c(int a, int b, int c) {
     saved                     = data_021a7240;
     oldv                      = *(V3 *) &data_021a7224[4];
     *(V3 *) &data_021a7224[4] = data_021a7244;
-    if (func_0205c108((void *) ((V3 *) data_021a7234)->b, data_0206dbdc) == 0) {
+    if (strcmp((void *) ((V3 *) data_021a7234)->b, data_0206dbdc) == 0) {
         data_021a7234[0] = (int) data_0206dc3c;
         data_021a7234[1] = (int) data_0206dc10;
         data_021a7234[2] = 0;
@@ -50,7 +50,7 @@ void func_0204089c(int a, int b, int c) {
     }
     func_02041640();
     func_020415b8(&args);
-    func_0205bdf4(&buf, data_0206dc40, data_0206dbc0, a, data_0206dc48);
+    sprintf(&buf, data_0206dc40, data_0206dbc0, a, data_0206dc48);
     func_02040d5c(&buf, b, c);
     func_02041654(0, b, c);
     data_021a7240             = saved;

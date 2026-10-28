@@ -45,7 +45,7 @@ extern void func_02043fd0();
 extern void func_0204d600();
 extern void func_0204f490();
 extern void func_02051868();
-extern void func_0205918c();
+extern void STD_CopyString();
 extern char data_02064088[];
 extern char data_0206b918[];
 extern char data_0206badc[];
@@ -797,7 +797,7 @@ L_0202394c:
     strh r0, [r4, #0x28]
     ldr r1, =data_0206c250
     add r0, r4, #0x40
-    bl func_0205918c
+    bl STD_CopyString
     mov r0, r4
     bl func_02014e34
     ldr r0, =data_0206e6d4
@@ -823,7 +823,7 @@ L_02023a1c:
     strh r0, [r4, #0x28]
     ldr r1, =data_0206c258
     add r0, r4, #0x40
-    bl func_0205918c
+    bl STD_CopyString
     mov r0, r4
     bl func_02014e34
     ldr r0, =data_0206e6d4
@@ -859,7 +859,7 @@ L_02023a80:
     strh r0, [r4, #0x28]
     ldr r1, =data_0206c260
     add r0, r4, #0x40
-    bl func_0205918c
+    bl STD_CopyString
     mov r0, r4
     bl func_02014e34
     ldr r0, =data_0206e6d4

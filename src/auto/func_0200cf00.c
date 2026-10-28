@@ -12,7 +12,7 @@ extern void func_0203dea8();
 extern void func_0203deb8();
 extern void func_0203dec8();
 extern void func_0203ded8();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_0206a5a4[];
 extern char data_0206a6e4[];
 extern char data_0206a6f8[];
@@ -90,7 +90,7 @@ L_0200cf34:
     ldr r1, =data_0206a70c
     ldrh r2, [r2, #0x6e]
     add r0, sp, #0x10
-    bl func_0205bdf4
+    bl sprintf
     bl func_0203dea8
     mov r6, r0
     bl func_0203dec8

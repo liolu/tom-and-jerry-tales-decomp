@@ -16,12 +16,12 @@ typedef struct {
 } In;
 
 extern Obj *func_01ff8000(s32, s32);
-extern s32 func_0204b7c8(void);
-extern void func_0204b980(void *, void *);
-extern void func_02051a48(void);
-extern s32 func_0205c108(void *, s32);
+extern s32 FX_Sqrt(void);
+extern void VEC_DotProduct(void *, void *);
+extern void OS_Terminate(void);
+extern s32 strcmp(void *, s32);
 extern f64 func_0205d8c4(s32);
-extern s32 func_020617bc(f64);
+extern s32 _dfix(f64);
 extern char data_0206dc90[];
 extern char data_0206dc98[];
 extern char data_0206dca0[];
@@ -32,30 +32,30 @@ Obj *func_02041cac(s32 *arg0, s32 arg1, s32 arg2) {
     s32 key;
     o   = func_01ff8000(arg2, 0x3C);
     key = arg0[0];
-    if (func_0205c108(data_0206dc90, key) == 0) {
+    if (strcmp(data_0206dc90, key) == 0) {
         s32 t;
         o->flags = (o->flags & ~0x1C) | 4;
-        t        = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
+        t        = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
         o->f20   = t;
         o->f24   = t;
         o->f28   = 0;
         o->f2c   = 0;
-    } else if (func_0205c108(data_0206dc98, key) == 0) {
+    } else if (strcmp(data_0206dc98, key) == 0) {
         o->flags = (o->flags & ~0x1C) | 0x10;
-        o->f24   = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
-        o->f28   = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[3]));
-        o->f2c   = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[4]));
-        func_0204b980(&o->f24, &o->f24);
-        o->f20 = func_0204b7c8();
-    } else if (func_0205c108(data_0206dca0, key) == 0) {
+        o->f24   = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
+        o->f28   = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[3]));
+        o->f2c   = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[4]));
+        VEC_DotProduct(&o->f24, &o->f24);
+        o->f20 = FX_Sqrt();
+    } else if (strcmp(data_0206dca0, key) == 0) {
         o->flags = (o->flags & ~0x1C) | 8;
-        o->f24   = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
-        o->f28   = func_020617bc(0.5 + 4096.0 * func_0205d8c4(arg0[3]));
+        o->f24   = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[2]));
+        o->f28   = _dfix(0.5 + 4096.0 * func_0205d8c4(arg0[3]));
         o->f2c   = 0;
-        func_0204b980(&o->f24, &o->f24);
-        o->f20 = func_0204b7c8();
+        VEC_DotProduct(&o->f24, &o->f24);
+        o->f20 = FX_Sqrt();
     } else {
-        func_02051a48();
+        OS_Terminate();
     }
     z                          = 0;
     *(s16 *) ((u8 *) o + 0x36) = 1;

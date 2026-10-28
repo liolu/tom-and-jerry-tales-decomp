@@ -1,13 +1,13 @@
 #include "m2c.h"
 
-M2C_UNK func_02002608();                            /* extern */
-M2C_UNK func_02003f98();                            /* extern */
-M2C_UNK func_02035164();                            /* extern */
-M2C_UNK func_0203ac7c();                            /* extern */
-M2C_UNK func_0204d760();                            /* extern */
+M2C_UNK func_02002608();
+M2C_UNK func_02003f98();
+M2C_UNK func_02035164();
+M2C_UNK func_0203ac7c();
+M2C_UNK G3X_Reset();
 
 void func_0200c324(void) {
-    func_0204d760();
+    G3X_Reset();
     func_02002608();
     *(s32 *) 0x04000444 = 0;
     func_0203ac7c();

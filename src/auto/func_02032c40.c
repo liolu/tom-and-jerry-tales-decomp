@@ -17,13 +17,13 @@ typedef struct {
 } Slot;
 extern R data_0208a360[];
 extern Slot data_0208e050[];
-void func_02051a48(void);
+void OS_Terminate(void);
 Slot *func_02032c40(s32 id) {
     R *r;
     u16 i;
     Slot *s;
     if (id < 0 || id >= 0x96) {
-        func_02051a48();
+        OS_Terminate();
     }
     r = &data_0208a360[id];
     if (r->fc == 0 && r->f10 == 0) {
@@ -31,7 +31,7 @@ Slot *func_02032c40(s32 id) {
     }
     if (r->f8 != 1) {
         if ((r->fc != 0 && r->f10 == 0) || r->f10 < 0) {
-            func_02051a48();
+            OS_Terminate();
         }
     }
     for (i = 0; i < 20; i++) {

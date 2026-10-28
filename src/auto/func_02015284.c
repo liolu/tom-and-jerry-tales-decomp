@@ -20,7 +20,7 @@ void func_02043fd0(void);
 void func_020440e8(void);
 void func_020442a8(void);
 void func_02044460(void);
-void func_0205172c(void);
+void OS_SetTick(void);
 extern char data_020692ec[];
 extern char data_0206ad48[];
 extern char data_0206ad4c[];
@@ -506,7 +506,7 @@ asm s32 func_02015284(s32 arg0) {
     str r2, [r0, #0x24]
     ldr r0, [r1, #0xc4]
     ldr r1, [r1, #0xc8]
-    bl func_0205172c
+    bl OS_SetTick
     mov r0, #0x0
     str r0, [sp, #0x0]
     str r0, [sp, #0x4]

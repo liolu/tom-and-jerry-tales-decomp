@@ -5,7 +5,7 @@ extern void func_020222b8();
 extern void func_02022354();
 extern void func_020306c0();
 extern void func_0203ff6c();
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_02063e44[];
 extern char data_0206400c[];
 extern char data_02064024[];
@@ -110,7 +110,7 @@ L_0200a7c4:
     swpb r0, r0, [r1]
     ldmfd sp!, {r4, pc}
 L_0200a7e4:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r4, pc}
 }
 // clang-format on

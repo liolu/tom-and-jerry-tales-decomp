@@ -7,8 +7,8 @@ extern void func_02026de0();
 extern void func_02035164();
 extern void func_0203ac7c();
 extern void func_020440e8();
-extern void func_0204d760();
-extern void func_0204d7cc();
+extern void G3X_Reset();
+extern void G3X_ClearFifo();
 extern char data_0206e694[];
 extern char data_0206ea14[];
 extern char data_0206fd58[];
@@ -17,8 +17,8 @@ extern char data_02087df0[];
 // clang-format off
 asm void func_02024ccc(void) {
     stmfd sp!, {r3, lr}
-    bl func_0204d7cc
-    bl func_0204d760
+    bl G3X_ClearFifo
+    bl G3X_Reset
     bl func_02002608
     bl func_0203ac7c
     bl func_02003f98

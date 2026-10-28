@@ -18,9 +18,9 @@ void func_02039670(void *);
 void func_02039a08(void *);
 u8 *func_0203a58c(void);
 void func_0203b364(u16, s32, s32, s32);
-void func_0204b08c(void *, void *, s16, s16);
-void func_0204b404(void *, void *, V3 *);
-void func_0204b918(void *, V3 *, V3 *);
+void MTX_RotAxis33(void *, void *, s16, s16);
+void MTX_MultVec33(void *, void *, V3 *);
+void VEC_Add(void *, V3 *, V3 *);
 extern u8 data_02064348[];
 
 s32 func_0203a970(u8 *o) {
@@ -53,8 +53,8 @@ s32 func_0203a970(u8 *o) {
     p = *(u8 **) (o + 0xB0);
     if (p != 0) {
         do {
-            func_0204b404(p + 4, o + 8, &v1);
-            func_0204b918(o + 0x2C, &v1, &v1);
+            MTX_MultVec33(p + 4, o + 8, &v1);
+            VEC_Add(o + 0x2C, &v1, &v1);
             func_0203437c(*(u16 *) p, &v1);
             p = *(u8 **) (p + 0x10);
         } while (p != 0);
@@ -62,8 +62,8 @@ s32 func_0203a970(u8 *o) {
     p = *(u8 **) (o + 0xB4);
     if (p != 0) {
         do {
-            func_0204b404(p + 0x14, o + 8, &v0);
-            func_0204b918(o + 0x2C, &v0, &v0);
+            MTX_MultVec33(p + 0x14, o + 8, &v0);
+            VEC_Add(o + 0x2C, &v0, &v0);
             func_0203b364(*(u16 *) p, v0.x, v0.y, v0.z);
             p = *(u8 **) (p + 0x20);
         } while (p != 0);
@@ -89,7 +89,7 @@ s32 func_0203a970(u8 *o) {
         if (((M2 *) (o + 0x5C))->m != 0) {
             if (((B2 *) (o + 0x5C))->y != 0) {
                 s32 i = ((s32) * (u16 *) (o + 6) >> 4) * 2;
-                func_0204b08c(o + 8, o + 0x44, *(s16 *) (data_02064348 + i * 2), *(s16 *) (data_02064348 + (i + 1) * 2));
+                MTX_RotAxis33(o + 8, o + 0x44, *(s16 *) (data_02064348 + i * 2), *(s16 *) (data_02064348 + (i + 1) * 2));
                 *(u32 *) (o + 0x5C) = *(u32 *) (o + 0x5C) & ~2;
             }
             if ((u32) (*(u32 *) (o + 0x58) << 0x16) >> 0x1F) {

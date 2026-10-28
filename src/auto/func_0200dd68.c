@@ -24,7 +24,7 @@ void func_0203ded8(void);
 void func_0203ff1c(void);
 void func_02040094(void);
 void func_02040228(void);
-void func_0204b08c(void);
+void MTX_RotAxis33(void);
 void func_0204f490(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
@@ -172,7 +172,7 @@ L_0200df4c:
     ldrsh r3, [r1, r0]
     ldr r1, =data_02064104
     add r0, r4, #0x7c
-    bl func_0204b08c
+    bl MTX_RotAxis33
     bl func_02003e84
     add sp, sp, #0xc
     ldmia sp!, {r3, r4, r5, r6, r7, r8, pc}

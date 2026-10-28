@@ -51,7 +51,7 @@ extern s16 *func_0203a95c(void);
 extern void func_0203a58c(void);
 extern void func_0203b32c(s32);
 extern void func_0203f9a4(s32, s32);
-extern void func_02051a48(void);
+extern void OS_Terminate(void);
 
 void func_020296ec(C *ctx, u8 *lst) {
     u16 i;
@@ -125,7 +125,7 @@ void func_020296ec(C *ctx, u8 *lst) {
             case 15:
                 break;
             default:
-                func_02051a48();
+                OS_Terminate();
                 break;
         }
     }

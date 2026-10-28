@@ -1,7 +1,7 @@
 #include "m2c.h"
 
-M2C_UNK func_02051f30(M2C_UNK, M2C_UNK, s32);       /* extern */
+M2C_UNK MIi_CpuClearFast(M2C_UNK, M2C_UNK, s32);
 
 void func_020364ec(M2C_UNK arg0) {
-    func_02051f30(0, arg0, 0x20BC);
+    MIi_CpuClearFast(0, arg0, 0x20BC);
 }

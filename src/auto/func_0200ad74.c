@@ -42,10 +42,10 @@ void func_0201dc08(void);
 void func_020222b8(void);
 void func_02036340(void);
 void func_0203f948(void);
-void func_0204b918(void);
-void func_0204b94c(void);
-void func_02051f18(void);
-void func_02062f0c(void);
+void VEC_Add(void);
+void VEC_Subtract(void);
+void MIi_CpuCopy32(void);
+void _s32_div_f(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_0200ad74(void) {
@@ -150,7 +150,7 @@ asm void func_0200ad74(void) {
     add r1, sp, #0x0
     add r0, r5, #0xc4
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
     add r0, r5, #0xa0
     add r3, r5, #0xdc
     ldmia r0, {r0, r1, r2}
@@ -204,7 +204,7 @@ asm void func_0200ad74(void) {
     add r0, sp, #0x0
     add r2, sp, #0xc
     add r1, r5, #0xc4
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r0, [sp, #0xc]
     cmp r0, #0x0
     ldreq r0, [sp, #0x14]
@@ -220,11 +220,11 @@ asm void func_0200ad74(void) {
     add r0, r5, #0xac
     add r1, sp, #0xc
     mov r2, r0
-    bl func_0204b918
+    bl VEC_Add
     add r0, r5, #0xa0
     add r1, sp, #0xc
     mov r2, r0
-    bl func_0204b918
+    bl VEC_Add
     add r0, sp, #0x0
     add r3, r5, #0xc4
     ldmia r0, {r0, r1, r2}
@@ -307,7 +307,7 @@ asm void func_0200ad74(void) {
     ldrsh r2, [r0, #0xa]
     ldrsh r1, [r0, #0xc]
     mov r0, r2, lsl #0xc
-    bl func_02062f0c
+    bl _s32_div_f
     ldr r1, =data_0206e6d4
     str r0, [r1, #0x10]
 @L0200b13c:

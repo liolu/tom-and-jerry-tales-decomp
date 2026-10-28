@@ -330,23 +330,23 @@ struct CARDRomStat {
     u32 dummy[5];
     u8 cache_buf[CARD_ROM_PAGE_SIZE];
 };
-extern int func_020517f8(void);
-extern void func_0205180c(int state);
-extern void func_02051d94(u32 channel);
+extern int OS_DisableInterrupts(void);
+extern void OS_RestoreInterrupts(int state);
+extern void MI_StopDma(u32 channel);
 extern void func_0204ef98(u32 mask);
 extern void func_0204efc8(u32 mask);
 extern u32 func_020580e4(void);
-extern void func_020585fc(u32 id);
-extern void func_02050308(void *queue);
-extern void func_02050370(void *thread);
+extern void CARDi_CheckPulledOutCore(u32 id);
+extern void OS_WakeupThread(void *queue);
+extern void OS_WakeupThreadDirect(void *thread);
 extern void func_02057d78(void);
-extern struct CARDiCommon data_021b25a0;
+extern struct CARDiCommon cardi_common;
 extern struct CARDRomStat data_02046b20 __attribute__((aligned(32)));
 static inline BOOL Card_AdvanceReadPage(struct CARDRomStat *state) {
 
 #pragma unused(state)
 #line 67
-    struct CARDiCommon *common = &data_021b25a0;
+    struct CARDiCommon *common = &cardi_common;
     common->src += CARD_ROM_PAGE_SIZE;
     common->dst += CARD_ROM_PAGE_SIZE;
     common->len -= CARD_ROM_PAGE_SIZE;
@@ -354,27 +354,27 @@ static inline BOOL Card_AdvanceReadPage(struct CARDRomStat *state) {
 }
 void func_02057dcc(void) {
     struct CARDRomStat *state  = &data_02046b20;
-    struct CARDiCommon *common = &data_021b25a0;
+    struct CARDiCommon *common = &cardi_common;
     CARDCallback callback;
     void *callbackArgument;
     int interruptState;
 
-    func_02051d94(common->dma);
+    MI_StopDma(common->dma);
     if (!Card_AdvanceReadPage(state)) {
         func_0204ef98(OS_IE_CARD_DATA);
         func_0204efc8(OS_IE_CARD_DATA);
-        common = &data_021b25a0;
-        func_020585fc(func_020580e4());
+        common = &cardi_common;
+        CARDi_CheckPulledOutCore(func_020580e4());
         common->cmd->result = CARD_RESULT_SUCCESS;
         callback            = common->callback;
         callbackArgument    = common->callback_arg;
-        interruptState      = func_020517f8();
+        interruptState      = OS_DisableInterrupts();
         common->flag &= ~(CARD_STAT_BUSY | CARD_STAT_TASK | CARD_STAT_CANCEL);
-        func_02050308(common->busy_q);
+        OS_WakeupThread(common->busy_q);
         if ((common->flag & CARD_STAT_RECV) != 0) {
-            func_02050370(common->thread);
+            OS_WakeupThreadDirect(common->thread);
         }
-        func_0205180c(interruptState);
+        OS_RestoreInterrupts(interruptState);
         if (callback == 0) {
             return;
         }

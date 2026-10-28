@@ -6,21 +6,21 @@ typedef struct {
     void *post;
 } PmLists;
 extern PmLists data_021b248c;
-void func_02056a28(void *);
-u32 func_020517f8(void);
-void func_0205180c(u32);
+void PMi_ExecuteList(void *);
+u32 OS_DisableInterrupts(void);
+void OS_RestoreInterrupts(u32);
 u32 func_0204ef98(u32);
 u32 func_0204ef3c(u32);
-s32 func_02058a44(void);
-s32 func_02056964(void);
-void func_020565b8(u32 *, u32 *);
-void func_020564bc(s32, s32);
+s32 CTRDG_IsExisting(void);
+s32 PM_GetLCDPower(void);
+void PM_GetBackLight(u32 *, u32 *);
+void PM_SetBackLight(s32, s32);
 s32 func_0205623c(u16, u16);
-void func_02051a58(void);
-void func_0205185c(u32);
+void OS_Halt(void);
+void OS_SpinWait(u32);
 void func_02056870(s32, s32, s32, s32);
-void func_02056418(s32);
-void func_02056590(void);
+void PMi_SetLED(s32);
+void PM_ForceToPowerOff(void);
 
 static inline u16 disableIrq(void) {
     u16 prev                    = *(volatile u16 *) 0x4000208;
@@ -60,12 +60,12 @@ void func_02056640(u32 trigger, u16 logic, u16 keys) {
     u16 param;
     u16 keyParam;
 
-    func_02056a28(data_021b248c.pre);
+    PMi_ExecuteList(data_021b248c.pre);
     preIme  = disableIrq();
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
     preIe   = func_0204ef98(0x3fffff);
     func_0204ef3c(0x40000);
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
     enableIrq();
     if (trigger & 8) {
         if (*(u16 *) 0x27ffc40 == 2) {
@@ -73,15 +73,15 @@ void func_02056640(u32 trigger, u16 logic, u16 keys) {
         }
     }
     if (trigger & 0x10) {
-        if (func_02058a44() == 0) {
+        if (CTRDG_IsExisting() == 0) {
             trigger &= ~0x10;
         }
     }
     preGx  = *(volatile u32 *) 0x4000000;
     preGxs = *(volatile u32 *) 0x4001000;
-    lcd    = func_02056964();
-    func_020565b8(&led0, &led1);
-    func_020564bc(2, 0);
+    lcd    = PM_GetLCDPower();
+    PM_GetBackLight(&led0, &led1);
+    PM_SetBackLight(2, 0);
     cnt = getVCount();
     while (cnt == getVCount()) {
     }
@@ -96,8 +96,8 @@ void func_02056640(u32 trigger, u16 logic, u16 keys) {
     param = trigger | (led0 << 5) | (led1 << 6);
     while (func_0205623c(param, logic | keys) != 0) {
     }
-    func_02051a58();
-    func_0205185c(0x996a00);
+    OS_Halt();
+    OS_SpinWait(0x996a00);
     if (trigger & 8) {
         if (*(volatile u32 *) 0x4000214 & 0x100000) {
             powerOff = 1;
@@ -107,17 +107,17 @@ void func_02056640(u32 trigger, u16 logic, u16 keys) {
         if (lcd == 1) {
             func_02056870(1, 1, 1, 0);
         } else {
-            func_02056418(1);
+            PMi_SetLED(1);
         }
         *(volatile u32 *) 0x4000000 = preGx;
         *(volatile u32 *) 0x4001000 = preGxs;
     }
-    func_020517f8();
+    OS_DisableInterrupts();
     func_0204ef3c(preIe);
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
     restoreIrq(preIme);
     if (powerOff) {
-        func_02056590();
+        PM_ForceToPowerOff();
     }
-    func_02056a28(data_021b248c.post);
+    PMi_ExecuteList(data_021b248c.post);
 }

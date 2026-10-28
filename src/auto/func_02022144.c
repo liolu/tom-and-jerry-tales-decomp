@@ -14,7 +14,7 @@ typedef struct {
     s32 v10;
 } Ctl;
 
-void func_0204c27c(s32, s32);
+void GXx_SetMasterBrightness_(s32, s32);
 s32 func_02022354(s32);
 void func_02022138(void *);
 extern Ent data_020877b8[];
@@ -57,9 +57,9 @@ void func_02022144(u32 steps) {
             }
         }
         if (i != 0) {
-            func_0204c27c(0x400106c, data_020877b4.v10 >> 12);
+            GXx_SetMasterBrightness_(0x400106c, data_020877b4.v10 >> 12);
         } else {
-            func_0204c27c(0x400006c, data_020877b4.v4 >> 12);
+            GXx_SetMasterBrightness_(0x400006c, data_020877b4.v4 >> 12);
         }
         i++;
     } while (i < 2);

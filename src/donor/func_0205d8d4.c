@@ -15,19 +15,19 @@ enum scan_states {
     finished       = 0x20,
     failure        = 0x40
 };
-extern const unsigned char data_020690b8[128];
-extern const unsigned short data_02069138[128];
+extern const unsigned char __upper_mapC[128];
+extern const unsigned short __ctype_mapC[128];
 static inline int isalpha(int c) {
-    return (c < 0 || c >= 128) ? 0 : (int) (data_02069138[c] & 0x0001);
+    return (c < 0 || c >= 128) ? 0 : (int) (__ctype_mapC[c] & 0x0001);
 }
 static inline int isdigit(int c) {
-    return (c < 0 || c >= 128) ? 0 : (int) (data_02069138[c] & 0x0008);
+    return (c < 0 || c >= 128) ? 0 : (int) (__ctype_mapC[c] & 0x0008);
 }
 static inline int isspace(int c) {
-    return (c < 0 || c >= 128) ? 0 : (int) (data_02069138[c] & 0x0100);
+    return (c < 0 || c >= 128) ? 0 : (int) (__ctype_mapC[c] & 0x0100);
 }
 static inline int toupper(int c) {
-    return (c < 0 || c >= 128) ? c : data_020690b8[c];
+    return (c < 0 || c >= 128) ? c : __upper_mapC[c];
 }
 unsigned long func_0205d8d4(int base, int max_width, int (*ReadProc)(void *, int, int), void *ReadProcArg, int *chars_scanned,
                             int *negative, int *overflow) {

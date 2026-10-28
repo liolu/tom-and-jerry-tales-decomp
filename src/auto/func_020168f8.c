@@ -2,8 +2,8 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203edf0();
-extern void func_02051a48();
-extern void func_02051f30();
+extern void OS_Terminate();
+extern void MIi_CpuClearFast();
 extern char data_02087090[];
 extern char data_02087098[];
 extern char data_020870a2[];
@@ -16,7 +16,7 @@ asm void func_020168f8(void) {
     ldr r1, =data_02087098
     mov r0, #0x0
     add r1, r1, r5
-    bl func_02051f30
+    bl MIi_CpuClearFast
     ldr r0, =data_020870a2
     mov r3, #0x1
     add r1, r0, r5
@@ -69,7 +69,7 @@ L_020169b0:
     mov r4, r0
     b L_020169dc
 L_020169d8:
-    bl func_02051a48
+    bl OS_Terminate
 L_020169dc:
     cmp r4, #0x0
     mvnne r0, #0x0

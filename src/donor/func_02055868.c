@@ -49,8 +49,8 @@ extern struct {
     vu16 err_flg;
     vu16 command_flg;
 } data_021b2450;
-extern OSIntrMode func_020517f8(void);
-extern OSIntrMode func_0205180c(OSIntrMode state);
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 static inline void CP_SetDivImm32_32_NS_(u32 numer, u32 denom) {
     *(REGType32 *) 0x04000290 = numer;
     *(REGType64 *) 0x04000298 = denom;
@@ -81,7 +81,7 @@ void func_02055868(const TPCalibrateParam *param) {
         return;
     }
 
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
 
     if (param->xDotSize != 0) {
         CP_SetDiv32_32(0x10000000, (u32) param->xDotSize);
@@ -107,7 +107,7 @@ void func_02055868(const TPCalibrateParam *param) {
         data_021b2450.calibrate.yDotSizeInv = 0;
     }
 
-    (void) func_0205180c(enabled);
+    (void) OS_RestoreInterrupts(enabled);
 
     data_021b2450.calibrate_flg = 1;
 }

@@ -10,7 +10,7 @@ extern u8 data_0206b894;
 extern T data_020877b8[2];
 void func_02022138(void *, s32, s32, s32);
 void func_02022144(s32);
-s32 func_0204b77c(s32, s32);
+s32 FX_Div(s32, s32);
 
 void func_020222b8(s32 arg0, s32 arg1, s32 arg2) {
     s32 i = 0;
@@ -24,7 +24,7 @@ void func_020222b8(s32 arg0, s32 arg1, s32 arg2) {
         if (arg2 & m) {
             if (arg1 != 0) {
                 t->b = x;
-                t->c = func_0204b77c(x - t->a, arg1) >> 12;
+                t->c = FX_Div(x - t->a, arg1) >> 12;
             }
             if (arg1 == 0) {
                 t->a = x;

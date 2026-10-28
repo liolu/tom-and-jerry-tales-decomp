@@ -3,14 +3,14 @@
  * tools/donor_match.py */
 typedef unsigned int u32;
 typedef unsigned short u16;
-extern u16 data_0206de64;
-extern u16 data_021b03a0;
-extern u16 data_0206de64;
-extern u16 data_021b03a0;
+extern u16 sIsDispOn;
+extern u16 sDispMode;
+extern u16 sIsDispOn;
+extern u16 sDispMode;
 void func_0204c1b0(void) {
-    data_0206de64 = 1;
-    if (data_021b03a0 != 0) {
-        (*(u32 *) ((0x04000000) | 0x0)) = ((*(u32 *) ((0x04000000) | 0x0)) & ~0x30000) | (data_021b03a0 << 16);
+    sIsDispOn = 1;
+    if (sDispMode != 0) {
+        (*(u32 *) ((0x04000000) | 0x0)) = ((*(u32 *) ((0x04000000) | 0x0)) & ~0x30000) | (sDispMode << 16);
     } else {
         (*(u32 *) ((0x04000000) | 0x0)) |= 0x10000;
     }

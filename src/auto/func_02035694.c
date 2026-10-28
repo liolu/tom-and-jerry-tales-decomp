@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_0204b77c();
+extern void FX_Div();
 // clang-format off
 asm void func_02035694(void) {
     stmfd sp!, {r4, lr}
@@ -34,7 +34,7 @@ asm void func_02035694(void) {
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r4, #0x10]
     ldmfd sp!, {r4, pc}
 L_02035718:
@@ -54,7 +54,7 @@ L_02035718:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r4, #0x10]
     ldmfd sp!, {r4, pc}
 L_02035764:
@@ -64,7 +64,7 @@ L_02035764:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r4, #0x10]
     ldmfd sp!, {r4, pc}
 }

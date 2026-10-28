@@ -3,7 +3,7 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02004330();
 extern void func_0204f490();
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_02069434[];
 extern char data_0206943c[];
 extern char data_02069454[];
@@ -336,7 +336,7 @@ L_02003384:
     ldr r4, =data_020696c8
     b L_0200339c
 L_0200338c:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x8
     ldr r0, =data_02069434
     ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -387,7 +387,7 @@ L_02003420:
     ldr r0, =data_0206e7e8
     ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 L_02003440:
-    bl func_02051a48
+    bl OS_Terminate
 L_02003444:
     ldr r0, =data_0206e7e8
     ldr r1, =data_0206972c

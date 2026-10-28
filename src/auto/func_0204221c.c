@@ -12,10 +12,10 @@ extern char data_021a80a4[];
 extern char data_021a90a4[];
 void func_0204247c(void);
 void func_02054c5c(void);
-void func_02054f3c(void);
+void FS_OpenFile(void);
 void func_02054f84(void);
 void func_020550c8(void);
-void func_020550d8(void);
+void FS_SeekFile(void);
 void func_0205bfd4(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
@@ -45,37 +45,37 @@ asm void func_0204221c(void) {
 @L02042270:
     ldr r1, =data_0206dcc0
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
     b @L020422cc
 @L02042280:
     ldr r1, =data_0206dcd0
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
     b @L020422cc
 @L02042290:
     ldr r1, =data_0206dce4
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
     b @L020422cc
 @L020422a0:
     ldr r1, =data_0206dcf8
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
     b @L020422cc
 @L020422b0:
     ldr r1, =data_0206dd0c
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
     b @L020422cc
 @L020422c0:
     ldr r1, =data_0206dd20
     add r0, sp, #0x20c
-    bl func_02054f3c
+    bl FS_OpenFile
 @L020422cc:
     mov r1, #0x0
     add r0, sp, #0x20c
     mov r2, r1
-    bl func_020550d8
+    bl FS_SeekFile
     add r0, sp, #0x20c
     add r1, sp, #0x8
     mov r2, #0x4
@@ -83,7 +83,7 @@ asm void func_0204221c(void) {
     add r0, sp, #0x20c
     mov r1, r7, lsl #0x2
     mov r2, #0x1
-    bl func_020550d8
+    bl FS_SeekFile
     add r0, sp, #0x20c
     add r1, sp, #0x4
     mov r2, #0x4
@@ -91,7 +91,7 @@ asm void func_0204221c(void) {
     ldr r1, [sp, #0x4]
     add r0, sp, #0x20c
     mov r2, #0x0
-    bl func_020550d8
+    bl FS_SeekFile
     add r10, sp, #0x200
     add r9, sp, #0x20c
     add r8, sp, #0x0

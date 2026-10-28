@@ -7,8 +7,8 @@ extern void func_0203b12c();
 extern void func_0203f320();
 extern void func_0203f330();
 extern void func_0203f34c();
-extern void func_02050b24();
-extern void func_02051f18();
+extern void DC_FlushRange();
+extern void MIi_CpuCopy32();
 extern char data_0206a34c[];
 extern char data_02086c40[];
 extern char data_02086c80[];
@@ -34,10 +34,10 @@ L_02009ea0:
     ldr r0, =data_02086c80
     ldr r1, =data_02086c40
     mov r2, #0x40
-    bl func_02051f18
+    bl MIi_CpuCopy32
     ldr r0, =data_02086c40
     mov r1, #0x40
-    bl func_02050b24
+    bl DC_FlushRange
     ldr r0, =data_02086c40
     ldr r2, =func_02009df0
     mov r1, #0x40

@@ -36,8 +36,8 @@ extern unsigned short data_020ac15c;
 extern Ent data_020aecfc[];
 extern Ent2 data_020ac17c[];
 void func_0203a58c(short);
-void func_02051f18(void *, void *, int);
-void func_0204baa0(void *, void *);
+void MIi_CpuCopy32(void *, void *, int);
+void VEC_Normalize(void *, void *);
 void func_020096fc(void *, int);
 void func_02039e84(int, int, int);
 
@@ -64,8 +64,8 @@ unsigned int func_0203a5a0(int id, void *src, void *vec, short s, int b1, int b2
     e->f8  = 0;
     e->f0  = 0;
     e->h0  = 0;
-    func_02051f18(src, e->v2c, 12);
-    func_0204baa0(vec, e->v44);
+    MIi_CpuCopy32(src, e->v2c, 12);
+    VEC_Normalize(vec, e->v44);
     {
         int x1 = b1;
         int x2 = b2;

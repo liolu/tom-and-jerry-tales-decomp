@@ -3,8 +3,8 @@
  * tools/donor_match.py */
 typedef unsigned long u32;
 typedef u32 OSIntrMode;
-extern OSIntrMode func_020517f8(void);
-extern OSIntrMode func_0205180c(OSIntrMode state);
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 typedef enum {
     OS_ARENA_MAIN         = 0,
     OS_ARENA_MAIN_SUBPRIV = 1,
@@ -38,17 +38,17 @@ typedef struct {
     void *arenaEnd;
     HeapDesc *heapArray;
 } OSHeapInfo;
-extern void *data_021b06e4[OS_ARENA_MAX];
+extern void *OSiHeapInfo[OS_ARENA_MAX];
 OSHeapHandle func_02051248(OSArenaId id, void *start, void *end) {
     OSHeapInfo *heapInfo;
     OSHeapHandle heap;
     HeapDesc *hd;
     Cell *cell;
-    OSIntrMode enabled = func_020517f8();
+    OSIntrMode enabled = OS_DisableInterrupts();
 
     ((void) 0);
     ((void) 0);
-    heapInfo = data_021b06e4[id];
+    heapInfo = OSiHeapInfo[id];
 
     ((void) 0);
     ((void) 0);
@@ -73,11 +73,11 @@ OSHeapHandle func_02051248(OSArenaId id, void *start, void *end) {
             hd->free      = cell;
             hd->allocated = 0;
 
-            (void) func_0205180c(enabled);
+            (void) OS_RestoreInterrupts(enabled);
             return heap;
         }
     }
 
-    (void) func_0205180c(enabled);
+    (void) OS_RestoreInterrupts(enabled);
     return -1;
 }

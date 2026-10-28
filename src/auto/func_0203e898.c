@@ -4,9 +4,9 @@ void func_0203d740(void);
 void func_0203d8d8(void);
 void func_0203e724(void);
 void func_0203e818(void);
-void func_02051a48(void);
-void func_02052064(void);
-void func_02059264(void);
+void OS_Terminate(void);
+void MI_CpuCopy8(void);
+void STD_GetStringLength(void);
 extern char data_020b8b44[];
 // clang-format off
 asm void func_0203e898(void) {
@@ -29,7 +29,7 @@ asm void func_0203e898(void) {
     str r0, [sp, #0x268]
     mov r5, #0x0
     bne L_0203e8e8
-    bl func_02051a48
+    bl OS_Terminate
 L_0203e8e8:
     ldr r2, =data_020b8b44
     ldr r0, [sp, #0x10]
@@ -59,7 +59,7 @@ L_0203e914:
     mov r0, r10
     add r1, sp, #0x28
     mov r2, r6
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r1, [sp, #0x268]
     ldr r0, [sp, #0x24]
     cmp r1, r0
@@ -77,20 +77,20 @@ L_0203e914:
     ldr r2, [sp, #0x18]
     mov r0, r10
     mov r1, r4
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r0, [sp, #0x18]
     add r1, r4, r0
     mov r0, #0x0
     swpb r0, r0, [r1]
     mov r0, r10
-    bl func_02059264
+    bl STD_GetStringLength
     add r10, r10, r0
     b L_0203e9e0
 L_0203e9c0:
     mov r0, r10
     mov r1, r4
     mov r2, r6
-    bl func_02052064
+    bl MI_CpuCopy8
     add r1, r4, r6
     mov r0, #0x0
     swpb r0, r0, [r1]

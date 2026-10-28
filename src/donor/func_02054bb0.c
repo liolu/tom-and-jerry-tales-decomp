@@ -4,12 +4,12 @@
 typedef signed char s8;
 typedef long s32;
 typedef s32 M2C_UNK;
-extern M2C_UNK func_02050308(void *);
-extern s32 func_020517f8();
-extern M2C_UNK func_0205180c(s32);
+extern M2C_UNK OS_WakeupThread(void *);
+extern s32 OS_DisableInterrupts();
+extern M2C_UNK OS_RestoreInterrupts(s32);
 extern M2C_UNK func_02053814(void *, s32);
 extern s32 func_0205444c(void *);
-extern M2C_UNK func_02054660();
+extern M2C_UNK FSi_ExecuteAsyncCommand();
 void func_02054bb0(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r0;
@@ -29,13 +29,13 @@ void func_02054bb0(void *arg0, s32 arg1) {
         if (func_0205444c(arg0) == 0) {
             return;
         }
-        func_02054660();
+        FSi_ExecuteAsyncCommand();
         return;
     }
     temp_r5                                         = (*(void **) ((s8 *) (arg0) + (0x24)));
-    temp_r0                                         = func_020517f8();
+    temp_r0                                         = OS_DisableInterrupts();
     (*(volatile s32 *) ((s8 *) (temp_r5) + (0x14))) = arg1;
     (*(volatile s32 *) ((s8 *) (arg0) + (0x1C)))    = (s32) ((*(volatile s32 *) ((s8 *) (arg0) + (0x1C))) & ~0x200);
-    func_02050308(arg0 + 0xC);
-    func_0205180c(temp_r0);
+    OS_WakeupThread(arg0 + 0xC);
+    OS_RestoreInterrupts(temp_r0);
 }

@@ -7,7 +7,7 @@ void func_01ffa2dc(void *, void *, void *, s32);
 void func_02036380(void *);
 s32 func_020363a4(void *, u16);
 void func_02039d0c(void *, void *, s32);
-void func_0204b918(void *, void *, void *);
+void VEC_Add(void *, void *, void *);
 void func_0203620c(u8 *arg0, u8 *arg1, s32 arg2) {
     u8 *base;
     u32 i;
@@ -35,7 +35,7 @@ void func_0203620c(u8 *arg0, u8 *arg1, s32 arg2) {
         func_01ffa2dc(v8 + 0xC, v9 + 0xC, v4 + 0xC, *(s32 *) (arg0 + 0xC));
         func_02039d0c(v8, v4, 0x1000 - *(s32 *) (arg0 + 0xC));
         func_02039d0c(v9, &sp0, *(s32 *) (arg0 + 0xC));
-        func_0204b918(v4, &sp0, v4);
+        VEC_Add(v4, &sp0, v4);
         i++;
         v8 += 0x14;
         v9 += 0x14;

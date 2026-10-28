@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-void func_0204b77c(void);
+void FX_Div(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_020357e4(void) {
@@ -29,7 +29,7 @@ L_02035820:
 L_02035838:
     ldr r0, [r5, #0x18]
     rsb r0, r0, #0x1000
-    bl func_0204b77c
+    bl FX_Div
     ldr r1, [r4, #0x0]
     sub r0, r1, r0
     str r0, [r4, #0x0]
@@ -80,7 +80,7 @@ L_020358cc:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r5, #0x1c]
     ldr r2, [r4, #0x0]
     mov r1, r0
@@ -102,7 +102,7 @@ L_0203592c:
 L_02035944:
     ldr r0, [r5, #0x18]
     rsb r0, r0, #0x1000
-    bl func_0204b77c
+    bl FX_Div
     ldr r1, [r4, #0x0]
     sub r0, r1, r0
     str r0, [r4, #0x0]
@@ -153,7 +153,7 @@ L_020359ec:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r5, #0x1c]
     ldr r2, [r4, #0x0]
     mov r1, r0
@@ -168,7 +168,7 @@ L_02035a34:
     add r0, r0, r11
     str r0, [r5, #0x28]
     ldr r1, [r5, #0x2c]
-    bl func_0204b77c
+    bl FX_Div
     strh r0, [r5, #0x30]
     ldrh r1, [r5, #0x30]
     ldr r0, =0xfd7

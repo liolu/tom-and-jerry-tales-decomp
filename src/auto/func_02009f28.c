@@ -2,14 +2,14 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02009f80();
-extern void func_020517f8();
-extern void func_0205180c();
+extern void OS_DisableInterrupts();
+extern void OS_RestoreInterrupts();
 extern char data_0206a34c[];
 // clang-format off
 asm void func_02009f28(void) {
     stmfd sp!, {r3, r4, r5, lr}
     mov r5, r0
-    bl func_020517f8
+    bl OS_DisableInterrupts
     ldr r1, =data_0206a34c
     mov r4, r0
     ldr r0, [r1, #0x4]
@@ -25,7 +25,7 @@ asm void func_02009f28(void) {
     bl func_02009f80
     strh r0, [r5, #0x2]
     mov r0, r4
-    bl func_0205180c
+    bl OS_RestoreInterrupts
     ldmfd sp!, {r3, r4, r5, pc}
 }
 // clang-format on

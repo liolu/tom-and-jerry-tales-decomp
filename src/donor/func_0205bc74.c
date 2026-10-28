@@ -15,14 +15,14 @@ typedef struct Cs {
 } Cs;
 extern int func_0205dd98(void *, int);
 extern int func_020509fc(void *);
-extern void func_020508e0(void *);
+extern void OS_LockMutex(void *);
 extern void func_02050964(void *);
-extern int func_0205b3e0(void *, void *, char *, void *);
+extern int __pformatter(void *, void *, char *, void *);
 extern unsigned char data_0206ded4[];
 extern unsigned char data_021b4070[];
-extern TInfo data_021b0484;
-extern Cs data_021b3fe0;
-extern Cs data_021b4004;
+extern TInfo OSi_ThreadInfo;
+extern Cs __cs_id;
+extern Cs __cs_ref;
 extern unsigned char func_0205bc04;
 int func_0205bc74(char *fmt, ...) {
     int r;
@@ -30,18 +30,18 @@ int func_0205bc74(char *fmt, ...) {
         return -1;
     }
     if (func_020509fc(data_021b4070) == 0) {
-        data_021b3fe0.v = data_021b0484.cur->id;
-        data_021b4004.v = 1;
-    } else if (data_021b3fe0.v == data_021b0484.cur->id) {
-        data_021b4004.v = data_021b4004.v + 1;
+        __cs_id.v  = OSi_ThreadInfo.cur->id;
+        __cs_ref.v = 1;
+    } else if (__cs_id.v == OSi_ThreadInfo.cur->id) {
+        __cs_ref.v = __cs_ref.v + 1;
     } else {
-        func_020508e0(data_021b4070);
-        data_021b3fe0.v = data_021b0484.cur->id;
-        data_021b4004.v = 1;
+        OS_LockMutex(data_021b4070);
+        __cs_id.v  = OSi_ThreadInfo.cur->id;
+        __cs_ref.v = 1;
     }
-    r               = func_0205b3e0(&func_0205bc04, data_0206ded4, fmt, (void *) ((((unsigned int) &fmt) & ~3) + 4));
-    data_021b4004.v = data_021b4004.v - 1;
-    if (data_021b4004.v == 0) {
+    r          = __pformatter(&func_0205bc04, data_0206ded4, fmt, (void *) ((((unsigned int) &fmt) & ~3) + 4));
+    __cs_ref.v = __cs_ref.v - 1;
+    if (__cs_ref.v == 0) {
         func_02050964(data_021b4070);
     }
     return r;

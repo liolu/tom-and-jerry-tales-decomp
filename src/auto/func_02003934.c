@@ -6,7 +6,7 @@ extern void func_02003aa8();
 extern void func_02029970();
 extern void func_020312cc();
 extern void func_020312e0();
-extern void func_02051f7c();
+extern void MIi_CpuCopyFast();
 extern char data_0206e698[];
 extern char data_0206e6a4[];
 extern char data_0206ea1c[];
@@ -75,7 +75,7 @@ L_0200398c:
     add r0, r6, #0x29c
     add r0, r0, #0x1400
     mov r2, #0xdc
-    bl func_02051f7c
+    bl MIi_CpuCopyFast
     mov r2, #0x1
     ldr r0, =data_0206ea3c+1
     add r1, r0, r5
@@ -103,7 +103,7 @@ L_02003a44:
     add r1, r1, #0x1400
     mov r2, #0xdc
     str r3, [r6, #0xf8]
-    bl func_02051f7c
+    bl MIi_CpuCopyFast
     ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 }
 // clang-format on

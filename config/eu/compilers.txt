@@ -117,8 +117,6 @@ src/donor/func_0203cf2c.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0203eb44.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02046924.c 2.0/sp1p5
 src/donor/func_02046c28.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/NNS_SndStrmSetup.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/func_02047c78.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_020482d4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02048338.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204839c.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
@@ -126,10 +124,7 @@ src/donor/func_02048400.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/NNS_SndArcGetStrmInfo.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_020484c8.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/NNS_SndArcGetStrmPlayerInfo.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/func_02049468.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/NNS_SndArcPlayerStartSeqArcEx.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204b038.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/FX_Atan2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204d1e4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204d47c.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204e0d8.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
@@ -140,7 +135,6 @@ src/donor/func_0204e9f8.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204ebb8.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204ec8c.c 2.0/sp1p5
 src/donor/func_0204ee24.c 2.0/sp1p5
-src/donor/OSi_EnterTimerCallback.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204ef3c.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204ef68.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_0204ef98.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
@@ -171,7 +165,6 @@ src/donor/func_0205444c.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02054738.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02054bb0.c 2.0/sp1p5
 src/donor/func_02054c84.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/func_02055144.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_020552d4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02055868.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02055a24.c 2.0/sp1p5

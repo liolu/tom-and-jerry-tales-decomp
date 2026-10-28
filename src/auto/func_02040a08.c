@@ -16,8 +16,8 @@ Tri *func_02041610(void);
 void func_02041640(void);
 void func_02041654(s32, s32, s32);
 s32 func_02041c34(s32, s32, s32);
-void func_0205bdf4(void *, void *, ...);
-s32 func_0205c108(void *, void *);
+void sprintf(void *, void *, ...);
+s32 strcmp(void *, void *);
 s32 func_0205c52c(s32, void *);
 extern s32 data_0206dbc0;
 extern u8 data_0206dbdc;
@@ -42,7 +42,7 @@ void func_02040a08(s32 arg0, s32 arg1, s32 arg2) {
     saveB                        = data_021a7240;
     saveT                        = (*(Tri *) &data_021a7224[4]);
     (*(Tri *) &data_021a7224[4]) = data_021a7244;
-    if (func_0205c108(data_021a7234.b, &data_0206dbdc) == 0) {
+    if (strcmp(data_021a7234.b, &data_0206dbdc) == 0) {
         data_021a7234.a = &data_0206dc3c;
         data_021a7234.b = &data_0206dc10;
         data_021a7234.c = 0;
@@ -55,9 +55,9 @@ void func_02040a08(s32 arg0, s32 arg1, s32 arg2) {
     func_02041640();
     func_020415b8(&cur);
     if (func_0205c52c(arg0, &data_0206dc48) != 0 || func_0205c52c(arg0, &data_0206dc50) != 0) {
-        func_0205bdf4(buf, &data_0206dc58, data_0206dbc0, arg0);
+        sprintf(buf, &data_0206dc58, data_0206dbc0, arg0);
     } else {
-        func_0205bdf4(buf, &data_0206dc40, data_0206dbc0, arg0, &data_0206dc48);
+        sprintf(buf, &data_0206dc40, data_0206dbc0, arg0, &data_0206dc48);
     }
     func_02040d5c(buf, arg1, arg2);
     func_02041654(0, arg1, arg2);

@@ -17,7 +17,7 @@ s32 func_02041c34(void *, s32, s32);
 s16 *func_0203a95c(s32);
 void func_020415b8(void *);
 s32 func_0205c52c(void *, void *);
-void func_0205bdf4(void *, void *, s32, void *, ...);
+void sprintf(void *, void *, s32, void *, ...);
 void func_02040d5c(void *, s32, s32);
 void func_02041654(s32, s32, s32);
 void func_020413f0(void *, void *, s32, s32, s32, s32);
@@ -48,9 +48,9 @@ s16 func_02040bc4(void *name, s32 a1, s32 a2) {
     r        = *func_0203a95c((s16) rec.id);
     func_020415b8(&rec);
     if (func_0205c52c(name, data_0206dc48) != 0 || func_0205c52c(name, data_0206dc50) != 0) {
-        func_0205bdf4(buf, data_0206dc58, data_0206dbc0, name);
+        sprintf(buf, data_0206dc58, data_0206dbc0, name);
     } else {
-        func_0205bdf4(buf, data_0206dc40, data_0206dbc0, name, data_0206dc48);
+        sprintf(buf, data_0206dc40, data_0206dbc0, name, data_0206dc48);
     }
     func_02040d5c(buf, a1, a2);
     func_02041654(0, a1, a2);

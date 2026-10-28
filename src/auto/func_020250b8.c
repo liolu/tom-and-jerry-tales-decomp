@@ -4,7 +4,7 @@ typedef struct {
     u32 state;
 } G;
 extern G data_020877d0;
-extern void func_02051a48(void);
+extern void OS_Terminate(void);
 void func_020250b8(void) {
     switch (data_020877d0.state) {
         case 0:
@@ -18,7 +18,7 @@ void func_020250b8(void) {
         case 3:
             break;
         default:
-            func_02051a48();
+            OS_Terminate();
             break;
     }
 }

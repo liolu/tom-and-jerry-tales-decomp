@@ -4,12 +4,12 @@ typedef struct {
 } E;
 extern u16 data_0208ecd4;
 extern E data_0208ece4[];
-s32 func_0205c108(void *, s32);
+s32 strcmp(void *, s32);
 s32 func_0203382c(s32 a) {
     u16 n = data_0208ecd4;
     s32 i;
     for (i = 0; i < n; i++) {
-        if (func_0205c108(&data_0208ece4[i].b[0xA4], a) == 0) {
+        if (strcmp(&data_0208ece4[i].b[0xA4], a) == 0) {
             return i;
         }
     }

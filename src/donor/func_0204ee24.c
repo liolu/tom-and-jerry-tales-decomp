@@ -7,19 +7,19 @@ typedef struct {
     int a;
     int b;
 } CB;
-extern CB data_021b03fc[];
-extern int data_027e0000[];
+extern CB OSi_IrqCallbackInfo[];
+extern int SDK_AUTOLOAD_DTCM_START[];
 void func_0204ee24(u32 mask, int fn) {
     int i;
     for (i = 0; i < 22; i++, mask >>= 1) {
         if (mask & 1) {
             CB *p = 0;
             if (i >= 8 && i <= 11) {
-                p = &data_021b03fc[i - 8];
+                p = &OSi_IrqCallbackInfo[i - 8];
             } else if (i >= 3 && i <= 6) {
-                p = &data_021b03fc[i + 1];
+                p = &OSi_IrqCallbackInfo[i + 1];
             } else {
-                data_027e0000[i] = fn;
+                SDK_AUTOLOAD_DTCM_START[i] = fn;
             }
             if (p != 0) {
                 p->fn = fn;

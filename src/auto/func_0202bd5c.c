@@ -1,6 +1,6 @@
 extern void func_020312e0(void *, void *);
-extern void func_02051a48(void);
-extern void func_0205bdf4(void *, void *, void *, void *, void *);
+extern void OS_Terminate(void);
+extern void sprintf(void *, void *, void *, void *, void *);
 extern char data_0206cb58;
 extern char data_0206cb60;
 extern char data_0206cb68;
@@ -42,7 +42,7 @@ void func_0202bd5c(unsigned int a, unsigned int b) {
             r4 = &data_0206cb90;
             break;
         default:
-            func_02051a48();
+            OS_Terminate();
             break;
     }
     switch (b) {
@@ -60,9 +60,9 @@ void func_0202bd5c(unsigned int a, unsigned int b) {
             r5 = &data_0206cba8;
             break;
         default:
-            func_02051a48();
+            OS_Terminate();
             break;
     }
-    func_0205bdf4(&data_0206e7e8, &data_0206cbb0, &data_0206cbbc, r4, r5);
+    sprintf(&data_0206e7e8, &data_0206cbb0, &data_0206cbbc, r4, r5);
     func_020312e0(&data_0206e7e8, &data_020880c0);
 }

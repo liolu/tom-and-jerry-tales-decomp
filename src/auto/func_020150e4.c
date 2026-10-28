@@ -4,7 +4,7 @@
 extern void func_01ff8000();
 extern void func_020132c4();
 extern void func_02015240();
-extern void func_02051fd0();
+extern void MI_CpuFill8();
 extern char data_0208705c[];
 extern char data_0208706c[];
 extern char data_02087070[];
@@ -24,7 +24,7 @@ asm void func_020150e4(void) {
     ldr r2, =0x1fa4
     str r0, [r1, r4, lsl #0x3]
     mov r1, #0x0
-    bl func_02051fd0
+    bl MI_CpuFill8
 L_02015120:
     mov r0, r4
     bl func_02015240

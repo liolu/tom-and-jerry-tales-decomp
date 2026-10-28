@@ -1,8 +1,8 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_0205918c();
-extern void func_020592b0();
+extern void STD_CopyString();
+extern void STD_CompareString();
 extern char data_0206a32c[];
 extern char data_0206e6d4[];
 extern char data_020ac17c[];
@@ -26,14 +26,14 @@ asm void func_02009c8c(void) {
     ldr r2, [r4, #0x70]
     add r0, r5, #0x26
     strh r3, [r2, #0x4]
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     ldr r0, [r4, #0x70]
     moveq r2, #0x0
     beq L_02009cf8
     add r1, r5, #0x26
     add r0, r0, #0x28
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [r4, #0x70]
     mov r2, #0x1
 L_02009cf8:
@@ -41,14 +41,14 @@ L_02009cf8:
     swpb r0, r2, [r1]
     ldr r1, =data_0206a32c
     add r0, r5, #0x6
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     ldr r0, [r4, #0x70]
     moveq r2, #0x0
     beq L_02009d30
     add r1, r5, #0x6
     add r0, r0, #0x8
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [r4, #0x70]
     mov r2, #0x1
 L_02009d30:

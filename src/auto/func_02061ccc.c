@@ -1,9 +1,9 @@
 /* compiler: 1.2/sp2p3 -O4,p -lang c99 -inline on,noauto */
 /* MSL_Sqrt from https://github.com/kh-recoded-decomp/kh-recoded-decomp eu/src/asm_stubs/calls/MSL_Sqrt.c (license: MIT),
  * reused by tools/donor_match.py */
-extern int data_021b4400;
+extern int errno;
 // clang-format off
-asm double func_02061ccc (double x)
+asm double sqrt (double x)
 {
     stmfd sp!, {r4-r6, lr}
     ldr r2, =0x7ff00000
@@ -111,7 +111,7 @@ asm double func_02061ccc (double x)
 @domain_error:
     ldr r2, =0x7ff80000
     orr r1, r1, r2
-    ldr r3, =data_021b4400
+    ldr r3, =errno
     mov r4, #0x21
     str r4, [r3]
     ldmfd sp!, {r4-r6, lr}

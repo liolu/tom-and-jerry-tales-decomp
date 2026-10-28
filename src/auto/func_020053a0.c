@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 s32 func_020053a0(s32 arg0) {
-    switch (arg0) {                                 /* irregular */
+    switch (arg0) {
         case 0x2E:
             return 0;
         case 0x34:

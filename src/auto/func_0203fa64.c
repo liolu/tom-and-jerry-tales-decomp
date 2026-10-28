@@ -5,7 +5,7 @@ extern D data_0206db50;
 extern char data_020ba3fc, data_020ba3e8, data_020ba3ec, data_020ba3f0;
 extern int data_020ba3e0[];
 int func_0203fcd8(void);
-void func_02049984(char *, int, int);
+void NNS_SndArcStrmStart(char *, int, int);
 void func_020499c4(char *, int, int);
 void func_0203fa64(int arg0) {
     char *r4;
@@ -31,7 +31,7 @@ void func_0203fa64(int arg0) {
     if (data_020ba3e0[1] == 0) {
         return;
     }
-    func_02049984(r4, arg0, 0);
+    NNS_SndArcStrmStart(r4, arg0, 0);
     switch (r5) {
         case 0:
             func_020499c4(r4, data_0206db50.f0, 0);

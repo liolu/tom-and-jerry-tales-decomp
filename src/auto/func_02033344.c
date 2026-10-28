@@ -8,7 +8,7 @@ void func_020353c0(void);
 void func_0203540c(void);
 void func_0204b820(void);
 void func_0204b858(void);
-void func_0204da74(void);
+void G3X_GetBoxTestResult(void);
 extern char data_0208876c[];
 extern char data_0208a360[];
 // clang-format off
@@ -57,7 +57,7 @@ L_020333d8:
     mov r4, r0, lsr #0x10
 L_020333e4:
     mov r0, r5
-    bl func_0204da74
+    bl G3X_GetBoxTestResult
     cmp r0, #0x0
     beq L_020333fc
     cmp r4, #0x190
@@ -190,7 +190,7 @@ L_0203359c:
     add r9, sp, #0x10
 L_020335d0:
     mov r0, r9
-    bl func_0204da74
+    bl G3X_GetBoxTestResult
     cmp r0, #0x0
     bne L_020335d0
 L_020335e0:

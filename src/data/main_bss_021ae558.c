@@ -1,5 +1,5 @@
 /* compiler: 2.0/sp1p5 */
 #include "m2c.h"
 
-u32 data_021ae558[3];
-u32 data_021ae564[272];
+u32 sPrioList[3];
+u32 sSeqPlayer[272];

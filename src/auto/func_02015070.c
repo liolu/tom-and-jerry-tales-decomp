@@ -1,7 +1,7 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_02051fd0();
+extern void MI_CpuFill8();
 extern char data_0206ad48[];
 extern char data_0208705c[];
 extern char data_0208706c[];
@@ -18,7 +18,7 @@ asm void func_02015070(void) {
     ldr r0, =data_0208706c
     mov r1, #0x0
     mov r2, #0x20
-    bl func_02051fd0
+    bl MI_CpuFill8
     mov lr, #0x0
     ldr r2, =data_0208706c
     mov ip, lr

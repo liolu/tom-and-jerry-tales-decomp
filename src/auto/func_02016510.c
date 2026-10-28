@@ -4,7 +4,7 @@
 extern void func_02016a94();
 extern void func_0203eb58();
 extern void func_0203edf0();
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_0206e6d4[];
 extern char data_02087090[];
 extern char data_02087098[];
@@ -84,7 +84,7 @@ L_020165f8:
     strh r2, [r1, #0x4]
     b L_02016634
 L_02016624:
-    bl func_02051a48
+    bl OS_Terminate
     add sp, sp, #0x8
     mvn r0, #0x0
     ldmfd sp!, {r3, pc}

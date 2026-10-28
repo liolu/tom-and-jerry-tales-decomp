@@ -7,13 +7,13 @@ extern void func_02029404();
 extern void func_02030ed4();
 extern void func_02030ee0();
 extern void func_020312cc();
-extern void func_02052064();
-extern void func_0205918c();
+extern void MI_CpuCopy8();
+extern void STD_CopyString();
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_0205bdf4();
+extern void STD_GetStringLength();
+extern void sprintf();
 extern char data_02064110[];
-extern char data_020690b8[];
+extern char __upper_mapC[];
 extern char data_0206ddc4[];
 extern char data_0206de04[];
 extern char data_0206de1c[];
@@ -33,7 +33,7 @@ asm void func_02044618(void) {
     add r0, sp, #0x91
     mov r2, r10
     mov r5, #0x0
-    bl func_0205bdf4
+    bl sprintf
     ldr r1, =data_0206e698
     add r0, sp, #0x8
     bl func_02030ed4
@@ -51,7 +51,7 @@ asm void func_02044618(void) {
 L_02044670:
     ldr r1, [sp, #0xc]
     add r0, sp, #0x10
-    bl func_0205918c
+    bl STD_CopyString
     add r0, sp, #0x10
     bl func_0200496c
     cmp r0, #0x0
@@ -77,7 +77,7 @@ L_02044698:
     ldr r0, =data_0206e7e8
     add r2, sp, #0x10
     mov r3, r10
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x5
     str r0, [sp, #0x4]
     ldr r0, =data_0206e7e8
@@ -91,9 +91,9 @@ L_02044698:
     ldr r1, =data_0206de1c
     add r2, sp, #0x10
     mov r3, r10
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_0206e7e8
-    bl func_02059264
+    bl STD_GetStringLength
     mov r7, r0
     ldr r1, =data_0206e7e8
     add r0, sp, #0x50
@@ -103,7 +103,7 @@ L_02044698:
     cmp r7, #0x0
     mov r1, r8
     ble L_02044788
-    ldr r0, =data_020690b8
+    ldr r0, =__upper_mapC
     add r2, sp, #0x50
 L_0204474c:
     ldrsb r3, [r2, #0x0]
@@ -156,11 +156,11 @@ L_020447d8:
     swpb r0, r0, [r2]
     ldr r1, =data_0206e7e8
     add r0, r7, #0x9
-    bl func_0205918c
+    bl STD_CopyString
     add r0, sp, #0x0
     mov r1, r7
     mov r2, #0x8
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r0, [r9, #0x0]
     add r0, r0, #0x1
     str r0, [r9, #0x0]

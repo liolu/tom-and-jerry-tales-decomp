@@ -12,7 +12,7 @@ void func_02030ed4(int *, int);
 void func_02030ee0(int *, int);
 void func_020326c0(int, unsigned short, int);
 int func_02040570(int *, char *, int);
-void func_02051a48(void);
+void OS_Terminate(void);
 unsigned short func_02032604(int arg0) {
     int sp0;
     unsigned short var_r8;
@@ -27,7 +27,7 @@ unsigned short func_02032604(int arg0) {
                 func_02030ed4(&sp0, arg0);
                 r10 = func_02040570(&p->g, &data_0206d1fc, arg0);
                 if (r10 == 0) {
-                    func_02051a48();
+                    OS_Terminate();
                 }
                 func_020326c0(r10, var_r8, arg0);
                 func_02030ee0(&sp0, arg0);

@@ -37,7 +37,7 @@ s32 func_020381c0(void *, void *);
 s32 func_020370b0(void *, void *, void *, s32, s32);
 s32 func_02037020(void *, void *, void *, s32, s32);
 s32 func_020372f8(void *, void *, void *, s32, s32);
-void func_02051a48(void);
+void OS_Terminate(void);
 s16 *func_0203a95c(s32);
 void func_0203a58c(s32);
 void func_02039280(void *, void *, s32, void *, s32);
@@ -84,7 +84,7 @@ s32 func_020374e8(Obj *obj, Vec *in, Vec *out, s32 *a3, s32 a4) {
             break;
         default:
             r = 0;
-            func_02051a48();
+            OS_Terminate();
             break;
     }
     if (r != 0) {

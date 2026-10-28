@@ -25,7 +25,7 @@ extern void func_0203de64();
 extern void func_0203de74();
 extern void func_0203de84();
 extern void func_0203de98();
-extern void func_0204d760();
+extern void G3X_Reset();
 typedef struct {
     char p0[2];
     unsigned char b2;
@@ -72,7 +72,7 @@ void func_0202cf4c(void) {
             break;
         case 1:
             if (data_0206cc1c != 0) {
-                func_0204d760();
+                G3X_Reset();
                 func_02002608();
                 *(int *) 0x04000444 = 0;
                 func_02003f98();

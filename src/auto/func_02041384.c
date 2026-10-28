@@ -8,13 +8,13 @@ typedef struct {
 } Ent;
 extern Ent data_021a72a4[];
 extern char data_021a72b4[];
-s32 func_0205c108(void *, s32);
+s32 strcmp(void *, s32);
 s32 func_02041384(s32 arg) {
     s32 i  = 0;
     Ent *p = data_021a72a4;
     Ent *q = data_021a72a4;
     do {
-        if (func_0205c108(p, arg) == 0 && q->e != 0) {
+        if (strcmp(p, arg) == 0 && q->e != 0) {
             return *(s32 *) (data_021a72b4 + i * 0x14);
         }
         i++;

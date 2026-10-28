@@ -2,4 +2,4 @@
 #include "m2c.h"
 
 u32 data_021b07d8[1];
-u32 data_021b07dc[9];
+u32 sSndMutex[9];

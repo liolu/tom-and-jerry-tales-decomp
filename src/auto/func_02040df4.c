@@ -24,8 +24,8 @@ void func_02041420(void);
 void func_020415b8(void);
 void func_02041654(void);
 void func_020421a8(void);
-void func_0205bdf4(void);
-void func_0205c108(void);
+void sprintf(void);
+void strcmp(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_02040df4(void) {
@@ -100,73 +100,73 @@ L_02040ee8:
     ldr r4, [sp, #0x90]
     ldr r1, =data_0206dc68
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x0
     beq L_02041010
     ldr r1, =data_0206dbf4
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x2
     beq L_02041010
     ldr r1, =data_0206dbdc
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x3
     beq L_02041010
     ldr r1, =data_0206dc74
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x1
     beq L_02041010
     ldr r1, =data_0206dbd4
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x5
     beq L_02041010
     ldr r1, =data_0206dbe4
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x4
     beq L_02041010
     ldr r1, =data_0206dc04
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x6
     beq L_02041010
     ldr r1, =data_0206dc24
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x7
     beq L_02041010
     ldr r1, =data_0206dbfc
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x8
     beq L_02041010
     ldr r1, =data_0206dc2c
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0x9
     beq L_02041010
     ldr r1, =data_0206dc18
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     moveq r0, #0xa
     beq L_02041010
     ldr r1, =data_0206dc34
     mov r0, r4
-    bl func_0205c108
+    bl strcmp
     cmp r0, #0x0
     addne sp, sp, #0x108
     moveq r0, #0xb
@@ -275,7 +275,7 @@ L_0204117c:
     ldr r2, [r0, #0x0]
     ldr r1, =data_0206dc58
     add r0, sp, #0x4
-    bl func_0205bdf4
+    bl sprintf
     add r0, sp, #0x4
     mov r1, r9
     mov r2, r8

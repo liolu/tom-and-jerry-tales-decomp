@@ -3,8 +3,8 @@
  * tools/donor_match.py */
 typedef long s32;
 typedef unsigned long u32;
-extern u32 func_020517f8(void);
-extern void func_0205180c(u32 arg0);
+extern u32 OS_DisableInterrupts(void);
+extern void OS_RestoreInterrupts(u32 arg0);
 extern void func_01ffa6c0(s32 arg0, u32 arg1, u32 arg2, u32 arg3);
 void func_02051a74(s32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     u32 state;
@@ -16,10 +16,10 @@ void func_02051a74(s32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     ctrl = (volatile u32 *) (0x040000B0 + (((param_1 * 3) + 2) * 4));
     while (*ctrl & 0x80000000) {
     }
-    state                                                 = func_020517f8();
+    state                                                 = OS_DisableInterrupts();
     *(volatile u32 *) (0x04000000 + (param_1 * 4) + 0xE0) = param_3;
     func_01ffa6c0(param_1, 0x040000E0 + (param_1 * 4), param_2, (param_4 >> 2) | 0x85000000);
-    func_0205180c(state);
+    OS_RestoreInterrupts(state);
     while (*ctrl & 0x80000000) {
     }
 }

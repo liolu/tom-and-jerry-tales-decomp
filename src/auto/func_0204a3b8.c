@@ -19,7 +19,7 @@ struct Obj {
     void (*f164)(Obj *);
 };
 
-s32 *func_02048464(s32);
+s32 *NNS_SndArcGetStrmInfo(s32);
 void func_0204ad24(Obj *, s32);
 
 void func_0204a3b8(Obj *o) {
@@ -37,7 +37,7 @@ void func_0204a3b8(Obj *o) {
     if (o->f13c(0, &sp[2], &sp[0], o->a140) == 0) {
         return;
     }
-    r = func_02048464(sp[0]);
+    r = NNS_SndArcGetStrmInfo(sp[0]);
     if (r == 0) {
         return;
     }

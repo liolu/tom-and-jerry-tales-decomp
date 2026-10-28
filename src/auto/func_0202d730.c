@@ -24,7 +24,7 @@ extern void func_02043fd0();
 extern void func_020442a8();
 extern void func_02044460();
 extern void func_02045d74();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_0206ccc8[];
 extern char data_0206ccd0[];
 extern char data_0206ccfc[];
@@ -85,7 +85,7 @@ L_0202d7ac:
     beq L_0202d850
     ldr r0, =data_02088404
     ldr r1, =data_0206ccc8
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -119,7 +119,7 @@ L_0202d7ac:
 L_0202d850:
     ldr r0, =data_02088404
     ldr r1, =data_0206ccfc
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -176,7 +176,7 @@ L_0202d8e4:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206cd04
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -225,7 +225,7 @@ L_0202d9e4:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206cd0c
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -274,7 +274,7 @@ L_0202da8c:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206cd14
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -311,7 +311,7 @@ L_0202db0c:
     bl func_02045d74
     ldr r0, =data_02088404
     ldr r1, =data_0206ccc8
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404
@@ -397,7 +397,7 @@ L_0202dc50:
 L_0202dc74:
     ldr r0, =data_02088404
     ldr r1, =data_0206cd04
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_02088404
     bl func_0204398c
     ldr r0, =data_02088404

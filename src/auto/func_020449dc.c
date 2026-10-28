@@ -15,7 +15,7 @@ typedef struct {
     s32 cnt;
     s32 n;
 } O;
-s32 func_0204b77c(s32, s32);
+s32 FX_Div(s32, s32);
 void func_01ff9df0(V *, V *, V *, s32);
 
 s32 func_020449dc(O *obj, s32 t, V *out, s32 flag) {
@@ -78,7 +78,7 @@ s32 func_020449dc(O *obj, s32 t, V *out, s32 flag) {
             out->y = prev->v.y;
             out->z = prev->v.z;
         } else {
-            s32 r = func_0204b77c(t - (prev->time << 12), (cur->time - prev->time) << 12);
+            s32 r = FX_Div(t - (prev->time << 12), (cur->time - prev->time) << 12);
             func_01ff9df0(&cur->v, &prev->v, out, r);
         }
     }

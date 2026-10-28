@@ -36,23 +36,23 @@ void func_0203f6fc(void);
 void func_0203f87c(void);
 void func_0203f9a4(void);
 void func_0203fa64(void);
-void func_0204b014(void);
+void MTX_Identity33_(void);
 void func_0204b070(void);
-void func_0204b404(void);
-void func_0204b77c(void);
-void func_0204b918(void);
-void func_0204b94c(void);
-void func_0204b980(void);
-void func_0204b9bc(void);
-void func_0204baa0(void);
-void func_0204c27c(void);
-void func_02051f18(void);
-void func_0205918c(void);
+void MTX_MultVec33(void);
+void FX_Div(void);
+void VEC_Add(void);
+void VEC_Subtract(void);
+void VEC_DotProduct(void);
+void VEC_CrossProduct(void);
+void VEC_Normalize(void);
+void GXx_SetMasterBrightness_(void);
+void MIi_CpuCopy32(void);
+void STD_CopyString(void);
 void func_0205ff08(void);
-void func_0205ff14(void);
-void func_020617bc(void);
-void func_020618ec(void);
-void func_02063314(void);
+void log(void);
+void _dfix(void);
+void _dflt(void);
+void _ddiv(void);
 // clang-format off
 asm void func_020299e4(void) {
     stmdb sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -208,7 +208,7 @@ L_02029bf8:
     add r0, r0, #0x1400
     add r1, sp, #0xb8
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
     b L_02029c5c
 L_02029c20:
     cmp r11, #0x0
@@ -220,13 +220,13 @@ L_02029c20:
     mov r0, r11
     add r1, sp, #0xb8
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
     b L_02029c5c
 L_02029c4c:
     add r0, r6, #0xa0
     add r1, sp, #0xb8
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
 L_02029c5c:
     ldr r0, [r7, #0xc]
     add r1, sp, #0xb8
@@ -356,13 +356,13 @@ L_02029e10:
     add r1, sp, #0xa0
     mov r0, r11
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
     b L_02029e50
 L_02029e40:
     add r1, sp, #0xa0
     add r0, r6, #0xa0
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
 L_02029e50:
     ldr r0, [r7, #0xc]
     mov r0, r0, lsl #0x10
@@ -408,7 +408,7 @@ L_02029e50:
     add r0, r0, #0x1400
     add r1, sp, #0xa0
     add r2, sp, #0x88
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r0, [sp, #0x88]
     cmp r0, #0x0
     ldreq r0, [sp, #0x8c]
@@ -419,12 +419,12 @@ L_02029e50:
     add r0, r6, #0x94
     add r1, r8, #0x88
     mov r2, #0xc
-    bl func_02051f18
+    bl MIi_CpuCopy32
     b L_02029f40
 L_02029f34:
     add r0, sp, #0x88
     add r1, r8, #0x88
-    bl func_0204baa0
+    bl VEC_Normalize
 L_02029f40:
     mov r1, #0x0
     add r0, r6, #0x1000
@@ -436,13 +436,13 @@ L_02029f50:
     add r0, r10, #0xa0
     add r1, r6, #0xa0
     add r2, sp, #0x88
-    bl func_0204b94c
+    bl VEC_Subtract
     add r0, sp, #0x88
     add r1, r8, #0x88
-    bl func_0204baa0
+    bl VEC_Normalize
     add r0, r8, #0x88
     add r1, r6, #0x94
-    bl func_0204b980
+    bl VEC_DotProduct
     bl func_02039dd0
     str r0, [sp, #0x38]
     ldr r0, =data_0206c9c8
@@ -466,7 +466,7 @@ L_02029fcc:
     add r0, r5, #0x2c
     add r1, r6, #0x7c
     add r2, r8, #0x88
-    bl func_0204b404
+    bl MTX_MultVec33
 L_02029fdc:
     ldr r2, [r6, #0x4]
     add r1, sp, #0x94
@@ -480,11 +480,11 @@ L_02029fdc:
     add r0, r8, #0x88
     add r1, sp, #0x94
     mov r2, r0
-    bl func_0204b918
+    bl VEC_Add
     mov r1, #0x10000
     mov r0, #0x1000
     str r1, [r4, #0x2c]
-    bl func_0204b77c
+    bl FX_Div
     mov r0, r0, lsl #0x8
     str r0, [r4, #0x30]
     add r0, r8, #0x88
@@ -505,7 +505,7 @@ L_02029fdc:
     ldr r1, =data_0206ca10
     ldr r0, [sp, #0x30]
     add r0, r0, #0x8
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [sp, #0x30]
     mov r2, #0x1
     add r1, r0, #0x4e
@@ -567,7 +567,7 @@ L_0202a0a0:
     cmp r4, #0x2
     bcc L_0202a0a0
     add r0, sp, #0x64
-    bl func_0204b014
+    bl MTX_Identity33_
     ldr r1, [sp, #0x28]
     ldr r2, [sp, #0x2c]
     add r0, sp, #0x64
@@ -576,9 +576,9 @@ L_0202a0a0:
     add r1, sp, #0x64
     add r0, r2, #0x88
     add r2, r2, #0x88
-    bl func_0204b404
+    bl MTX_MultVec33
     add r0, sp, #0x64
-    bl func_0204b014
+    bl MTX_Identity33_
     ldr r1, [sp, #0x20]
     ldr r2, [sp, #0x24]
     add r0, sp, #0x64
@@ -589,7 +589,7 @@ L_0202a0a0:
     ldr r2, [sp, #0x1c]
     add r0, r0, #0x88
     add r2, r2, #0x88
-    bl func_0204b404
+    bl MTX_MultVec33
     ldrsh r2, [sp, #0x48]
     ldr r0, [sp, #0x30]
     ldrsh r4, [sp, #0x4a]
@@ -614,7 +614,7 @@ L_0202a0a0:
     add r0, r3, #0x8
     swpb r2, ip, [r1]
     ldr r1, =data_0206ca10
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [sp, #0x1c]
     mov r2, #0x28
     ldr r1, [r0, #0xb8]
@@ -635,7 +635,7 @@ L_0202a0a0:
     swpb r0, r0, [r2]
     add r0, r1, #0x8
     ldr r1, =data_0206ca10
-    bl func_0205918c
+    bl STD_CopyString
 L_0202a278:
     ldr r0, [r8, #0x58]
     orr r0, r0, #0x140
@@ -754,7 +754,7 @@ L_0202a400:
     ldr r2, =data_02087ef0
     ldr r0, =0x400006c
     strh r1, [r2, #0x0]
-    bl func_0204c27c
+    bl GXx_SetMasterBrightness_
     add r0, r6, r9, lsl #0x1
     add r0, r0, #0x1700
     mov r1, #0x0
@@ -829,7 +829,7 @@ L_0202a514:
     mov r0, #0x1000
     sub r1, r2, r1
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     add r1, r6, r9, lsl #0x1
     add r1, r1, #0x1700
     strh r0, [r1, #0x78]
@@ -877,16 +877,16 @@ L_0202a5d4:
     mla r0, r2, r0, r3
     add r0, r0, #0xa0
     add r2, sp, #0x58
-    bl func_0204b94c
+    bl VEC_Subtract
     mov r0, #0x0
     str r0, [sp, #0x5c]
     add r0, sp, #0x58
     mov r1, r0
-    bl func_0204baa0
+    bl VEC_Normalize
     ldr r1, =data_02064104
     add r0, sp, #0x58
     add r2, r6, #0x7c
-    bl func_0204b9bc
+    bl VEC_CrossProduct
     add r0, sp, #0x58
     add r3, r6, #0x94
     ldmia r0, {r0, r1, r2}
@@ -909,23 +909,23 @@ L_0202a63c:
     bge L_0202a6c8
     ldr r0, =0x47ae147b
     ldr r1, =0x3fa47ae1
-    bl func_0205ff14
+    bl log
     mov r7, r0
     mov r0, r4
     mov r4, r1
-    bl func_020618ec
+    bl _dflt
     mov r2, r0
     mov r0, r7
     mov r3, r1
     mov r1, r4
-    bl func_02063314
+    bl _ddiv
     bl func_0205ff08
     mov r2, r0
     mov r3, r1
     mov r0, #0x0
     ldr r1, =0x40b00000
     bl _dmul
-    bl func_020617bc
+    bl _dfix
     add r1, r6, r9, lsl #0x1
     add r1, r1, #0x1700
     strh r0, [r1, #0x78]
@@ -1057,7 +1057,7 @@ L_0202a888:
     beq L_0202a8c0
     add r1, r5, #0x2c
     add r2, sp, #0x4c
-    bl func_0204b918
+    bl VEC_Add
     add r0, r5, r9, lsl #0x4
     ldrsh r0, [r0, #0x56]
     mov r1, #0x0

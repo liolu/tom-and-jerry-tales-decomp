@@ -2,9 +2,9 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_020592b0();
-extern char data_020690b8[];
+extern void STD_GetStringLength();
+extern void STD_CompareString();
+extern char __upper_mapC[];
 extern char data_021a90a4[];
 extern char data_021a910c[];
 extern char data_021a9110[];
@@ -16,7 +16,7 @@ asm void func_020440e8(void) {
     ldr r1, =data_021a90a4
     mov r10, r0
     ldr r8, [r1, #0xa6c]
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x0
     mov r1, r10
@@ -26,7 +26,7 @@ asm void func_020440e8(void) {
     cmp r4, #0x0
     mov r2, r7
     ble L_02044168
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x0
 L_0204412c:
     ldrsb r0, [r3, #0x0]
@@ -66,7 +66,7 @@ L_02044194:
     adds r0, r1, #0x9
     beq L_0204417c
     mov r1, r10
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0204417c
 L_020441bc:
@@ -118,7 +118,7 @@ L_02044258:
 L_0204425c:
     mov r1, r10
     add r0, r9, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     ldreq r0, [r9, #0xc]
     addeq sp, sp, #0x44

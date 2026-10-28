@@ -10,20 +10,20 @@ typedef struct {
     u8 pad2[0x68 - 0x1C];
 } R;
 extern R data_0208a360[];
-void func_02051a48(void);
+void OS_Terminate(void);
 void func_02032f54(s32 arg0) {
     Q *q;
     s32 y, x;
     volatile s32 *g;
     if (arg0 < 0 || arg0 >= 0x96) {
-        func_02051a48();
+        OS_Terminate();
     }
     q = *(Q **) ((u8 *) data_0208a360 + arg0 * 0x68 + 0x18);
     if (q == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (q->id != arg0) {
-        func_02051a48();
+        OS_Terminate();
     }
     g     = (volatile s32 *) 0x04000440;
     g[0]  = 3;

@@ -8,8 +8,8 @@ extern void func_02030898();
 extern void func_0203b96c();
 extern void func_0203c24c();
 extern void func_0203fa64();
-extern void func_02051ee8();
-extern void func_02062f0c();
+extern void MIi_CpuCopy16();
+extern void _s32_div_f();
 extern char data_02087410[];
 // clang-format off
 asm void func_0201c1d0(void) {
@@ -211,7 +211,7 @@ L_0201c4a0:
     mov r0, #0x64
     ldrb r1, [r5, #0x37]
     smulbb r0, r2, r0
-    bl func_02062f0c
+    bl _s32_div_f
     cmp r0, #0x3c
     blt L_0201c4f0
     mov r0, #0x64
@@ -225,7 +225,7 @@ L_0201c4a0:
     add r1, r1, #0xc2
     add r0, r0, #0x100
     add r1, r1, #0x100
-    bl func_02051ee8
+    bl MIi_CpuCopy16
     b L_0201c520
 L_0201c4f0:
     mov r0, #0x65
@@ -239,7 +239,7 @@ L_0201c4f0:
     add r1, r1, #0xc2
     add r0, r0, #0x100
     add r1, r1, #0x100
-    bl func_02051ee8
+    bl MIi_CpuCopy16
 L_0201c520:
     ldr r0, [r5, #0x1c]
     and r0, r0, #0xff

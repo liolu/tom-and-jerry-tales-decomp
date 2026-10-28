@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-s32 func_02030104();                                /* extern */
+s32 func_02030104();
 
 s32 func_02030154(void) {
     s32 temp_r4;

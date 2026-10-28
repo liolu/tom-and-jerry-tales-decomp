@@ -51,7 +51,7 @@ typedef struct OSThread {
     void *userParam;
     s32 error;
 } OSThread;
-extern void func_02052064(register const void *src, register void *dest, register u32 count);
+extern void MI_CpuCopy8(register const void *src, register void *dest, register u32 count);
 typedef struct UnkCardCmd {
     u32 unk_00;
     u32 unk_04;
@@ -110,13 +110,13 @@ typedef struct UnkCardRom {
     u32 unk_00c[5];
     u32 unk_020[0x80];
 } UnkCardRom;
-extern UnkCardCommon data_021b25a0;
+extern UnkCardCommon cardi_common;
 extern BOOL func_02057c8c(UnkCardRom *rom);
 static inline u32 CARDi_GetSrcPage(void) {
-    return data_021b25a0.unk_01c & ~0x1FF;
+    return cardi_common.unk_01c & ~0x1FF;
 }
 BOOL func_02057c8c(UnkCardRom *rom) {
-    UnkCardCommon *const p = &data_021b25a0;
+    UnkCardCommon *const p = &cardi_common;
     const u32 page         = CARDi_GetSrcPage();
 
     if (page == rom->unk_008) {
@@ -125,7 +125,7 @@ BOOL func_02057c8c(UnkCardRom *rom) {
         if (len > p->unk_024) {
             len = p->unk_024;
         }
-        func_02052064((u8 *) rom->unk_020 + offset, (void *) p->unk_020, len);
+        MI_CpuCopy8((u8 *) rom->unk_020 + offset, (void *) p->unk_020, len);
         p->unk_01c += len;
         p->unk_020 += len;
         p->unk_024 -= len;

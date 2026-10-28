@@ -9,12 +9,12 @@ typedef struct {
     u8 pad[8];
     O *e[4];
 } G;
-void func_02051a48(void);
+void OS_Terminate(void);
 extern u8 data_0208a178[];
 void func_02032464(O *arg0) {
     u16 i;
     if (arg0 == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (arg0->g >= 0) {
         for (i = 0; i < 4; i++) {

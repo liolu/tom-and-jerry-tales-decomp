@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-s32 func_020306c0(M2C_UNK);                         /* extern */
+s32 func_020306c0(M2C_UNK);
 extern u8 data_0206e678;
 extern s32 data_0206e684;
 extern M2C_UNK data_0206e6d4;

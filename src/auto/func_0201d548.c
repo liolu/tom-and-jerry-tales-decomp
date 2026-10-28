@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-s32 func_0201d3e0();                                /* extern */
+s32 func_0201d3e0();
 
 u8 func_0201d548(u32 arg0) {
     M2C_UNK saved_reg_r4;

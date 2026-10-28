@@ -31,11 +31,11 @@ void func_0200694c(s32 a, void *b);
 void func_02006a04(s32 a, void *b);
 void func_02006b08(s32 a);
 void func_02012e28(void *a);
-void func_0204b94c(void *a, void *b, void *c);
-void func_0204b9bc(void *a, void *b, void *c);
-s32 func_0204ba40(void *a);
-void func_0204baa0(void *a, void *b);
-void func_0204bbb8(s32 a, void *b, void *c, void *d);
+void VEC_Subtract(void *a, void *b, void *c);
+void VEC_CrossProduct(void *a, void *b, void *c);
+s32 VEC_Mag(void *a);
+void VEC_Normalize(void *a, void *b);
+void VEC_MultAdd(s32 a, void *b, void *c, void *d);
 extern u8 data_02064104[];
 extern s32 data_0206e694;
 extern P data_0206e6d4;
@@ -58,8 +58,8 @@ void func_0200b4d0(void) {
         data_0206e6d4.f10c = 0x147;
     } else {
         data_0206e6d4.f10c = data_0206ea14->f4->f30;
-        func_0204b94c(data_0206e7bc, (u8 *) data_0206ea14->f4 + 0xC, sp0);
-        temp_r0 = func_0204ba40(sp0);
+        VEC_Subtract(data_0206e7bc, (u8 *) data_0206ea14->f4 + 0xC, sp0);
+        temp_r0 = VEC_Mag(sp0);
         if (data_0206e6d4.fcc != 0 && temp_r0 > 0x6800 && temp_r0 < 0x7800 && data_0206e6d4.f104 > data_0206ea14->f4->f28) {
             data_0206e6d4.fcc = 0;
         }
@@ -81,11 +81,11 @@ void func_0200b4d0(void) {
         data_0206e6d4.f104 = 0;
     }
     func_02012e28(data_0206e7b0);
-    func_0204b9bc(data_0206e7cc, data_02064104, sp24);
-    func_0204baa0(sp24, sp24);
-    func_0204bbb8(0x1666, sp24, data_0206e7bc, sp18);
+    VEC_CrossProduct(data_0206e7cc, data_02064104, sp24);
+    VEC_Normalize(sp24, sp24);
+    VEC_MultAdd(0x1666, sp24, data_0206e7bc, sp18);
     func_0200694c(4, sp18);
-    func_0204bbb8(-0x1666, sp24, data_0206e7bc, spC);
+    VEC_MultAdd(-0x1666, sp24, data_0206e7bc, spC);
     func_0200694c(5, spC);
     if (data_02086d08.f18 != data_0206e694) {
         if (data_0206e694 != 0) {

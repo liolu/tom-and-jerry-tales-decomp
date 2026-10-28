@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-M2C_UNK func_02009914();                            /* extern */
+M2C_UNK func_02009914();
 
 void func_020098e4(void *arg0) {
     void *temp_r3;

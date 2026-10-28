@@ -2,8 +2,8 @@
 
 extern u8 data_021afbcc[];
 extern void func_0204a1e4(void);
-u8 *func_0204852c(s32 i);
-void *func_02048824(s32 heap, s32 size, void *cb, void *ud, s32 x);
+u8 *NNS_SndArcGetStrmPlayerInfo(s32 i);
+void *NNS_SndHeapAlloc(s32 heap, s32 size, void *cb, void *ud, s32 x);
 void func_02049f00(u8 *p);
 
 s32 func_02049848(s32 heap) {
@@ -11,7 +11,7 @@ s32 func_02049848(s32 heap) {
     s32 sz;
     u8 *p = data_021afbcc;
     for (i = 0; i < 4; i++, p += 0x170) {
-        u8 *info = func_0204852c(i);
+        u8 *info = NNS_SndArcGetStrmPlayerInfo(i);
         if (info != 0) {
             s32 k;
             u8 n;
@@ -27,7 +27,7 @@ s32 func_02049848(s32 heap) {
                 void *r;
                 n  = p[0x124];
                 sz = n << 11;
-                r  = func_02048824(heap, sz, func_0204a1e4, p, 0);
+                r  = NNS_SndHeapAlloc(heap, sz, func_0204a1e4, p, 0);
                 if (r == 0) {
                     return 0;
                 }

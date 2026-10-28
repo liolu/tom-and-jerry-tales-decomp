@@ -24,13 +24,13 @@ typedef struct {
     u8 pad49[3];
     u32 flags;
 } CardCommon;
-extern CardCommon *data_021b25a0;
-extern void func_02051fd0(void *dst, u8 v, u32 n);
+extern CardCommon *cardi_common;
+extern void MI_CpuFill8(void *dst, u8 v, u32 n);
 void func_02057618(s32 type) {
-    CardCommon *c = data_021b25a0;
+    CardCommon *c = cardi_common;
     u32 size;
     s32 kind;
-    func_02051fd0(&c->size, 0, 0x48);
+    MI_CpuFill8(&c->size, 0, 0x48);
     c->type  = type;
     c->flags = 0x3f;
     if (type == 0) {
@@ -111,6 +111,6 @@ void func_02057618(s32 type) {
         return;
     }
 fail:
-    c->size = c->type  = 0;
-    data_021b25a0->cmd = 3;
+    c->size = c->type = 0;
+    cardi_common->cmd = 3;
 }

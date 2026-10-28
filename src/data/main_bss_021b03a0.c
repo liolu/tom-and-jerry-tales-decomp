@@ -2,6 +2,6 @@
 #include "m2c.h"
 
 u16 data_021b03a6;
-u16 data_021b03a0;
-u16 data_021b03a2;
-u16 data_021b03a4;
+u16 sDispMode;
+u16 GXi_VRamLockId;
+u16 gGXState;

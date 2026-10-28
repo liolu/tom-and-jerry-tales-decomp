@@ -19,8 +19,8 @@ typedef struct {
 extern T data_020ba4c0[12];
 extern TT data_020ba4c4[12];
 extern PP data_020ba4cc[12];
-extern int func_02047060(int);
-extern u64 func_0205168c(void);
+extern int NNS_SndPlayerCountPlayingSeqByPlayerNo(int);
+extern u64 OS_GetTick(void);
 int func_0203f370(unsigned int arg0) {
     unsigned short a = 0;
     unsigned short b = 0;
@@ -28,9 +28,9 @@ int func_0203f370(unsigned int arg0) {
     u64 now;
     u64 t;
     while (1) {
-        if (func_02047060(i + 4) == 0) {
+        if (NNS_SndPlayerCountPlayingSeqByPlayerNo(i + 4) == 0) {
             data_020ba4cc[i].prio = arg0;
-            t                     = func_0205168c();
+            t                     = OS_GetTick();
             data_020ba4c4[i].t    = t;
             return i;
         }
@@ -45,10 +45,10 @@ int func_0203f370(unsigned int arg0) {
             break;
         }
     }
-    now = func_0205168c();
+    now = OS_GetTick();
     if (data_020ba4c4[a].t + 0xE1960 < now) {
         data_020ba4cc[a].prio = arg0;
-        t                     = func_0205168c();
+        t                     = OS_GetTick();
         data_020ba4c4[a].t    = t;
         return a;
     }
@@ -56,7 +56,7 @@ int func_0203f370(unsigned int arg0) {
         return -1;
     }
     data_020ba4cc[b].prio = arg0;
-    t                     = func_0205168c();
+    t                     = OS_GetTick();
     data_020ba4c4[b].t    = t;
     return b;
 }

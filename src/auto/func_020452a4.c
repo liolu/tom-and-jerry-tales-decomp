@@ -15,21 +15,21 @@ void func_020449dc(void);
 void func_02044b1c(void);
 void func_02044c5c(void);
 void func_02044df4(void);
-void func_0204b4a8(void);
-void func_0204b77c(void);
-void func_0204b918(void);
-void func_0204b94c(void);
-void func_0205918c(void);
+void MTX_Concat43(void);
+void FX_Div(void);
+void VEC_Add(void);
+void VEC_Subtract(void);
+void STD_CopyString(void);
 void func_020591c0(void);
-void func_02059264(void);
-void func_020592b0(void);
-void func_0205bdf4(void);
+void STD_GetStringLength(void);
+void STD_CompareString(void);
+void sprintf(void);
 void func_0205c3d4(void);
-void func_02062824(void);
-void func_02062858(void);
-void func_02062a8c(void);
+void _ffix(void);
+void _fflt(void);
+void _fsub(void);
 extern char data_02064110[];
-extern char data_020690b8[];
+extern char __upper_mapC[];
 extern char data_0206dd38[];
 extern char data_0206dde4[];
 extern char data_0206ddec[];
@@ -64,7 +64,7 @@ asm void func_020452a4(void) {
     cmp r0, #0x0
     bne L_02045674
     add r0, r4, #0x2c
-    bl func_02059264
+    bl STD_GetStringLength
     mov r5, r0
     add r0, sp, #0x100
     add r0, r0, #0xc6
@@ -76,7 +76,7 @@ asm void func_020452a4(void) {
     mov r2, r7
     ble L_02045360
     add r3, sp, #0x100
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, r3, #0xc6
 L_02045324:
     ldrsb r0, [r3, #0x0]
@@ -116,7 +116,7 @@ L_0204538c:
     adds r0, r1, #0x9
     beq L_02045374
     add r1, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045374
 L_020453b4:
@@ -181,7 +181,7 @@ L_02045478:
     swpb r0, r2, [r1]
     ldr r1, [r4, #0x0]
     add r0, sp, #0xa8
-    bl func_0205918c
+    bl STD_CopyString
     ldr r1, =data_0206de4c
     add r0, sp, #0xa8
     bl func_0205c3d4
@@ -191,13 +191,13 @@ L_02045478:
     add r0, sp, #0xe8
     ldr r3, [r1, #0x0]
     ldr r1, =data_0206dde4
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_0206e7e8
     ldr r1, =data_0206de50
     add r2, sp, #0xe8
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, =data_0206e7e8
-    bl func_02059264
+    bl STD_GetStringLength
     mov r5, r0
     add r0, sp, #0x100
     ldr r1, =data_0206e7e8
@@ -209,7 +209,7 @@ L_02045478:
     mov r2, r10
     ble L_02045554
     add r3, sp, #0x100
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, r3, #0x85
 L_02045518:
     ldrsb r0, [r3, #0x0]
@@ -250,7 +250,7 @@ L_02045584:
     adds r0, r1, #0x9
     beq L_0204556c
     mov r1, r11
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_0204556c
 L_020455ac:
@@ -283,7 +283,7 @@ L_02045600:
     ldr r0, =data_0206e7e8
     ldr r1, =data_0206ddec
     add r3, sp, #0xe8
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, [r4, #0x28]
     cmp r0, #0x0
     beq L_0204563c
@@ -463,7 +463,7 @@ L_0204586c:
     mov r2, #0xc
     mla r7, lr, r2, r3
 L_02045890:
-    bl func_0204b77c
+    bl FX_Div
     ldr r1, [r4, #0x8]
     mov r6, r0
     cmp r1, #0x0
@@ -476,7 +476,7 @@ L_02045890:
     add r2, sp, #0x90
     mov r0, r3
     add r1, r1, #0x90
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r2, [r5, #0x4]
     ldr r1, [sp, #0x90]
     sub r1, r2, r1
@@ -511,11 +511,11 @@ L_0204592c:
     add r0, r5, #0x4
     bl func_02039d0c
     mov r0, r6
-    bl func_02062858
+    bl _fflt
     mov r1, r0
     mov r0, #0x3f800000
-    bl func_02062a8c
-    bl func_02062824
+    bl _fsub
+    bl _ffix
     mov r2, r0
     add r0, r4, #0x14
     add r1, sp, #0x78
@@ -524,7 +524,7 @@ L_0204592c:
     add r0, sp, #0x84
     add r1, sp, #0x78
     add r2, r2, #0x24
-    bl func_0204b918
+    bl VEC_Add
 L_02045980:
     cmp r7, #0x0
     addeq sp, sp, #0x208
@@ -581,7 +581,7 @@ L_02045a14:
     add r1, sp, #0x138
     add r0, r0, #0x90
     add r2, r2, #0x24
-    bl func_0204b918
+    bl VEC_Add
 L_02045a58:
     ldr r0, [r4, #0x4]
     ldr r1, [r4, #0xc]
@@ -616,7 +616,7 @@ L_02045aac:
     add r2, sp, #0x60
     mov r0, r3
     add r1, r1, #0x90
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r2, [sp, #0x20]
     ldr r0, [sp, #0x60]
     ldr r1, [r2, #0x24]
@@ -651,7 +651,7 @@ L_02045aac:
     str r3, [r1, #0x28]
     ldr r3, [r4, #0x1c]
     str r3, [r1, #0x2c]
-    bl func_0204b4a8
+    bl MTX_Concat43
     b L_02045b9c
 L_02045b6c:
     add r1, sp, #0x24
@@ -665,16 +665,16 @@ L_02045b6c:
     ldr r0, [sp, #0x20]
     ldr r1, [sp, #0xc]
     mov r2, r0
-    bl func_0204b4a8
+    bl MTX_Concat43
 L_02045b9c:
     ldr r1, =data_0206de2c
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     beq L_02045bc4
     ldr r1, =data_0206de34
     add r0, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045bec
 L_02045bc4:
@@ -700,7 +700,7 @@ L_02045bec:
     strne r0, [r4, #0xc]
     bne L_02045d2c
     add r0, r4, #0x2c
-    bl func_02059264
+    bl STD_GetStringLength
     mov r5, r0
     add r0, sp, #0x144
     add r1, r4, #0x2c
@@ -710,7 +710,7 @@ L_02045bec:
     cmp r5, #0x0
     mov r2, r7
     ble L_02045c84
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x144
 L_02045c48:
     ldrsb r0, [r3, #0x0]
@@ -750,7 +750,7 @@ L_02045cb0:
     adds r0, r1, #0x9
     beq L_02045c98
     add r1, r4, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02045c98
 L_02045cd8:

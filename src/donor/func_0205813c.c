@@ -51,10 +51,10 @@ typedef struct OSThread {
     void *userParam;
     s32 error;
 } OSThread;
-extern void func_02050308(OSThreadQueue *queue);
-extern void func_02050370(void *param1);
-extern u32 func_020517f8(void);
-extern u32 func_0205180c(u32 irq_flag);
+extern void OS_WakeupThread(OSThreadQueue *queue);
+extern void OS_WakeupThreadDirect(void *param1);
+extern u32 OS_DisableInterrupts(void);
+extern u32 OS_RestoreInterrupts(u32 irq_flag);
 typedef struct UnkCardCmd {
     u32 unk_00;
     u32 unk_04;
@@ -113,19 +113,19 @@ typedef struct UnkCardRom {
     u32 unk_00c[5];
     u32 unk_020[0x80];
 } UnkCardRom;
-extern UnkCardCommon data_021b25a0;
-extern UnkCardRom data_021b2be0;
+extern UnkCardCommon cardi_common;
+extern UnkCardRom rom_stat;
 static inline void CARDi_EndTask(UnkCardCommon *p) {
     const UnkCardCallback callback = p->unk_038;
     void *const arg                = p->unk_03c;
     {
-        u32 prevIRQState = func_020517f8();
+        u32 prevIRQState = OS_DisableInterrupts();
         p->unk_114 &= ~0x4C;
-        func_02050308(&p->unk_10c);
+        OS_WakeupThread(&p->unk_10c);
         if (p->unk_114 & 0x10) {
-            func_02050370(&p->unk_044);
+            OS_WakeupThreadDirect(&p->unk_044);
         }
-        func_0205180c(prevIRQState);
+        OS_RestoreInterrupts(prevIRQState);
     }
     if (callback != 0) {
         callback(arg);
@@ -134,17 +134,17 @@ static inline void CARDi_EndTask(UnkCardCommon *p) {
 extern BOOL func_02057c8c(UnkCardRom *rom);
 extern u32 func_020580e4(void);
 extern void func_0205813c(UnkCardCommon *common);
-extern void func_020585fc(u32 id);
+extern void CARDi_CheckPulledOutCore(u32 id);
 static inline void CARDi_ReadRomDone(void) {
-    UnkCardCommon *const p = &data_021b25a0;
-    func_020585fc(func_020580e4());
+    UnkCardCommon *const p = &cardi_common;
+    CARDi_CheckPulledOutCore(func_020580e4());
     p->unk_000->unk_00 = 0;
     CARDi_EndTask(p);
 }
 extern BOOL func_02057c8c(UnkCardRom *rom);
 extern u32 func_020580e4(void);
 void func_0205813c(UnkCardCommon *common) {
-    UnkCardRom *const rom = &data_021b2be0;
+    UnkCardRom *const rom = &rom_stat;
     if (func_02057c8c(rom)) {
         rom->unk_000(rom);
     }

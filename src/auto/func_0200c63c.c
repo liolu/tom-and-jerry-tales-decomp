@@ -1,18 +1,18 @@
 #include "m2c.h"
 
-M2C_UNK func_020016a4();                            /* extern */
-M2C_UNK func_0200c7d4();                            /* extern */
-M2C_UNK func_0200c898(u16);                         /* extern */
-M2C_UNK func_020222b8(M2C_UNK, M2C_UNK, M2C_UNK);   /* extern */
-s32 func_020306c0(M2C_UNK);                         /* extern */
-s32 func_020306fc(M2C_UNK);                         /* extern */
-M2C_UNK func_0203ac18();                            /* extern */
-s32 func_0203adbc();                                /* extern */
-M2C_UNK func_0203adf8(s32, u16, M2C_UNK);           /* extern */
-M2C_UNK func_0203ff1c(s32, M2C_UNK, M2C_UNK *);     /* extern */
-M2C_UNK func_02040094(s32);                         /* extern */
-void *func_02040228();                              /* extern */
-M2C_UNK func_0204f490(M2C_UNK *, M2C_UNK *, M2C_UNK); /* extern */
+M2C_UNK func_020016a4();
+M2C_UNK func_0200c7d4();
+M2C_UNK func_0200c898(u16);
+M2C_UNK func_020222b8(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 func_020306c0(M2C_UNK);
+s32 func_020306fc(M2C_UNK);
+M2C_UNK func_0203ac18();
+s32 func_0203adbc();
+M2C_UNK func_0203adf8(s32, u16, M2C_UNK);
+M2C_UNK func_0203ff1c(s32, M2C_UNK, M2C_UNK *);
+M2C_UNK func_02040094(s32);
+void *func_02040228();
+M2C_UNK func_0204f490(M2C_UNK *, M2C_UNK *, M2C_UNK);
 extern u16 data_0206a554;
 extern M2C_UNK data_0206a598;
 extern M2C_UNK data_02086d90;

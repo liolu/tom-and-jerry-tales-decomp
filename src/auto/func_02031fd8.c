@@ -22,7 +22,7 @@ typedef struct {
     u8 padc[6];
     u16 sz;
 } Src;
-void func_02051a48(void);
+void OS_Terminate(void);
 A *func_020322e0(s32 *);
 B *func_02032428(void);
 s32 func_02032180(u16);
@@ -39,22 +39,22 @@ void func_02031fd8(Src *src, u32 *data, u8 lo, s32 idx) {
     a = NULL;
     n = *data++;
     if (n > 4) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (n != 0) {
         if ((s8) src->k == 5 || (s8) src->k == 7) {
-            func_02051a48();
+            OS_Terminate();
         }
         a = func_020322e0(&pal);
         if (a == NULL) {
-            func_02051a48();
+            OS_Terminate();
         }
         a->f20 = 0;
         for (i = 0; i < n; i++) {
             v = *data++;
             b = func_02032428();
             if (b == NULL) {
-                func_02051a48();
+                OS_Terminate();
             }
             b->b2     = (v >> 24) & 0xFF;
             b->b1     = (v >> 16) & 0xFF;

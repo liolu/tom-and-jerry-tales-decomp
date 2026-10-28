@@ -26,7 +26,7 @@ extern void func_020401e8();
 extern void func_02040228();
 extern void func_0204221c();
 extern void func_0204f490();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_020692ec[];
 extern char data_0206b25c[];
 extern char data_0206b26c[];
@@ -626,7 +626,7 @@ L_0201efc4:
     str r2, [sp, #0x0]
     mov r2, #0x0
     mov r3, #0x6
-    bl func_0205bdf4
+    bl sprintf
     ldr r0, [r4, #0x18]
     ldr r2, =data_020876ec
     mov r1, #0x2

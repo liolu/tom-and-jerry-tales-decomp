@@ -1,7 +1,7 @@
 #include "m2c.h"
 
-void *func_01ff8000(M2C_UNK, M2C_UNK);              /* extern */
-M2C_UNK func_0200e2b4();                            /* extern */
+void *func_01ff8000(M2C_UNK, M2C_UNK);
+M2C_UNK func_0200e2b4();
 
 void *func_0200e760(s32 arg0, M2C_UNK arg1) {
     void *temp_r4;

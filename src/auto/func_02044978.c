@@ -1,13 +1,13 @@
 #include "m2c.h"
 
-M2C_UNK func_02051a48();                            /* extern */
+M2C_UNK OS_Terminate();
 extern s32 data_0206e9f8;
 
 void func_02044978(void *arg0, s32 arg1, s32 arg2, s32 *arg3) {
     s32 temp_r1;
 
     temp_r1 = M2C_FIELD(arg0, s32 *, 4);
-    switch (temp_r1) {                              /* irregular */
+    switch (temp_r1) {
         case 0:
             *arg3 = M2C_FIELD(arg0, s32 *, 0) + 0x7C;
             return;
@@ -18,7 +18,7 @@ void func_02044978(void *arg0, s32 arg1, s32 arg2, s32 *arg3) {
             *arg3 = data_0206e9f8 + 8;
             return;
         default:
-            func_02051a48();
+            OS_Terminate();
             return;
     }
 }

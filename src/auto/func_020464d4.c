@@ -2,12 +2,12 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02044618();
-extern void func_02052064();
-extern void func_0205918c();
+extern void MI_CpuCopy8();
+extern void STD_CopyString();
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_020592b0();
-extern char data_020690b8[];
+extern void STD_GetStringLength();
+extern void STD_CompareString();
+extern char __upper_mapC[];
 extern char data_021a9b18[];
 extern char data_021a9b20[];
 extern char data_021ac0a4[];
@@ -20,7 +20,7 @@ asm void func_020464d4(void) {
     str r1, [sp, #0x4]
     ldr r1, [r7, #0x20]
     str r1, [sp, #0x0]
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x49
     mov r1, r7
@@ -30,7 +30,7 @@ asm void func_020464d4(void) {
     cmp r4, #0x0
     mov r2, r5
     ble L_0204655c
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x49
 L_02046520:
     ldrsb r0, [r3, #0x0]
@@ -86,18 +86,18 @@ L_020465b0:
     swpb r2, r2, [r3]
     mov r1, r7
     add r0, r4, #0x9
-    bl func_0205918c
+    bl STD_CopyString
     add r0, sp, #0x0
     mov r1, r4
     mov r2, #0x8
-    bl func_02052064
+    bl MI_CpuCopy8
     ldr r0, =data_021ac0a4
     ldr r1, [r0, #0x74]
     add r1, r1, #0x1
     str r1, [r0, #0x74]
 L_02046604:
     mov r0, r7
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x8
     mov r1, r7
@@ -107,7 +107,7 @@ L_02046604:
     cmp r4, #0x0
     mov r2, r6
     ble L_02046674
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x8
 L_02046638:
     ldrsb r0, [r3, #0x0]
@@ -146,7 +146,7 @@ L_0204669c:
     adds r0, r1, #0x9
     beq L_02046688
     mov r1, r7
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02046688
 L_020466c4:

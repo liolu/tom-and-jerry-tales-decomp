@@ -14,12 +14,12 @@ typedef struct {
     u16 flags;
 } TpWork;
 extern TpWork data_021b2450;
-extern void func_02055ebc(Cal *a, Cal *b);
+extern void TP_GetCalibratedPoint(Cal *a, Cal *b);
 s32 func_02055a24(Cal *out) {
     if (data_021b2450.flags & 1) {
         return 1;
     }
     *out = data_021b2450.cal;
-    func_02055ebc(out, out);
+    TP_GetCalibratedPoint(out, out);
     return 0;
 }

@@ -14,7 +14,7 @@ extern s32 func_020370b0(S *, void *, s32 *, s32, s32);
 extern s32 func_020372f8(S *, void *, s32 *, s32, s32);
 extern s32 func_020381c0(S *, void *);
 extern void func_02039d0c(s32 *, s32 *, s32);
-extern void func_02051a48(void);
+extern void OS_Terminate(void);
 
 s32 func_02037384(s32 arg0, s32 arg1, u8 *arg2, s32 *arg3, s32 arg4, s32 arg5) {
     S s;
@@ -52,7 +52,7 @@ s32 func_02037384(s32 arg0, s32 arg1, u8 *arg2, s32 *arg3, s32 arg4, s32 arg5) {
             break;
         default:
             r = 0;
-            func_02051a48();
+            OS_Terminate();
             break;
     }
     return r;

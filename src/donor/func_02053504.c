@@ -7,8 +7,8 @@ typedef unsigned char u8;
 typedef int s32;
 typedef volatile u16 vu16;
 typedef s32 BOOL;
-extern u32 func_020517f8(void);
-extern u32 func_0205180c(u32 state);
+extern u32 OS_DisableInterrupts(void);
+extern u32 OS_RestoreInterrupts(u32 state);
 extern void func_0204efc8(u32 mask);
 extern void func_0204ee24(u32 mask, void *handler);
 extern u32 func_0204ef68(u32 mask);
@@ -22,17 +22,17 @@ typedef struct UnkPxiSystemWork {
 static inline UnkPxiSystemWork *GetPxiSystemWork(void) {
     return (UnkPxiSystemWork *) 0x027ffc00;
 }
-extern u16 data_021b2344;
-extern PxiCallback data_021b2348[32];
+extern u16 FifoCtrlInit;
+extern PxiCallback FifoRecvCallbackTable[32];
 void func_02053504(void) {
-    u32 enabled = func_020517f8();
+    u32 enabled = OS_DisableInterrupts();
     s32 i;
 
-    if (!data_021b2344) {
-        data_021b2344                  = 1;
+    if (!FifoCtrlInit) {
+        FifoCtrlInit                   = 1;
         GetPxiSystemWork()->unk_388[0] = 0;
         for (i = 0; i < 32; i++) {
-            data_021b2348[i] = 0;
+            FifoRecvCallbackTable[i] = 0;
         }
         (*(vu16 *) 0x04000184) = 0xc408;
         func_0204efc8(0x40000);
@@ -56,6 +56,6 @@ void func_02053504(void) {
             }
         }
     }
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
 }
 extern void func_020536fc(void);

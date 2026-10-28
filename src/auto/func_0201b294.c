@@ -5,7 +5,7 @@ void func_02018984(void);
 void func_02030878(void);
 void func_02030898(void);
 void func_0203c568(void);
-void func_0204be48(void);
+void FX_Atan2Idx(void);
 /* Uses instructions the compiler never generates: written in assembly. */
 // clang-format off
 asm void func_0201b294(void) {
@@ -38,7 +38,7 @@ asm void func_0201b294(void) {
     sub r0, r3, r2
     mov r0, r0, lsl #0xc
     mov r1, r1, lsl #0xc
-    bl func_0204be48
+    bl FX_Atan2Idx
     ldr ip, [sp, #0x20]
     ldr r3, [r4, #0x24]
     ldr r2, [sp, #0x24]
@@ -48,7 +48,7 @@ asm void func_0201b294(void) {
     mov r5, r0
     mov r0, r3, lsl #0xc
     mov r1, r1, lsl #0xc
-    bl func_0204be48
+    bl FX_Atan2Idx
     sub r0, r0, r5
     strh r0, [r4, #0x32]
 L_0201b33c:

@@ -4,8 +4,8 @@
 extern void func_020119a4();
 extern void func_020119d4();
 extern void func_02011a04();
-extern void func_020617bc();
-extern void func_020618ec();
+extern void _dfix();
+extern void _dflt();
 extern void _dmul();
 extern char data_0206ace8[];
 extern char data_0206ea14[];
@@ -53,33 +53,33 @@ asm void func_02014738(void) {
     add r0, r0, #0x1000
     str r3, [r0, #0x844]
     ldrsh r0, [r1, #0x6]
-    bl func_020618ec
+    bl _dflt
     mov r2, r0
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
     bl _dmul
-    bl func_020617bc
+    bl _dfix
     bl func_020119a4
     ldr r0, =data_020880c0
     ldrsh r0, [r0, #0x6]
-    bl func_020618ec
+    bl _dflt
     mov r2, r0
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
     bl _dmul
-    bl func_020617bc
+    bl _dfix
     bl func_020119d4
     ldr r0, =data_020880c0
     ldrsh r0, [r0, #0x6]
-    bl func_020618ec
+    bl _dflt
     mov r2, r0
     mov r3, r1
     ldr r0, =0xcccccccd
     ldr r1, =0x3ffccccc
     bl _dmul
-    bl func_020617bc
+    bl _dfix
     bl func_02011a04
     mov r1, #0x0
     ldr r0, =data_0206ace8

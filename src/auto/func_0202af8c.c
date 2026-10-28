@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0202af28();
-extern void func_02062f0c();
+extern void _s32_div_f();
 extern char data_0206ca70[];
 extern char data_02087ef4[];
 // clang-format off
@@ -39,7 +39,7 @@ asm void func_0202af8c(void) {
     add r1, r1, #0x6
     mov r1, r1, lsl #0x10
     mov r1, r1, lsr #0x10
-    bl func_02062f0c
+    bl _s32_div_f
     ldr r2, =data_02087ef4
     ldrh r3, [sp, #0x2c]
     strh r0, [r2, #0xa]

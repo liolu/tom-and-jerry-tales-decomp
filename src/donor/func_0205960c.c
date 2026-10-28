@@ -32,10 +32,10 @@ typedef struct {
     u32 buffer_len;
 } FILE;
 extern int func_0205dd98(FILE *f, int orient);
-extern void func_02059554(FILE *f);
+extern void __prep_buffer(FILE *f);
 extern void *func_02059ae4(void *p, int c, u32 n);
-extern void *func_02059a84(void *dst, const void *src, u32 n);
-extern int func_02059584(FILE *f, u32 *n);
+extern void *memcpy(void *dst, const void *src, u32 n);
+extern int __flush_buffer(FILE *f, u32 *n);
 u32 func_0205960c(void *ptr, u32 size, u32 count, FILE *f) {
     u8 *read_ptr = ptr;
     u32 bytes_to_go;
@@ -55,7 +55,7 @@ u32 func_0205960c(void *ptr, u32 size, u32 count, FILE *f) {
     always_buffer = !f->mode.binary_io || f->mode.buffer_mode == 2 || f->mode.buffer_mode == 1;
     if (f->state.io_state == 0 && (f->mode.io_mode & 2)) {
         f->state.io_state = 1;
-        func_02059554(f);
+        __prep_buffer(f);
     }
     if (f->state.io_state != 1) {
         f->error      = 1;
@@ -78,14 +78,14 @@ u32 func_0205960c(void *ptr, u32 size, u32 count, FILE *f) {
                 }
             }
             if (n != 0) {
-                func_02059a84(f->buffer_ptr, read_ptr, n);
+                memcpy(f->buffer_ptr, read_ptr, n);
                 read_ptr += n;
                 bytes_to_go -= n;
                 f->buffer_ptr += n;
                 f->buffer_len -= n;
             }
             if (f->buffer_len == 0 || match != 0 || f->mode.buffer_mode == 0) {
-                if (func_02059584(f, 0) != 0) {
+                if (__flush_buffer(f, 0) != 0) {
                     f->error      = 1;
                     bytes_to_go   = 0;
                     f->buffer_len = 0;
@@ -101,7 +101,7 @@ u32 func_0205960c(void *ptr, u32 size, u32 count, FILE *f) {
         f->buffer      = read_ptr;
         f->buffer_size = bytes_to_go;
         f->buffer_ptr  = read_ptr + bytes_to_go;
-        if (func_02059584(f, &n) == 0) {
+        if (__flush_buffer(f, &n) == 0) {
             written += n;
         } else {
             f->error      = 1;
@@ -109,7 +109,7 @@ u32 func_0205960c(void *ptr, u32 size, u32 count, FILE *f) {
         }
         f->buffer      = sbuf;
         f->buffer_size = ssize;
-        func_02059554(f);
+        __prep_buffer(f);
         f->buffer_len = 0;
     }
     if (f->mode.buffer_mode != 2) {

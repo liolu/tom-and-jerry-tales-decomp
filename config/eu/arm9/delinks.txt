@@ -9625,11 +9625,11 @@ src/donor/func_02046c28.c:
     complete
     .text       start:0x02046c28 end:0x02046c60
 
-src/donor/NNS_SndStrmSetup.c:
+src/auto/NNS_SndStrmSetup.c:
     complete
     .text       start:0x02047918 end:0x02047ab8
 
-src/donor/func_02047c78.c:
+src/auto/func_02047c78.c:
     complete
     .text       start:0x02047c78 end:0x02047d28
 
@@ -9661,11 +9661,11 @@ src/donor/NNS_SndArcGetStrmPlayerInfo.c:
     complete
     .text       start:0x0204852c end:0x02048590
 
-src/donor/func_02049468.c:
+src/auto/func_02049468.c:
     complete
     .text       start:0x02049468 end:0x020494d8
 
-src/donor/NNS_SndArcPlayerStartSeqArcEx.c:
+src/auto/NNS_SndArcPlayerStartSeqArcEx.c:
     complete
     .text       start:0x020494d8 end:0x02049584
 
@@ -9673,7 +9673,7 @@ src/donor/func_0204b038.c:
     complete
     .text       start:0x0204b038 end:0x0204b054
 
-src/donor/FX_Atan2.c:
+src/auto/FX_Atan2.c:
     complete
     .text       start:0x0204bc90 end:0x0204be48
 
@@ -9721,7 +9721,7 @@ src/donor/func_0204ee24.c:
     complete
     .text       start:0x0204ee24 end:0x0204eeac
 
-src/donor/OSi_EnterTimerCallback.c:
+src/auto/OSi_EnterTimerCallback.c:
     complete
     .text       start:0x0204eef4 end:0x0204ef3c
 
@@ -9849,7 +9849,7 @@ src/donor/func_02054c84.c:
     complete
     .text       start:0x02054c84 end:0x02054dc8
 
-src/donor/func_02055144.c:
+src/auto/func_02055144.c:
     complete
     .text       start:0x02055144 end:0x0205518c
 

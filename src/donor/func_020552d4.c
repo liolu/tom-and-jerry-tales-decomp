@@ -234,21 +234,21 @@ extern struct {
     u32 default_dma_no;
     CARDRomRegion ovt9;
     CARDRomRegion ovt7;
-} data_021b23dc;
-extern FSArchive data_021b23f4;
+} fsi_card_lock_id;
+extern FSArchive fsi_arc_rom;
 extern const char data_0206de84[];
 extern u32 func_0204f32c(void);
 extern void func_020582cc(void);
-extern void func_020548dc(FSArchive *p_arc);
-extern BOOL func_02054948(FSArchive *p_arc, const char *name, u32 name_len);
-extern void func_02054b90(struct FSArchive *p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags);
-extern BOOL func_020549fc(FSArchive *p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size,
-                          FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func);
-extern FSResult func_020552cc(FSFile *p_file, FSCommandType cmd);
-extern FSResult func_02055258(FSFile *p_file, FSCommandType cmd);
-extern FSResult func_02055208(FSArchive *p_arc, void *dst, u32 src, u32 len);
-extern FSResult func_02055250(FSArchive *p_arc, const void *src, u32 dst, u32 len);
-extern FSResult func_020552c4(FSArchive *p_arc, void *dst, u32 src, u32 len);
+extern void FS_InitArchive(FSArchive *p_arc);
+extern BOOL FS_RegisterArchiveName(FSArchive *p_arc, const char *name, u32 name_len);
+extern void FS_SetArchiveProc(struct FSArchive *p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags);
+extern BOOL FS_LoadArchive(FSArchive *p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size,
+                           FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func);
+extern FSResult FSi_EmptyArchiveProc(FSFile *p_file, FSCommandType cmd);
+extern FSResult FSi_RomArchiveProc(FSFile *p_file, FSCommandType cmd);
+extern FSResult FSi_ReadRomCallback(FSArchive *p_arc, void *dst, u32 src, u32 len);
+extern FSResult FSi_WriteDummyCallback(FSArchive *p_arc, const void *src, u32 dst, u32 len);
+extern FSResult FSi_ReadDummyCallback(FSArchive *p_arc, void *dst, u32 src, u32 len);
 static inline BOOL FS_IsBusy(volatile const FSFile *p_file) {
     return (p_file->stat & 0x00000001) ? 1 : 0;
 }
@@ -331,38 +331,38 @@ static inline const CARDRomRegion *CARD_GetRomRegionFAT(void) {
     return (const CARDRomRegion *) ((const u8 *) 0x027ffe00 + 0x48);
 }
 void func_020552d4(u32 default_dma_no) {
-    data_021b23dc.default_dma_no = default_dma_no;
-    data_021b23dc.card_lock_id   = func_0204f32c();
-    data_021b23dc.ovt9.offset    = 0;
-    data_021b23dc.ovt9.length    = 0;
-    data_021b23dc.ovt7.offset    = 0;
-    data_021b23dc.ovt7.length    = 0;
+    fsi_card_lock_id.default_dma_no = default_dma_no;
+    fsi_card_lock_id.card_lock_id   = func_0204f32c();
+    fsi_card_lock_id.ovt9.offset    = 0;
+    fsi_card_lock_id.ovt9.length    = 0;
+    fsi_card_lock_id.ovt7.offset    = 0;
+    fsi_card_lock_id.ovt7.length    = 0;
 
     func_020582cc();
 
-    func_020548dc(&data_021b23f4);
-    (void) func_02054948(&data_021b23f4, data_0206de84, 3);
+    FS_InitArchive(&fsi_arc_rom);
+    (void) FS_RegisterArchiveName(&fsi_arc_rom, data_0206de84, 3);
 
     if (MB_IsMultiBootChild()) {
-        data_021b23dc.ovt9.offset = (u32) ~0;
-        data_021b23dc.ovt9.length = 0;
-        data_021b23dc.ovt7.offset = (u32) ~0;
-        data_021b23dc.ovt7.length = 0;
+        fsi_card_lock_id.ovt9.offset = (u32) ~0;
+        fsi_card_lock_id.ovt9.length = 0;
+        fsi_card_lock_id.ovt7.offset = (u32) ~0;
+        fsi_card_lock_id.ovt7.length = 0;
 
-        func_02054b90(&data_021b23f4, func_020552cc, (u32) (~0));
-        (void) func_020549fc(&data_021b23f4, 0x00000000, 0, 0, 0, 0, func_020552c4, func_02055250);
+        FS_SetArchiveProc(&fsi_arc_rom, FSi_EmptyArchiveProc, (u32) (~0));
+        (void) FS_LoadArchive(&fsi_arc_rom, 0x00000000, 0, 0, 0, 0, FSi_ReadDummyCallback, FSi_WriteDummyCallback);
     } else {
         const CARDRomRegion *const fnt = CARD_GetRomRegionFNT();
         const CARDRomRegion *const fat = CARD_GetRomRegionFAT();
 
-        func_02054b90(&data_021b23f4, func_02055258,
-                      (1 << FS_COMMAND_WRITEFILE) | (1 << FS_COMMAND_ACTIVATE) | (1 << FS_COMMAND_IDLE));
+        FS_SetArchiveProc(&fsi_arc_rom, FSi_RomArchiveProc,
+                          (1 << FS_COMMAND_WRITEFILE) | (1 << FS_COMMAND_ACTIVATE) | (1 << FS_COMMAND_IDLE));
 
         if ((fnt->offset == 0xFFFFFFFF) || (fnt->offset == 0x00000000) || (fat->offset == 0xFFFFFFFF) ||
             (fat->offset == 0x00000000)) {
         } else {
-            (void) func_020549fc(&data_021b23f4, 0x00000000, fat->offset, fat->length, fnt->offset, fnt->length, func_02055208,
-                                 func_02055250);
+            (void) FS_LoadArchive(&fsi_arc_rom, 0x00000000, fat->offset, fat->length, fnt->offset, fnt->length,
+                                  FSi_ReadRomCallback, FSi_WriteDummyCallback);
         }
     }
 }

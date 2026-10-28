@@ -11,10 +11,10 @@ void func_020355a8(void);
 void func_020355b8(void);
 void func_020355c8(void);
 void func_020355d8(void);
-void func_0204b77c(void);
-void func_0204d61c(void);
-void func_0204daa0(void);
-void func_02051f7c(void);
+void FX_Div(void);
+void G3_MultMtx43(void);
+void G3X_GetPositionTestResult(void);
+void MIi_CpuCopyFast(void);
 extern char data_0206e6b0[];
 extern char data_0206fcac[];
 extern char data_027e0074[];
@@ -39,7 +39,7 @@ asm s32 func_02003f98(s32 arg0) {
     mov r2, #0x0
     add r0, r7, #0x7c
     str r2, [r1, #0x0]
-    bl func_0204d61c
+    bl G3_MultMtx43
     ldr r0, =0x40005c4
     mov r1, #0x0
     str r1, [r0, #0x0]
@@ -108,7 +108,7 @@ asm s32 func_02003f98(s32 arg0) {
     add r1, r7, #0x394
     ldr r0, [r3, #0x0]
     add r1, r1, #0x400
-    bl func_02051f7c
+    bl MIi_CpuCopyFast
     b @L_02004114
 @L_020040f0:
     ldr r0, [r7, #0xf8]
@@ -119,7 +119,7 @@ asm s32 func_02003f98(s32 arg0) {
     add r0, r7, #0x394
     ldr r1, [r1, #0x0]
     add r0, r0, #0x400
-    bl func_02051f7c
+    bl MIi_CpuCopyFast
 @L_02004114:
     ldr r0, [r6, #0x8]
     cmp r0, #0x0
@@ -164,13 +164,13 @@ asm s32 func_02003f98(s32 arg0) {
 @L_020041ac:
     mov r0, r8
     mov r1, r6
-    bl func_0204daa0
+    bl G3X_GetPositionTestResult
     cmp r0, #0x0
     bne @L_020041ac
     ldr r1, [sp, #0x0]
     mov r0, #0x1000
     mov r1, r1, lsl #0x1
-    bl func_0204b77c
+    bl FX_Div
     ldr r2, [sp, #0x4]
     ldr r1, [sp, #0x8]
     smull r3, r6, r2, r0

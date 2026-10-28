@@ -10,9 +10,9 @@ void func_0204f490(void *, void *, void *, s32);
 void func_02030ed4(s32 *, s32);
 void func_02030ee0(s32 *, s32);
 s32 func_02030f40(void *, s32 *, s32, s32);
-void func_02051a48(void);
+void OS_Terminate(void);
 void func_020332dc(s32, s32);
-void func_0205918c(void *, s32);
+void STD_CopyString(void *, s32);
 
 extern u8 data_0206d204;
 extern u8 data_0206d20c;
@@ -30,12 +30,12 @@ s32 func_02033130(s32 arg0, s32 arg1, s32 arg2) {
         func_0204f490(sp8, &data_0206d204, &data_0206d20c, arg0);
         func_02030ed4(&sp0, arg2);
         if (func_02030f40(sp8, &sp4, arg1, arg2) < 0 || sp4 == 0) {
-            func_02051a48();
+            OS_Terminate();
         }
         r             = data_0208e190;
         data_0208e190 = r + 1;
         func_020332dc(sp4, r);
-        func_0205918c((u8 *) &data_0208e194[r] + 8, arg0);
+        STD_CopyString((u8 *) &data_0208e194[r] + 8, arg0);
         func_02030ee0(&sp0, arg2);
     }
     return r;

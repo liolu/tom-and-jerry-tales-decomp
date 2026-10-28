@@ -205,9 +205,9 @@ static inline void *UnkSndArc_OffsetToPtr(const void *base, u32 offset) {
     }
     return (u8 *) base + offset;
 }
-extern UnkSndArc *data_021af4f0;
+extern UnkSndArc *sCurrent;
 void *func_0204839c(int index) {
-    UnkSndArc *arc        = data_021af4f0;
+    UnkSndArc *arc        = sCurrent;
     UnkSndArcTable *table = UnkSndArc_OffsetToPtr(arc->info, arc->info->bankOffset);
 
     if (table == 0) {

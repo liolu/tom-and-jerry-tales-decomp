@@ -6,7 +6,7 @@ s32 func_02030f40(s32 a, u8 **b, s32 c, s32 d);
 void func_0203d2d4(u8 *a, s32 b, s32 c, s32 d, s32 e, s32 f, s32 g, s32 *h);
 void func_0203db80(u8 *a, s32 b);
 void func_0203dc40(u8 *a, s32 b, s32 c, s32 d);
-void func_02051a48(void);
+void OS_Terminate(void);
 
 void func_0203d1b8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, s32 *arg7) {
     u8 *sp14;
@@ -23,7 +23,7 @@ void func_0203d1b8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 
     sp10 = 0;
     func_02030ed4(&sp10);
     if ((func_02030f40(arg0, &sp14, arg1, arg1) < 0) || (sp14 == NULL)) {
-        func_02051a48();
+        OS_Terminate();
     }
     p       = sp14;
     q1      = p + 1;

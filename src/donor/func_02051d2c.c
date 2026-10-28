@@ -3,13 +3,13 @@
  * reused by tools/donor_match.py */
 typedef long s32;
 typedef unsigned long u32;
-extern u32 func_020517f8(void);
-extern void func_0205180c(u32);
+extern u32 OS_DisableInterrupts(void);
+extern void OS_RestoreInterrupts(u32);
 void func_02051d2c(s32 ch) {
     u32 flags;
     volatile u32 *cnt;
     u32 *sad;
-    flags = func_020517f8();
+    flags = OS_DisableInterrupts();
     cnt   = (volatile u32 *) (0x4000000 + ((ch * 3 + 2) * 4 + 0xb0));
     while (*cnt & 0x80000000) {
     }
@@ -19,5 +19,5 @@ void func_02051d2c(s32 ch) {
         *(sad + 1) = 0;
         *(sad + 2) = 0x81400001;
     }
-    func_0205180c(flags);
+    OS_RestoreInterrupts(flags);
 }

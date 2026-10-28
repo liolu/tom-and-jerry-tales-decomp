@@ -70,9 +70,9 @@ void func_0203a4a8(void);
 void func_0204089c(void);
 void func_02040bc4(void);
 void func_02042944(void);
-void func_02051a48(void);
-void func_0205918c(void);
-void func_0205928c(void);
+void OS_Terminate(void);
+void STD_CopyString(void);
+void STD_ConcatenateString(void);
 // clang-format off
 asm void func_0200b734(void) {
     stmdb sp!, {r3, r4, r5, r6, r7, r8, lr}
@@ -151,10 +151,10 @@ L_0200b810:
     ldrb r2, [r0, #0x2]
     add r0, sp, #0x1c
     ldr r1, [r1, r2, lsl #0x2]
-    bl func_0205918c
+    bl STD_CopyString
     ldr r1, =data_0206a488
     add r0, sp, #0x1c
-    bl func_0205928c
+    bl STD_ConcatenateString
     ldr r1, =data_0206e6a4
     ldr r2, =data_0206e698
     bl func_0204089c
@@ -178,10 +178,10 @@ L_0200b87c:
     ldrb r2, [r0, #0x2]
     add r0, sp, #0x1c
     ldr r1, [r1, r2, lsl #0x2]
-    bl func_0205918c
+    bl STD_CopyString
     ldr r1, =data_0206a490
     add r0, sp, #0x1c
-    bl func_0205928c
+    bl STD_ConcatenateString
     ldr r1, =data_0206e6a4
     ldr r2, =data_0206e698
     bl func_0204089c
@@ -205,20 +205,20 @@ L_0200b8e4:
     ldrb r2, [r0, #0x2]
     add r0, sp, #0x1c
     ldr r1, [r1, r2, lsl #0x2]
-    bl func_0205918c
+    bl STD_CopyString
     ldr r1, =data_0206a498
     add r0, sp, #0x1c
-    bl func_0205928c
+    bl STD_ConcatenateString
     ldr r1, =data_0206e6a4
     ldr r2, =data_0206e698
     bl func_0204089c
     mov r4, #0x1
     b L_0200b958
 L_0200b94c:
-    bl func_02051a48
+    bl OS_Terminate
     b L_0200b958
 L_0200b954:
-    bl func_02051a48
+    bl OS_Terminate
 L_0200b958:
     ldr r0, =data_02086d08
     ldr r1, =data_020692ec

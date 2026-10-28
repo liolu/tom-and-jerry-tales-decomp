@@ -19,7 +19,7 @@ typedef struct {
 extern H data_020ac15c;
 extern E data_020ac17c[];
 extern F data_020aecfc[];
-extern void func_02051a48(void);
+extern void OS_Terminate(void);
 extern void func_02039e84(u16, u16, int);
 
 int func_0203a4a8(int arg0, int arg1) {
@@ -28,7 +28,7 @@ int func_0203a4a8(int arg0, int arg1) {
     s16 id;
     for (i = 0; i < data_020ac15c.cnt; i++) {
         if (data_020ac17c[i].fl) {
-            func_02051a48();
+            OS_Terminate();
         }
     }
     for (j = 0; j < data_020ac15c.a; j++) {

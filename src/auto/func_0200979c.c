@@ -2,8 +2,8 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203a58c();
-extern void func_0205918c();
-extern void func_020592b0();
+extern void STD_CopyString();
+extern void STD_CompareString();
 extern char data_0206a32c[];
 // clang-format off
 asm void func_0200979c(void) {
@@ -27,7 +27,7 @@ asm void func_0200979c(void) {
     strh r2, [r0, #0x4]
     ldr r0, [r4, #0x70]
     add r0, r0, #0x28
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     beq L_02009824
     ldr r1, [r4, #0x70]
@@ -39,7 +39,7 @@ asm void func_0200979c(void) {
     ldr r1, [r4, #0x70]
     add r0, r0, #0x28
     add r1, r1, #0x28
-    bl func_0205918c
+    bl STD_CopyString
     b L_02009834
 L_02009824:
     ldr r0, [r5, #0xb8]
@@ -50,7 +50,7 @@ L_02009834:
     ldr r0, [r4, #0x70]
     ldr r1, =data_0206a32c
     add r0, r0, #0x8
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     beq L_02009878
     ldr r1, [r4, #0x70]
@@ -62,7 +62,7 @@ L_02009834:
     ldr r1, [r4, #0x70]
     add r0, r0, #0x8
     add r1, r1, #0x8
-    bl func_0205918c
+    bl STD_CopyString
     b L_02009888
 L_02009878:
     ldr r0, [r5, #0xb8]

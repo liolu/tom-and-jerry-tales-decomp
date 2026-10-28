@@ -4,9 +4,9 @@
 typedef signed char s8;
 typedef long s32;
 typedef s32 M2C_UNK;
-extern M2C_UNK func_020502b8(void *);
-extern s32 func_020517f8();
-extern M2C_UNK func_0205180c(s32);
+extern M2C_UNK OS_SleepThread(void *);
+extern s32 OS_DisableInterrupts();
+extern M2C_UNK OS_RestoreInterrupts(s32);
 s32 func_02053a50(void *arg0, M2C_UNK arg1, s32 arg2) {
     void *temp_r4;
     s32 temp_r5;
@@ -24,7 +24,7 @@ s32 func_02053a50(void *arg0, M2C_UNK arg1, s32 arg2) {
             (*(s32 *) ((s8 *) (temp_r4) + (0x1C))) = (s32) ((*(s32 *) ((s8 *) (temp_r4) + (0x1C))) & ~0x200);
             break;
         case 6:
-            temp_r5 = func_020517f8();
+            temp_r5 = OS_DisableInterrupts();
             if ((*(s32 *) ((s8 *) (temp_r4) + (0x1C))) & 0x200) {
                 var_r0_2 = 1;
             } else {
@@ -32,7 +32,7 @@ s32 func_02053a50(void *arg0, M2C_UNK arg1, s32 arg2) {
             }
             if (var_r0_2 != 0) {
                 do {
-                    func_020502b8(temp_r4 + 0xC);
+                    OS_SleepThread(temp_r4 + 0xC);
                     if ((*(s32 *) ((s8 *) (temp_r4) + (0x1C))) & 0x200) {
                         var_r0_3 = 1;
                     } else {
@@ -40,7 +40,7 @@ s32 func_02053a50(void *arg0, M2C_UNK arg1, s32 arg2) {
                     }
                 } while (var_r0_3 != 0);
             }
-            func_0205180c(temp_r5);
+            OS_RestoreInterrupts(temp_r5);
             var_r0 = (*(s32 *) ((s8 *) ((*(void **) ((s8 *) (temp_r4) + (0x24)))) + (0x14)));
             break;
     }

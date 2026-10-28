@@ -18,7 +18,7 @@ typedef struct {
     s32 fc8;
 } Obj;
 extern Cam *data_0206ea0c;
-void func_0204d61c(void *);
+void G3_MultMtx43(void *);
 void func_01ffa724(s32, void *, s32);
 static inline void G3_Scale(s32 x, s32 y, s32 z) {
     *(volatile s32 *) 0x400046C = x;
@@ -33,7 +33,7 @@ static inline void G3_Translate(s32 x, s32 y, s32 z) {
 void func_020049ac(Obj *o, s32 a1, s32 a2) {
     Cam *cam;
     *(volatile u32 *) 0x4000444 = 0;
-    func_0204d61c(o->mtx);
+    G3_MultMtx43(o->mtx);
     *(volatile u32 *) 0x4000440 = 1;
     G3_Scale(o->f58, 0x100, o->f58);
     cam = data_0206ea0c;

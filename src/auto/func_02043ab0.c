@@ -2,11 +2,11 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02042b4c();
-extern void func_0205918c();
+extern void STD_CopyString();
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_020592b0();
-extern char data_020690b8[];
+extern void STD_GetStringLength();
+extern void STD_CompareString();
+extern char __upper_mapC[];
 extern char data_021a90a4[];
 extern char data_021a910c[];
 extern char data_021a9110[];
@@ -18,7 +18,7 @@ asm void func_02043ab0(void) {
     sub sp, sp, #0xd0
     ldr r5, [sp, #0xf8]
     mov r0, r5
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x8e
     mov r1, r5
@@ -28,7 +28,7 @@ asm void func_02043ab0(void) {
     cmp r4, #0x0
     mov r2, r7
     ble L_02043b30
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x8e
 L_02043af4:
     ldrsb r0, [r3, #0x0]
@@ -68,7 +68,7 @@ L_02043b5c:
     adds r0, r1, #0x9
     beq L_02043b44
     mov r1, r5
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02043b44
 L_02043b84:
@@ -133,7 +133,7 @@ L_02043c54:
 L_02043c58:
     ldr r8, [sp, #0xf8]
     mov r0, r8
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x4d
     mov r1, r8
@@ -143,7 +143,7 @@ L_02043c58:
     cmp r4, #0x0
     mov r2, r10
     ble L_02043ccc
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x4d
 L_02043c90:
     ldrsb r0, [r3, #0x0]
@@ -183,7 +183,7 @@ L_02043cf8:
     adds r0, r1, #0x9
     beq L_02043ce0
     mov r1, r8
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02043ce0
 L_02043d20:
@@ -242,7 +242,7 @@ L_02043dcc:
     str r6, [r7, #0x0]
     mov r1, #0x3f000000
     str r1, [r6, #0x44]
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0xc
     mov r1, r6
@@ -252,7 +252,7 @@ L_02043dcc:
     cmp r4, #0x0
     mov r1, r10
     ble L_02043e5c
-    ldr r0, =data_020690b8
+    ldr r0, =__upper_mapC
     add r2, sp, #0xc
 L_02043e20:
     ldrsb r3, [r2, #0x0]
@@ -291,7 +291,7 @@ L_02043e84:
     adds r0, r1, #0x9
     beq L_02043e6c
     mov r1, r6
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02043e6c
 L_02043eac:
@@ -311,7 +311,7 @@ L_02043eac:
     ldrb r1, [r1, #0x28]
     str r1, [r7, #0x28]
     ldr r1, [sp, #0xf8]
-    bl func_0205918c
+    bl STD_CopyString
     ldr r0, [r7, #0x4]
     cmp r0, #0x0
     bne L_02043f94

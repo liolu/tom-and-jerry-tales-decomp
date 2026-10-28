@@ -4,7 +4,7 @@ void func_020357ac(void);
 void func_020357e4(void);
 void func_02035f64(void);
 void func_0203620c(void);
-void func_0204b77c(void);
+void FX_Div(void);
 // clang-format off
 asm void func_02035ab0(void) {
     stmdb sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -33,7 +33,7 @@ asm void func_02035ab0(void) {
     ldrb r1, [r0, #0xea0]
     mov r0, #0x1000
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r10, #0x10]
     mov r0, #0x1
     strh r0, [r10, #0x16]
@@ -63,7 +63,7 @@ L_02035b3c:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r10, #0x10]
 L_02035b94:
     add r6, r6, #0x1
@@ -92,7 +92,7 @@ L_02035be0:
     ldr r1, [r10, #0x10]
     sub r0, r4, r0
     sub r7, r7, r4
-    bl func_0204b77c
+    bl FX_Div
     str r8, [r10, #0xc]
     ldrb r1, [r10, #0x33]
     sub r9, r9, r0
@@ -143,7 +143,7 @@ L_02035c8c:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r10, #0x10]
     ldrh r1, [r10, #0x16]
     ldr r2, [r10, #0x0]
@@ -176,7 +176,7 @@ L_02035d10:
     ldr r1, [r10, #0x10]
     sub r0, r8, r0
     sub r7, r7, r8
-    bl func_0204b77c
+    bl FX_Div
     str r6, [r10, #0xc]
     ldrb r1, [r10, #0x33]
     sub r9, r9, r0
@@ -226,7 +226,7 @@ L_02035db8:
     add r1, r1, #0x1000
     ldrb r1, [r1, #0xea0]
     mov r1, r1, lsl #0xc
-    bl func_0204b77c
+    bl FX_Div
     str r0, [r10, #0x10]
     ldrh r1, [r10, #0x14]
     ldr r2, [r10, #0x0]

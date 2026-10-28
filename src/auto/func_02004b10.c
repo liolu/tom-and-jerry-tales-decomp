@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-M2C_UNK func_02012e28(void *);                      /* extern */
+M2C_UNK func_02012e28(void *);
 
 typedef struct {
     s32 f0;

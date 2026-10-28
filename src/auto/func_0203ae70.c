@@ -16,7 +16,7 @@ typedef struct {
 extern void func_020096fc(void *, void *);
 extern void func_02039e84(u16, u16, void *);
 extern s16 func_0203afd8(void *, void *);
-extern void func_0204b480(void *);
+extern void MTX_Identity43_(void *);
 extern s32 data_0206d4c0;
 extern u16 data_020ac15c;
 extern E data_020aecfc[];
@@ -53,7 +53,7 @@ s32 func_0203ae70(void *arg0, s32 arg1, void *arg2) {
     e->f48                   = 0;
     e->f44                   = 0;
     e->s6                    = 0;
-    func_0204b480((u8 *) e + 8);
+    MTX_Identity43_((u8 *) e + 8);
     e->f58 &= ~0x200;
     e->f68 = 0;
     e->f64 = 0;

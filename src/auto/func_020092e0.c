@@ -1,10 +1,10 @@
 #include "m2c.h"
 
 /* Uses instructions the compiler never generates: written in assembly. */
-extern void func_0204b94c();
-extern void func_0204bc14();
-extern void func_0204be48();
-extern void func_020618ec();
+extern void VEC_Subtract();
+extern void VEC_Distance();
+extern void FX_Atan2Idx();
+extern void _dflt();
 extern void _dls();
 extern char data_0206a320[];
 extern char data_0206e670[];
@@ -116,8 +116,8 @@ L_0200944c:
     bne L_020094ec
     add r0, r10, #0xc4
     add r1, r9, #0xc4
-    bl func_0204bc14
-    bl func_020618ec
+    bl VEC_Distance
+    bl _dflt
     mov r2, r7
     mov r3, r6
     bl _dls
@@ -202,10 +202,10 @@ L_0200957c:
     str r3, [r2, #0x8]
     add r1, r9, #0xac
     str r3, [r2, #0x4]
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r0, [sp, #0xc]
     ldr r1, [sp, #0x14]
-    bl func_0204be48
+    bl FX_Atan2Idx
     ldr r3, =data_0206e670
     mov r4, #0x3
     ldrb r1, [r3, #0x0]
@@ -241,10 +241,10 @@ L_02009628:
     str r3, [r2, #0x8]
     add r1, r9, #0xac
     str r3, [r2, #0x4]
-    bl func_0204b94c
+    bl VEC_Subtract
     ldr r0, [sp, #0x0]
     ldr r1, [sp, #0x8]
-    bl func_0204be48
+    bl FX_Atan2Idx
     ldr r1, =data_0206e670
     mov r2, #0x5
     ldrb r4, [r1, #0x0]

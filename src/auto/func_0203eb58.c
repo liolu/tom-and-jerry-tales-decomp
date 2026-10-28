@@ -3,10 +3,10 @@
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_0203eabc();
 extern void func_0203eb44();
-extern void func_02050b24();
-extern void func_020575ac();
-extern void func_020575f8();
-extern void func_02057608();
+extern void DC_FlushRange();
+extern void CARD_GetResultCode();
+extern void CARD_LockBackup();
+extern void CARD_UnlockBackup();
 extern void func_02057a58();
 extern char data_0206d4e0[];
 // clang-format off
@@ -24,7 +24,7 @@ asm void func_0203eb58(void) {
     moveq r0, #0x1
     ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
     mov r0, r9
-    bl func_02050b24
+    bl DC_FlushRange
     add r1, r10, #0x7
     add r0, r4, #0x7
     bic r10, r1, #0x7
@@ -44,7 +44,7 @@ asm void func_0203eb58(void) {
     mov r11, #0x2
 L_0203ebd4:
     mov r0, r6
-    bl func_020575f8
+    bl CARD_LockBackup
     mov r1, #0x0
     mov r2, r7
 L_0203ebe4:
@@ -56,7 +56,7 @@ L_0203ebe4:
     blt L_0203ebe4
     mov r0, r7
     mov r1, #0x8
-    bl func_02050b24
+    bl DC_FlushRange
     mov r0, #0x0
     str r0, [sp, #0x0]
     str r0, [sp, #0x4]
@@ -69,7 +69,7 @@ L_0203ebe4:
     mov r3, #0x0
     str r11, [sp, #0x10]
     bl func_02057a58
-    bl func_020575ac
+    bl CARD_GetResultCode
     cmp r0, #0x0
     bne L_0203ec54
     add r10, r10, #0x8
@@ -78,7 +78,7 @@ L_0203ebe4:
     b L_0203ec74
 L_0203ec54:
     mov r0, r6
-    bl func_02057608
+    bl CARD_UnlockBackup
     ldr r0, =data_0206d4e0
     mov r1, #0x0
     str r1, [r0, #0x4]
@@ -87,7 +87,7 @@ L_0203ec54:
     ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 L_0203ec74:
     mov r0, r6
-    bl func_02057608
+    bl CARD_UnlockBackup
     cmp r5, #0x0
     beq L_0203ebd4
     mov r0, r6

@@ -4,12 +4,12 @@
 typedef long s32;
 typedef unsigned long u32;
 typedef s32 M2C_UNK;
-extern M2C_UNK func_02051e94(s32, M2C_UNK, s32, M2C_UNK);
+extern M2C_UNK MIi_CheckDma0SourceAddress(s32, M2C_UNK, s32, M2C_UNK);
 extern void func_01ffa62c(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, u32 arg3);
 void func_02051af4(s32 param_1, M2C_UNK param_2, M2C_UNK param_3, u32 param_4) {
     volatile u32 *ctrl;
 
-    func_02051e94(param_1, param_2, param_4, 0);
+    MIi_CheckDma0SourceAddress(param_1, param_2, param_4, 0);
     if (param_4 == 0) {
         return;
     }

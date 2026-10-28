@@ -11,17 +11,17 @@ typedef struct decimal {
         unsigned char unused;
     } sig;
 } decimal;
-extern double func_0205fc00(double x, int *eptr);
+extern double frexp(double x, int *eptr);
 extern double func_0205fcbc(double value, int exp);
-extern int func_020613f0(double x);
-extern void func_02060028(decimal *result, unsigned long long val);
-extern void func_020600f4(decimal *result, const decimal *x, const decimal *y);
+extern int __fpclassifyd(double x);
+extern void __ull2dec(decimal *result, unsigned long long val);
+extern void __timesdec(decimal *result, const decimal *x, const decimal *y);
 extern void func_02060314(decimal *result, long exp);
 extern void func_02060afc(decimal *d, double x);
 extern int func_02061348(unsigned long long x);
 extern int func_020613dc(double x);
-void func_02060028(decimal *result, unsigned long long val);
-void func_020600f4(decimal *result, const decimal *x, const decimal *y);
+void __ull2dec(decimal *result, unsigned long long val);
+void __timesdec(decimal *result, const decimal *x, const decimal *y);
 void func_02060314(decimal *result, long exp);
 inline int __count_trailing_zero(double x) {
     unsigned long long m = *(unsigned long long *) &x | 0x0010000000000000ULL;
@@ -38,12 +38,12 @@ void func_02060afc(decimal *d, double x) {
         return;
     }
 
-    if (!(((sizeof(x) == sizeof(float)) ? __fpclassifyf((float) (x)) : func_020613f0((double) (x))) > 2)) {
+    if (!(((sizeof(x) == sizeof(float)) ? __fpclassifyf((float) (x)) : __fpclassifyd((double) (x))) > 2)) {
         d->sgn        = sgn;
         d->exp        = 0;
         d->sig.length = 1;
         d->sig.text[0] =
-            (((sizeof(x) == sizeof(float)) ? __fpclassifyf((float) (x)) : func_020613f0((double) (x))) == 1) ? 'N' : 'I';
+            (((sizeof(x) == sizeof(float)) ? __fpclassifyf((float) (x)) : __fpclassifyd((double) (x))) == 1) ? 'N' : 'I';
         return;
     }
 
@@ -53,13 +53,13 @@ void func_02060afc(decimal *d, double x) {
 
     {
         int exp;
-        double frac           = func_0205fc00(x, &exp);
+        double frac           = frexp(x, &exp);
         long num_bits_extract = 53 - __count_trailing_zero(frac);
         decimal int_d, pow2_d;
 
         func_02060314(&pow2_d, exp - num_bits_extract);
-        func_02060028(&int_d, (unsigned long long) func_0205fcbc(frac, num_bits_extract));
-        func_020600f4(d, &int_d, &pow2_d);
+        __ull2dec(&int_d, (unsigned long long) func_0205fcbc(frac, num_bits_extract));
+        __timesdec(d, &int_d, &pow2_d);
         d->sgn = sgn;
     }
 }

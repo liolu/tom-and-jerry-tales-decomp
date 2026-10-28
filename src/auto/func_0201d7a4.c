@@ -3,7 +3,7 @@
 extern M2C_UNK data_0206e6d4;
 
 u8 func_0201d7a4(s32 arg0) {
-    switch (arg0) {                                 /* irregular */
+    switch (arg0) {
         case 0:
             return 1U;
         case 1:

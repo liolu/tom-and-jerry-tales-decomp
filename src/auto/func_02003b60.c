@@ -6,7 +6,7 @@ extern void func_02003738();
 extern void func_02003934();
 extern void func_02011a54();
 extern void func_02032598();
-extern void func_0204b480();
+extern void MTX_Identity43_();
 extern char data_02064110[];
 // clang-format off
 asm void func_02003b60(void) {
@@ -22,7 +22,7 @@ asm void func_02003b60(void) {
     mov r0, r5
     bl func_02003934
     add r0, r5, #0x7c
-    bl func_0204b480
+    bl MTX_Identity43_
     add r0, r5, #0x33
     str r0, [sp, #0x8]
     add r0, r5, #0x1800

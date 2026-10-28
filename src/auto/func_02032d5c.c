@@ -2,8 +2,8 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02031610();
-extern void func_02051a48();
-extern void func_02059508();
+extern void OS_Terminate();
+extern void abs();
 extern char data_0208876c[];
 extern char data_0208a360[];
 // clang-format off
@@ -14,7 +14,7 @@ asm void func_02032d5c(void) {
     cmp r4, #0x96
     blt L_02032d74
 L_02032d70:
-    bl func_02051a48
+    bl OS_Terminate
 L_02032d74:
     ldr r1, =data_0208a360
     mov r0, #0x68
@@ -22,17 +22,17 @@ L_02032d74:
     ldr r6, [r5, #0x18]
     cmp r6, #0x0
     bne L_02032d90
-    bl func_02051a48
+    bl OS_Terminate
 L_02032d90:
     ldr r0, [r6, #0x0]
     cmp r0, r4
     beq L_02032da0
-    bl func_02051a48
+    bl OS_Terminate
 L_02032da0:
     ldrh r0, [r5, #0x4]
     cmp r0, #0x90
     blo L_02032db0
-    bl func_02051a48
+    bl OS_Terminate
 L_02032db0:
     ldrh r1, [r5, #0x4]
     ldr r2, =data_0208876c
@@ -59,14 +59,14 @@ L_02032db0:
     ldr r0, [r5, #0xc]
     add r0, r1, r0
     str r0, [r6, #0x8]
-    bl func_02059508
+    bl abs
     cmp r0, r4, lsl #0xc
     blt L_02032e38
 L_02032e20:
     ldr r0, [r6, #0x8]
     sub r0, r0, r4, lsl #0xc
     str r0, [r6, #0x8]
-    bl func_02059508
+    bl abs
     cmp r0, r4, lsl #0xc
     bge L_02032e20
 L_02032e38:
@@ -84,14 +84,14 @@ L_02032e4c:
     ldr r0, [r5, #0x10]
     add r0, r1, r0
     str r0, [r6, #0x4]
-    bl func_02059508
+    bl abs
     cmp r0, r7, lsl #0xc
     blt L_02032e8c
 L_02032e74:
     ldr r0, [r6, #0x4]
     sub r0, r0, r7, lsl #0xc
     str r0, [r6, #0x4]
-    bl func_02059508
+    bl abs
     cmp r0, r7, lsl #0xc
     bge L_02032e74
 L_02032e8c:

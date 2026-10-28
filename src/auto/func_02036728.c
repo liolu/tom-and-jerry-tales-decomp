@@ -15,52 +15,52 @@ typedef struct {
     P *p;
 } G;
 extern G *data_027e0080;
-extern void func_0204b94c(V *, V *, V *);
-extern int func_0204b980(V *, V *);
-extern void func_0204b9bc(V *, V *, V *);
-extern void func_0204baa0(V *, V *);
+extern void VEC_Subtract(V *, V *, V *);
+extern int VEC_DotProduct(V *, V *);
+extern void VEC_CrossProduct(V *, V *, V *);
+extern void VEC_Normalize(V *, V *);
 
 void func_02036728(int idx, V *tri) {
     V a, c, b;
     P *p = data_027e0080->p + idx;
     int i;
     V *s, *d, *t;
-    func_0204b94c(tri + 1, tri, &a);
+    VEC_Subtract(tri + 1, tri, &a);
     if (a.x == 0 && a.y == 0 && a.z == 0) {
         p->f = 0xfd;
         return;
     }
-    func_0204baa0(&a, &a);
-    func_0204b94c(tri + 2, tri, &b);
+    VEC_Normalize(&a, &a);
+    VEC_Subtract(tri + 2, tri, &b);
     if (b.x == 0 && b.y == 0 && b.z == 0) {
         p->f = 0xfd;
         return;
     }
-    func_0204baa0(&b, &b);
-    func_0204b9bc(&a, &b, &p->n);
+    VEC_Normalize(&b, &b);
+    VEC_CrossProduct(&a, &b, &p->n);
     if (p->f == 0xfd || (p->n.x == 0 && p->n.y == 0 && p->n.z == 0)) {
         p->f = 0xfd;
         return;
     }
     {
-        func_0204baa0(&p->n, &p->n);
+        VEC_Normalize(&p->n, &p->n);
         if (p->n.x == 0 && p->n.y == 0 && p->n.z == 0) {
             p->f = 0xfd;
             return;
         }
-        p->w = 0 - func_0204b980(tri, &p->n);
-        func_0204b94c(tri, tri + 1, &a);
-        func_0204b94c(tri + 1, tri + 2, &c);
-        func_0204b9bc(&p->n, &a, &p->v[0]);
-        func_0204b9bc(&p->n, &c, &p->v[1]);
-        func_0204b9bc(&p->n, &b, &p->v[2]);
+        p->w = 0 - VEC_DotProduct(tri, &p->n);
+        VEC_Subtract(tri, tri + 1, &a);
+        VEC_Subtract(tri + 1, tri + 2, &c);
+        VEC_CrossProduct(&p->n, &a, &p->v[0]);
+        VEC_CrossProduct(&p->n, &c, &p->v[1]);
+        VEC_CrossProduct(&p->n, &b, &p->v[2]);
         i = 0;
         s = &p->v[0];
         d = &p->v[0];
         t = tri;
         for (; i < 3; i++) {
-            func_0204baa0(d, s);
-            p->d[i] = func_0204b980(t, d);
+            VEC_Normalize(d, s);
+            p->d[i] = VEC_DotProduct(t, d);
             s++;
             d++;
             t++;

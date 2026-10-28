@@ -50,8 +50,8 @@ typedef enum {
     OS_INTRMODE_ENABLE      = 0
 } OSIntrMode;
 extern OSIntrMode OS_EnableInterrupts(void);
-extern OSIntrMode func_020517f8(void);
-extern OSIntrMode func_0205180c(OSIntrMode state);
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 extern OSIntrMode OS_DisableInterrupts_IrqAndFiq(void);
 extern OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state);
 extern OSIntrMode OS_GetCpsrIrq(void);
@@ -77,22 +77,22 @@ extern void MIi_DmaSetParams_wait(u32 dmaNo, u32 src, u32 dest, u32 ctrl);
 extern void MIi_DmaSetParams_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl);
 extern void MIi_DmaSetParams_wait_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl);
 static inline void MIi_DmaSetParams_wait_src32(u32 dmaNo, u32 data, u32 dest, u32 ctrl) {
-    OSIntrMode lastIntrMode = func_020517f8();
+    OSIntrMode lastIntrMode = OS_DisableInterrupts();
 
     MIiDmaClearSrc *scrp = (MIiDmaClearSrc *) ((u32) 0x40000e0 + dmaNo * 4);
     scrp->b32            = data;
     MIi_DmaSetParams_wait_noInt(dmaNo, (u32) scrp, dest, ctrl);
 
-    (void) func_0205180c(lastIntrMode);
+    (void) OS_RestoreInterrupts(lastIntrMode);
 }
 static inline void MIi_DmaSetParams_src32(u32 dmaNo, u32 data, u32 dest, u32 ctrl) {
-    OSIntrMode lastIntrMode = func_020517f8();
+    OSIntrMode lastIntrMode = OS_DisableInterrupts();
 
     MIiDmaClearSrc *srcp = (MIiDmaClearSrc *) ((u32) 0x40000e0 + dmaNo * 4);
     srcp->b32            = data;
     MIi_DmaSetParams_noInt(dmaNo, (u32) srcp, dest, ctrl);
 
-    (void) func_0205180c(lastIntrMode);
+    (void) OS_RestoreInterrupts(lastIntrMode);
 }
 static inline void MIi_CallCallback(MIDmaCallback callback, void *arg) {
     if (callback) {
@@ -256,7 +256,7 @@ extern void OS_ExitThread(void);
 extern void OS_DestroyThread(OSThread *thread);
 extern void OS_JoinThread(OSThread *thread);
 extern BOOL OS_IsThreadTerminated(const OSThread *thread);
-extern void func_020502b8(OSThreadQueue *queue);
+extern void OS_SleepThread(OSThreadQueue *queue);
 extern void OS_WakeupThread(OSThreadQueue *queue);
 extern void OS_WakeupThreadDirect(OSThread *thread);
 extern OSThread *OS_SelectThread(void);
@@ -941,14 +941,14 @@ static inline void CARDi_EndTask(CARDiCommon *p, BOOL is_own_task) {
     void *const arg          = p->callback_arg;
 
     {
-        OSIntrMode bak_psr = func_020517f8();
+        OSIntrMode bak_psr = OS_DisableInterrupts();
 
         p->flag &= ~(CARD_STAT_BUSY | CARD_STAT_TASK | CARD_STAT_CANCEL);
         OS_WakeupThread(p->busy_q);
         if ((p->flag & CARD_STAT_RECV) != 0) {
             OS_WakeupThreadDirect(p->thread);
         }
-        (void) func_0205180c(bak_psr);
+        (void) OS_RestoreInterrupts(bak_psr);
     }
 
     if (is_own_task && func) {
@@ -956,14 +956,14 @@ static inline void CARDi_EndTask(CARDiCommon *p, BOOL is_own_task) {
     }
 }
 static inline void CARDi_WaitTask(CARDiCommon *p, MIDmaCallback callback, void *callback_arg) {
-    OSIntrMode bak_psr = func_020517f8();
+    OSIntrMode bak_psr = OS_DisableInterrupts();
     while ((p->flag & CARD_STAT_BUSY) != 0) {
-        func_020502b8(p->busy_q);
+        OS_SleepThread(p->busy_q);
     }
     p->flag |= CARD_STAT_BUSY;
     p->callback     = callback;
     p->callback_arg = callback_arg;
-    (void) func_0205180c(bak_psr);
+    (void) OS_RestoreInterrupts(bak_psr);
 }
 extern void CARDi_SetTask(void (*task)(CARDiCommon *));
 extern void CARDi_InitCommon(void);
@@ -1011,7 +1011,7 @@ static inline void FSi_AppendToList(FSFile *elem, FSFile *list) {
         trg->next       = ((void *) 0);
     }
 }
-extern FSResult (*const data_02069094[])(FSFile *);
+extern FSResult (*const fsi_default_command[])(FSFile *);
 extern void func_02053814(FSFile *file, FSResult signal);
 extern FSResult func_02053870(FSFile *file, FSCommandType command);
 extern void func_02053814(FSFile *p_file, FSResult ret);
@@ -1048,16 +1048,16 @@ FSResult func_02053870(FSFile *p_file, FSCommandType command) {
         ret = FS_RESULT_PROC_DEFAULT;
     }
     if (ret == FS_RESULT_PROC_DEFAULT) {
-        ret = (*data_02069094[command])(p_file);
+        ret = (*fsi_default_command[command])(p_file);
     }
     if (ret == FS_RESULT_PROC_ASYNC) {
         if (FS_IsFileSyncMode(p_file)) {
-            OSIntrMode bak_psr = func_020517f8();
+            OSIntrMode bak_psr = OS_DisableInterrupts();
             while (FSi_IsArchiveSync(p_arc)) {
-                func_020502b8(&p_arc->sync_q);
+                OS_SleepThread(&p_arc->sync_q);
             }
             ret = p_file->error;
-            (void) func_0205180c(bak_psr);
+            (void) OS_RestoreInterrupts(bak_psr);
         }
     } else if (!FS_IsFileSyncMode(p_file)) {
         p_arc->flag &= ~0x00000100;

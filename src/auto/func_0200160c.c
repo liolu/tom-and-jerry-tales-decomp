@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_01ff8000();
-extern void func_02059aa4();
+extern void memset();
 extern char data_0206e6a4[];
 extern char data_0206e9e8[];
 // clang-format off
@@ -15,7 +15,7 @@ asm void func_0200160c(void) {
     mov r1, #0x0
     mov r2, #0xd8
     str r0, [r3, #0x10]
-    bl func_02059aa4
+    bl memset
     ldr r2, =data_0206e9e8
     mov r3, #0x0
     add r1, r2, #0x2

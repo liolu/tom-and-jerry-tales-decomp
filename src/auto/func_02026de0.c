@@ -14,7 +14,7 @@ extern void func_0203d0d8();
 extern void func_0203d740();
 extern void func_0204221c();
 extern void func_0204f490();
-extern void func_0205bdf4();
+extern void sprintf();
 extern char data_0206b918[];
 extern char data_0206b9d4[];
 extern char data_0206bad4[];
@@ -49,7 +49,7 @@ asm void func_02026de0(void) {
     ldr r0, =data_02087dd0
     ldr r1, =data_0206c30c
     mov r3, r4
-    bl func_0205bdf4
+    bl sprintf
     mov r0, #0x0
     str r0, [sp, #0x0]
     str r0, [sp, #0x4]

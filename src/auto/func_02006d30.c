@@ -2,7 +2,7 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_02036340();
-extern void func_02051a48();
+extern void OS_Terminate();
 extern char data_0206e6d4[];
 // clang-format off
 asm void func_02006d30(void) {
@@ -118,7 +118,7 @@ L_02006eac:
     str r2, [r1, #0x844]
     ldmfd sp!, {r3, r4, r5, pc}
 L_02006ed4:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, r4, r5, pc}
 L_02006edc:
     cmp r1, #0x3
@@ -152,7 +152,7 @@ L_02006f38:
     str r1, [r0, #0x844]
     ldmfd sp!, {r3, r4, r5, pc}
 L_02006f50:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, r4, r5, pc}
 L_02006f58:
     cmp r3, #0x9
@@ -289,7 +289,7 @@ L_02007114:
     str r2, [r0, #0x844]
     ldmfd sp!, {r3, r4, r5, pc}
 L_02007138:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, r4, r5, pc}
 L_02007140:
     ldrb r0, [r4, #0x0]
@@ -337,7 +337,7 @@ L_020071ac:
     str r0, [r1, #0x844]
     ldmfd sp!, {r3, r4, r5, pc}
 L_020071e4:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, r4, r5, pc}
 L_020071ec:
     ldrb r0, [r4, #0x0]
@@ -377,7 +377,7 @@ L_02007248:
     str r2, [r1, #0x844]
     ldmfd sp!, {r3, r4, r5, pc}
 L_02007270:
-    bl func_02051a48
+    bl OS_Terminate
     ldmfd sp!, {r3, r4, r5, pc}
 L_02007278:
     add r0, r5, #0x104

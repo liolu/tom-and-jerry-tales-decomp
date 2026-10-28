@@ -63,24 +63,24 @@ typedef struct NNSSndPlayer {
     u16 pad2_;
 } NNSSndPlayer;
 extern void func_02046ffc(int fadeFrame);
-extern void func_020474b8(NNSSndSeqPlayer *seqPlayer, int fadeFrame);
+extern void NNSi_SndPlayerStopSeq(NNSSndSeqPlayer *seqPlayer, int fadeFrame);
 typedef struct NNSSndPlayerHeap {
     NNSFndLink link;
     NNSSndHeapHandle handle;
     NNSSndSeqPlayer *player;
     int playerNo;
 } NNSSndPlayerHeap;
-extern NNSSndSeqPlayer data_021ae564[16];
+extern NNSSndSeqPlayer sSeqPlayer[16];
 void func_02046ffc(int fadeFrame) {
     NNSSndSeqPlayer *seqPlayer;
     int i;
 
     for (i = 0; i < 16; i++) {
-        seqPlayer = &data_021ae564[i];
+        seqPlayer = &sSeqPlayer[i];
 
         if (seqPlayer->status != NNS_SND_SEQ_PLAYER_STATUS_STOP) {
-            func_020474b8(seqPlayer, fadeFrame);
+            NNSi_SndPlayerStopSeq(seqPlayer, fadeFrame);
         }
     }
 }
-void func_020474b8(NNSSndSeqPlayer *seqPlayer, int fadeFrame);
+void NNSi_SndPlayerStopSeq(NNSSndSeqPlayer *seqPlayer, int fadeFrame);

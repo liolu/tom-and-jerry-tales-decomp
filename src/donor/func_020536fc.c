@@ -7,8 +7,8 @@ typedef int s32;
 typedef volatile u32 vu32;
 typedef volatile u16 vu16;
 typedef s32 BOOL;
-extern u32 func_020517f8(void);
-extern u32 func_0205180c(u32 state);
+extern u32 OS_DisableInterrupts(void);
+extern u32 OS_RestoreInterrupts(u32 state);
 typedef void (*PxiCallback)(u32 tag, u32 data, BOOL err);
 extern void func_020536fc(void);
 typedef union UnkPxiFifoMessage {
@@ -19,7 +19,7 @@ typedef union UnkPxiFifoMessage {
     } e;
     u32 raw;
 } UnkPxiFifoMessage;
-extern PxiCallback data_021b2348[32];
+extern PxiCallback FifoRecvCallbackTable[32];
 static inline s32 PxiSetToFifo(u32 data) {
     u32 enabled;
 
@@ -27,13 +27,13 @@ static inline s32 PxiSetToFifo(u32 data) {
         (*(vu16 *) 0x04000184) |= 0xc000;
         return -1;
     }
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
     if ((*(vu16 *) 0x04000184) & 2) {
-        func_0205180c(enabled);
+        OS_RestoreInterrupts(enabled);
         return -2;
     }
     (*(vu32 *) 0x04000188) = data;
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
     return 0;
 }
 static inline s32 PxiGetFromFifo(u32 *data) {
@@ -43,13 +43,13 @@ static inline s32 PxiGetFromFifo(u32 *data) {
         (*(vu16 *) 0x04000184) |= 0xc000;
         return -3;
     }
-    enabled = func_020517f8();
+    enabled = OS_DisableInterrupts();
     if ((*(vu16 *) 0x04000184) & 0x100) {
-        func_0205180c(enabled);
+        OS_RestoreInterrupts(enabled);
         return -4;
     }
     *data = (*(vu32 *) 0x04100000);
-    func_0205180c(enabled);
+    OS_RestoreInterrupts(enabled);
     return 0;
 }
 void func_020536fc(void) {
@@ -67,8 +67,8 @@ void func_020536fc(void) {
         }
         tag = msg.e.tag;
         if (tag) {
-            if (data_021b2348[tag]) {
-                data_021b2348[tag](tag, msg.e.data, msg.e.err);
+            if (FifoRecvCallbackTable[tag]) {
+                FifoRecvCallbackTable[tag](tag, msg.e.data, msg.e.err);
             } else if (!msg.e.err) {
                 msg.e.err = 1;
                 PxiSetToFifo(msg.raw);

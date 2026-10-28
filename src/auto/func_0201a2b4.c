@@ -6,7 +6,7 @@ extern void func_0203c1e8();
 extern void func_0203c408();
 extern void func_0203c4cc();
 extern void func_0203c568();
-extern void func_02051ee8();
+extern void MIi_CpuCopy16();
 extern char data_02087410[];
 extern char data_02087454[];
 extern char data_02087455[];
@@ -70,7 +70,7 @@ L_0201a2f8:
     mov r2, #0x20
     add r1, r0, r1, lsl #0x5
     add r0, r0, #0xa0
-    bl func_02051ee8
+    bl MIi_CpuCopy16
     mov r0, r5, lsl #0x10
     mov r0, r0, lsr #0x10
     mov r1, #0x0

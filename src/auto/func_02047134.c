@@ -1,6 +1,6 @@
 #include "m2c.h"
 
-M2C_UNK func_020524cc(u8);                          /* extern */
+M2C_UNK SND_SetTrackPan(u8);
 
 void func_02047134(void **arg0) {
     void *temp_r0;
@@ -9,5 +9,5 @@ void func_02047134(void **arg0) {
     if (temp_r0 == NULL) {
         return;
     }
-    func_020524cc(M2C_FIELD(temp_r0, u8 *, 0x3C));
+    SND_SetTrackPan(M2C_FIELD(temp_r0, u8 *, 0x3C));
 }

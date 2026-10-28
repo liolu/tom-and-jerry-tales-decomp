@@ -6,14 +6,14 @@ typedef struct {
     s32 acc;
 } G;
 extern G data_0206e6d4;
-extern double func_020618ec(s32);
-extern double func_02063314(double, double);
-extern s32 func_020617bc(double);
+extern double _dflt(s32);
+extern double _ddiv(double, double);
+extern s32 _dfix(double);
 void func_0201db7c(s32 arg0) {
     s32 t             = data_0206e6d4.acc + arg0;
     data_0206e6d4.acc = t;
     if (t >= 0x1000 || t <= -0x1000) {
-        data_0206e6d4.h   = data_0206e6d4.h + func_020617bc(func_02063314(func_020618ec(t), 4096.0));
+        data_0206e6d4.h   = data_0206e6d4.h + _dfix(_ddiv(_dflt(t), 4096.0));
         data_0206e6d4.acc = 0;
     }
     if (data_0206e6d4.h > 0x64) {

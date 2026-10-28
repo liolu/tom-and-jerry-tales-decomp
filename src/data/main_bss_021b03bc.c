@@ -2,5 +2,5 @@
 #include "m2c.h"
 
 u32 data_021b03bc[1];
-u32 data_021b03c0[7];
-u32 data_021b03dc[8];
+u32 sSubBGExtPltt[7];
+u32 sClrImg[8];

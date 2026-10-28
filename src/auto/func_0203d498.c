@@ -11,7 +11,7 @@ s32 func_02030f40(s32, s32 *, s32, s32);
 void func_0203d578(s32, s32, Q *);
 void func_0203db80(s32, s32);
 void func_0203dc40(s32, s32, s32, s32);
-void func_02051a48(void);
+void OS_Terminate(void);
 
 void func_0203d498(s32 arg0, s32 arg1, s32 arg2, s32 arg3, Q *arg4) {
     s32 sp4 = 0;
@@ -21,7 +21,7 @@ void func_0203d498(s32 arg0, s32 arg1, s32 arg2, s32 arg3, Q *arg4) {
     u8 vb;
     func_02030ed4(&sp0);
     if (func_02030f40(arg0, &sp4, arg1, arg1) < 0 || sp4 == 0) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (arg3 != 0) {
         s32 t = *(volatile s32 *) 0x04000000;

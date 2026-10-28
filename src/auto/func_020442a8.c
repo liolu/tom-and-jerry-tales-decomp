@@ -2,9 +2,9 @@
 
 /* Uses instructions the compiler never generates: written in assembly. */
 extern void func_020591c0();
-extern void func_02059264();
-extern void func_020592b0();
-extern char data_020690b8[];
+extern void STD_GetStringLength();
+extern void STD_CompareString();
+extern char __upper_mapC[];
 extern char data_021a90a4[];
 extern char data_021a910c[];
 extern char data_021a9110[];
@@ -17,7 +17,7 @@ asm void func_020442a8(void) {
     mov r10, r0
     mov r9, r1
     ldr r7, [r2, #0xa6c]
-    bl func_02059264
+    bl STD_GetStringLength
     mov r4, r0
     add r0, sp, #0x0
     mov r1, r10
@@ -27,7 +27,7 @@ asm void func_020442a8(void) {
     cmp r4, #0x0
     mov r2, r8
     ble L_0204432c
-    ldr r1, =data_020690b8
+    ldr r1, =__upper_mapC
     add r3, sp, #0x0
 L_020442f0:
     ldrsb r0, [r3, #0x0]
@@ -67,7 +67,7 @@ L_02044358:
     adds r0, r1, #0x9
     beq L_02044340
     mov r1, r10
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     bne L_02044340
 L_02044380:
@@ -119,7 +119,7 @@ L_02044420:
 L_02044424:
     mov r1, r10
     add r0, r8, #0x2c
-    bl func_020592b0
+    bl STD_CompareString
     cmp r0, #0x0
     add r5, r5, #0x1
     streq r9, [r8, #0x28]

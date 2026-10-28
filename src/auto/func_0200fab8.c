@@ -6,7 +6,7 @@ extern void func_0200fa54();
 extern void func_0200fa7c();
 extern void func_0203d0d8();
 extern void func_0203d740();
-extern void func_0205172c();
+extern void OS_SetTick();
 extern char data_0206a994[];
 extern char data_02086fa8[];
 extern char data_02086fdc[];
@@ -36,7 +36,7 @@ L_0200faec:
 L_0200fb00:
     mov r0, #0x0
     mov r1, r0
-    bl func_0205172c
+    bl OS_SetTick
     ldr r0, =data_020880c0
     ldr r1, =0x88888889
     ldrh r6, [r0, #0x1e]

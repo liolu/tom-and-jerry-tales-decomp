@@ -28,8 +28,8 @@ typedef struct {
 extern s32 func_020312e0(s32, void *);
 extern void func_020293f8(void *, ...);
 extern W *func_01ff8000(s32, s32);
-extern void func_02051f7c(void *, void *, s32);
-extern void func_02051a48(void);
+extern void MIi_CpuCopyFast(void *, void *, s32);
+extern void OS_Terminate(void);
 extern u32 func_0205bfd4(void *);
 extern s32 func_020339b0(void *);
 extern s32 func_02040bc4(void *, void *, void *);
@@ -54,13 +54,13 @@ W *func_02029404(s32 arg0, s32 arg1) {
     }
     func_020293f8(data_0206c588, arg0);
     w = func_01ff8000(arg1, 0x118);
-    func_02051f7c(&l, w, 0x50);
+    MIi_CpuCopyFast(&l, w, 0x50);
     if (w->f4 == 0) {
         s16 h = w->h20;
         if (h == -0x1000) {
             w->f4 = 0x3FFFFFFF;
         } else if (h == 0) {
-            func_02051a48();
+            OS_Terminate();
         }
     }
     i = 0;
@@ -84,10 +84,10 @@ W *func_02029404(s32 arg0, s32 arg1) {
     w->n110 = 0;
     rec     = w->r;
     do {
-        func_02051f7c(pe, rec, 0xC);
+        MIi_CpuCopyFast(pe, rec, 0xC);
         if (rec->kind != 0) {
             if (func_0205bfd4(pn) >= 0x20) {
-                func_02051a48();
+                OS_Terminate();
             }
             w->n110 = w->n110 + 1;
             func_020293f8(data_0206c5d4, k, rec->kind, pn);
@@ -120,7 +120,7 @@ W *func_02029404(s32 arg0, s32 arg1) {
                     func_020293f8(data_0206c694);
                     break;
                 default:
-                    func_02051a48();
+                    OS_Terminate();
                     break;
                 case 9:
                 case 10:

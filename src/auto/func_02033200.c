@@ -10,7 +10,7 @@ typedef struct R {
 s32 func_02030f40(void *, s32 *, s32, s32);
 void func_020332dc(s32, s32);
 void func_0204f490(void *, void *, void *, void *);
-void func_02051a48(void);
+void OS_Terminate(void);
 
 extern u8 data_0206d20c;
 extern u8 data_0206d218;
@@ -30,7 +30,7 @@ u16 func_02033200(s32 arg0, s32 arg1) {
                 sp0 = 0;
                 func_0204f490(sp4, &data_0206d218, &data_0206d20c, r->name);
                 if (func_02030f40(sp4, &sp0, arg0, arg1) < 0 || sp0 == 0) {
-                    func_02051a48();
+                    OS_Terminate();
                 }
                 func_020332dc(sp0, i);
                 n += 1;

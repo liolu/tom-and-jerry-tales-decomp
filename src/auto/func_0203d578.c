@@ -6,10 +6,10 @@ extern s32 data_0206414c[];
 extern s32 data_02064144[];
 extern u16 data_02064168[2][9];
 extern void func_0203e12c(void *);
-extern void func_02050b24(void *, s32);
+extern void DC_FlushRange(void *, s32);
 extern s32 func_0203d068(s32);
 extern s32 func_0203d080(s32);
-extern void func_02051f7c(void *, s32, s32);
+extern void MIi_CpuCopyFast(void *, s32, s32);
 extern void func_0203d924(s32, s32, s32, u32, u32, void *);
 
 void func_0203d578(u8 *obj, s32 a, s32 *p) {
@@ -62,8 +62,8 @@ void func_0203d578(u8 *obj, s32 a, s32 *p) {
     if (chg != 0) {
         func_0203e12c(p);
     }
-    func_02050b24(obj + 0x208, off + sz + 4);
-    func_02051f7c(dst, func_0203d068(p[0]), sz);
-    func_02051f7c(obj + 0x208, func_0203d080(p[0]), off);
+    DC_FlushRange(obj + 0x208, off + sz + 4);
+    MIi_CpuCopyFast(dst, func_0203d068(p[0]), sz);
+    MIi_CpuCopyFast(obj + 0x208, func_0203d080(p[0]), off);
     func_0203d924(a, 0, 0, ((u32) data_02064168[0][p[1]] << 19) >> 16, ((u32) data_02064168[1][p[1]] << 19) >> 16, p);
 }

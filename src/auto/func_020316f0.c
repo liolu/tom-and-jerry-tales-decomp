@@ -14,16 +14,16 @@ typedef struct {
 extern H data_0208872c;
 extern E data_0208876c[];
 s32 func_02032190(char *);
-void func_02051a48(void);
-void func_0205918c(char *, char *);
+void OS_Terminate(void);
+void STD_CopyString(char *, char *);
 
 s32 func_020316f0(char *name, s32 flag, s32 val) {
     s32 i = func_02032190(name);
     if (name == NULL) {
-        func_02051a48();
+        OS_Terminate();
     }
     if (i < 0) {
-        func_0205918c(data_0208876c[data_0208872c.count].name, name);
+        STD_CopyString(data_0208876c[data_0208872c.count].name, name);
         i                     = data_0208872c.count;
         data_0208876c[i].flag = flag;
         data_0208876c[i].val  = val;
