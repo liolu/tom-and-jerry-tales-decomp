@@ -88,3 +88,7 @@ src/auto/func_01ffa724.c:
 src/auto/OS_IrqHandler_ThreadSwitch.c:
     complete
     .text       start:0x01ffa490 end:0x01ffa5ec
+
+src/auto/OS_IrqHandler.c:
+    complete
+    .text       start:0x01ffa438 end:0x01ffa490
