@@ -11800,6 +11800,7 @@ src/msl/__call_static_initializers_2.c:
 src/auto/__sinit_02063d2c.c:
     complete
     .init       start:0x02063d2c end:0x02063dd8
+    .ctor       start:0x020692a8 end:0x020692ac
 
 src/auto/func_02038f04.c:
     complete

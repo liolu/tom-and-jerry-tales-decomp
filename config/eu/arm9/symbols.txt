@@ -1892,6 +1892,7 @@ __register_global_object kind:function(arm,size=0x20) addr:0x02063a1c
 _ExitProcess kind:function(arm,size=0xc) addr:0x02063a3c
 data_02063a48 kind:data(any) addr:0x02063a48
 __sinit_02063d2c kind:function(arm,size=0xac) addr:0x02063d2c
+__sinit_02063d2c_ctor kind:data(word) addr:0x020692a8
 data_02063dd8 kind:data(any) addr:0x02063dd8
 data_02063df0 kind:data(any) addr:0x02063df0
 data_02063e08 kind:data(any) addr:0x02063e08
@@ -1995,7 +1996,6 @@ ln2LO kind:data(word[4]) addr:0x02069268 local
 dp_h kind:data(any) addr:0x02069278
 bp kind:data(any) addr:0x02069288
 dp_l kind:data(any) addr:0x02069298
-ARM9_CTOR_START kind:data(word) addr:0x020692a8
 data_020692c0 kind:data(any) addr:0x020692c0
 data_020692c4 kind:data(any) addr:0x020692c4
 data_020692e0 kind:data(any) addr:0x020692e0

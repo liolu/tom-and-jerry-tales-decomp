@@ -31,3 +31,8 @@ __declspec(INIT) void __sinit_02063d2c(void) {
     MI_CpuFill8(data_021a9b18, 0, 0x2600);
     data_021ac0a4[0x74 / 4] = 0;
 }
+
+#pragma define_section CTOR ".ctor" \
+                            ".ctor"
+
+__declspec(CTOR) void (*__sinit_02063d2c_ctor)(void) = __sinit_02063d2c;
