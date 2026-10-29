@@ -3574,7 +3574,7 @@ data_021b0404 kind:bss addr:0x021b0404
 data_021b042c kind:bss addr:0x021b042c
 data_021b0430 kind:bss addr:0x021b0430
 data_021b0434 kind:bss addr:0x021b0434
-data_021b045c kind:bss addr:0x021b045c
+isInitialized$4 kind:bss(size=0x4) addr:0x021b045c local
 OSi_SystemCallbackInSwitchThread kind:bss addr:0x021b0460
 OSi_ThreadInfo kind:bss addr:0x021b0484
 data_021b0488 kind:bss addr:0x021b0488

@@ -6182,9 +6182,9 @@ src/data/main_bss_021b0430.c:
     complete
     .bss        start:0x021b0430 end:0x021b045c
 
-src/data/main_bss_021b045c.c:
+src/data/main_bss_021b0460.c:
     complete
-    .bss        start:0x021b045c end:0x021b0484
+    .bss        start:0x021b0460 end:0x021b0484
 
 src/data/main_bss_021b0484.c:
     complete
@@ -12101,3 +12101,8 @@ src/auto/func_02033a2c.c:
 src/auto/func_02006178.c:
     complete
     .text       start:0x02006178 end:0x020064b0
+
+src/auto/OS_InitLock.c:
+    complete
+    .text       start:0x0204f028 end:0x0204f0f4
+    .bss        start:0x021b045c end:0x021b0460
