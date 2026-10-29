@@ -1,3 +1,4 @@
 # NitroSDK linker-defined constants (the original lcf defined them; OS code loads them from literal pools)
 SDK_IRQ_STACKSIZE = 0x320;
 SDK_SYS_STACKSIZE = 0xe60;
+SDK_AUTOLOAD_DTCM_START = 0x027e0000;
