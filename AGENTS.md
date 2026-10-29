@@ -5,7 +5,8 @@ Matching decompilation of Tomjerrytale (EU, `AJTP`): C compiled with the origina
 ## Hard rules
 1. Only the build decides: a function is matched only at 100% (`python tools/match.py verify` prints `VERIFY PASSED`). Never commit otherwise.
 2. Clean room: only the game binary and public projects; never leaked sources or Nintendo SDK source.
-3. Natural C; `asm` only for instructions compilers never generate.
+3. Natural C; `asm` only for instructions compilers never generate, or for a library (SDK/MSL) function whose
+   original is `asm`, proven by a public decomp writing it instruction for instruction (cite it in `// ASM:`).
 4. ASCII only in `src/`, `include/`.
 5. Never commit the ROM, BIOS, `extract/` or `build/`.
 6. Do not contribute AI-generated code to projects that forbid it.
