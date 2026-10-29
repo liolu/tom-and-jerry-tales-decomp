@@ -1840,6 +1840,7 @@ __fpclassifyd kind:function(arm,size=0x70) addr:0x020613f0
 scalbn kind:function(arm,size=0x2c) addr:0x02061460
 OSi_FreeStackAlloc kind:function(arm,size=0x18) addr:0x0206148c
 _dadd kind:function(arm,size=0x318) addr:0x020614a4
+_dadd_join kind:label(arm) addr:0x020614b4
 _dfix kind:function(arm,size=0x4c) addr:0x020617bc
 func_02061808 kind:function(arm,size=0x58) addr:0x02061808
 _ll_ufrom_d kind:function(arm,size=0x8c) addr:0x02061860
@@ -1849,6 +1850,7 @@ _dmul kind:function(arm,size=0x364) addr:0x02061968
 sqrt kind:function(arm,size=0x19c) addr:0x02061ccc
 _dsub kind:function(arm,size=0x3b4) addr:0x02061e80
 func_02062234 kind:function(arm,size=0x21c) addr:0x02062234
+_fadd_join kind:label(arm) addr:0x02062240
 func_02062450 kind:function(arm,size=0x8) addr:0x02062450
 func_02062458 kind:function(arm,size=0x80) addr:0x02062458
 _dgr kind:function(arm,size=0x80) addr:0x020624d8

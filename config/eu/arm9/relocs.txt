@@ -12586,3 +12586,5 @@ from:0x0206e3f4 kind:load to:0x02063a00 module:main
 from:0x0206e3fc kind:load to:0x0206e3cc module:main
 from:0x0206e400 kind:load to:0x020639a8 module:main
 from:0x0206e404 kind:load to:0x020639bc module:main
+from:0x02062a94 kind:arm_branch to:0x02062240 module:main
+from:0x02061e8c kind:arm_branch to:0x020614b4 module:main

@@ -11930,3 +11930,11 @@ src/auto/func_0205a39c.c:
 src/auto/OS_VSNPrintf.c:
     complete
     .text       start:0x0204f4f8 end:0x0204fd74
+
+src/auto/_fsub.c:
+    complete
+    .text       start:0x02062a8c end:0x02062d04
+
+src/auto/_dsub.c:
+    complete
+    .text       start:0x02061e80 end:0x02062234
