@@ -94,13 +94,13 @@ src/auto/CARDi_OnFifoRecv.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noaut
 src/auto/CARDi_TaskThread.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/CARDi_CheckPulledOutCore.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/WMi_SendCommand.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__flush_all.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__flush_buffer.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/fflush.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/__flush_all.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/__flush_buffer.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/fflush.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/func_0205be20.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__timesdec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__str2dec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__num2dec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/__timesdec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/__str2dec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/__num2dec.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/func_02061348.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/_dfix.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/_dflt.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
@@ -189,17 +189,17 @@ src/donor/func_020582cc.c 2.0/sp1p5
 src/donor/STD_CopyString.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/STD_SearchString.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/STD_CompareString.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/func_0205960c.c 2.0/sp1p5
-src/donor/func_0205a150.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/donor/func_0205bc74.c 2.0/sp1p5 -O2,p
-src/donor/func_0205bea4.c 2.0/sp1p5
+src/donor/func_0205960c.c 2.0/sp1p5 -Cpp_exceptions on
+src/donor/func_0205a150.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/donor/func_0205bc74.c 2.0/sp1p5 -O2,p -Cpp_exceptions on
+src/donor/func_0205bea4.c 2.0/sp1p5 -Cpp_exceptions on
 src/donor/func_0205c52c.c 2.0/sp1p5
-src/donor/func_0205d8d4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/donor/func_0205d8d4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/donor/func_0205dd98.c 2.0/sp1p5
-src/donor/func_0205fcbc.c 2.0/sp1p5
-src/donor/func_02060314.c 2.0/sp1p5
+src/donor/func_0205fcbc.c 2.0/sp1p5 -Cpp_exceptions on
+src/donor/func_02060314.c 2.0/sp1p5 -Cpp_exceptions on
 src/donor/func_02060698.c 2.0/sp1p5
-src/donor/func_02060afc.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/donor/func_02060afc.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/func_0204b008.c 2.0/sp1p5 -thumb
 src/auto/func_0204b054.c 2.0/sp1p5 -thumb
 src/auto/func_0204b070.c 2.0/sp1p5 -thumb
@@ -300,44 +300,70 @@ src/nitro/card/card_rom.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/wm/wm_system_4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/ctrdg/ctrdg_4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/ctrdg/ctrdg_task_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/mbstring_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/mem.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/mbstring_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/msl/mem.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/msl/mem_funcs.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/printf.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/printf_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/printf_4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/printf_4.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/msl/strcpy_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/strncpy_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/strcmp_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/strchr_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/strtol_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/strtol_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/msl/s_copysign.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/s_fabs.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/s_frexp.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/s_frexp.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/msl/ansi_fp.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/math_api.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/extras.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/extras.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/msl/dfltu.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/_dmul_2.c 1.2/sp2p3 -O4,p -lang c99 -inline on,noauto
 src/msl/console_io.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/console_io_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/msl/__destroy_global_chain_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/console_io_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/msl/__destroy_global_chain_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/func_01ff9f5c.c 2.0/sp1p5
 src/auto/func_01ff87b4.c 2.0/sp1p5
 src/auto/func_01ff8520.c 2.0/sp1p5
 src/auto/func_01ff8ac4.c 2.0/sp1p5
 src/auto/func_01ff99e8.c 2.0/sp1p5
-src/auto/double2hex.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/float2str.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/double2hex.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/float2str.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/func_02060858.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/_ll_ufrom_d.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02061808.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__strtold.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__dec2num.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/__ieee754_pow.c 2.0/sp1p5
+src/auto/__strtold.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/__dec2num.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/__ieee754_pow.c 2.0/sp1p5 -Cpp_exceptions on
 src/auto/MakeWaveData.c 2.0/sp1p5
-src/auto/__pformatter.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/func_0205a39c.c 2.0/sp1p2 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/__pformatter.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
+src/auto/func_0205a39c.c 2.0/sp1p2 -O4,p -lang c99 -ipa file -inline on,noauto -Cpp_exceptions on
 src/auto/OS_VSNPrintf.c 2.0/sp1p2 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/CARDi_InitCommon.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/snd/snd_command.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/msl/abort_exit_arm_eabi.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/abort_exit_arm_eabi_2.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/math.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205948c.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_02059514.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/mbstring_2.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205bc04.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/printf_3.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205d7e4.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205d8c4.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205dd84.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_0205de0c.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/__ieee754_log.c 2.0/sp1p5 -Cpp_exceptions on
+src/lib/fs_archive_10.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/w_log.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/w_pow.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/ansi_fp_2.c 2.0/sp1p5 -Cpp_exceptions on
+src/lib/OSi_FreeStackAlloc_2.c 2.0/sp1p5 -Cpp_exceptions on
+src/lib/gx_3.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/__call_static_initializers_2.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_020639a8.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_020639bc.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_020639d8.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_020639ec.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/func_02063a00.c 2.0/sp1p5 -Cpp_exceptions on
+src/msl/__arm_eabi_init.c 2.0/sp1p5 -Cpp_exceptions on

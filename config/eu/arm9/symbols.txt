@@ -1895,7 +1895,10 @@ func_020639ec kind:function(arm,size=0x14) addr:0x020639ec
 func_02063a00 kind:function(arm,size=0x1c) addr:0x02063a00
 __register_global_object kind:function(arm,size=0x20) addr:0x02063a1c
 _ExitProcess kind:function(arm,size=0xc) addr:0x02063a3c
-data_02063a48 kind:data(any) addr:0x02063a48
+@ET@__pformatter kind:data(byte[5]) addr:0x02063a48 local
+@ET@__strtold kind:data(byte[5]) addr:0x02063a50 local
+@ET@__ieee754_pow kind:data(byte[5]) addr:0x02063a58 local
+@ET@__dec2num kind:data(byte[5]) addr:0x02063a60 local
 __sinit_02063d2c kind:function(arm,size=0xac) addr:0x02063d2c
 __sinit_02063d2c_ctor kind:data(word) addr:0x020692a8
 data_02063dd8 kind:data(any) addr:0x02063dd8

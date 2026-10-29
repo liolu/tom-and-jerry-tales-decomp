@@ -1,4 +1,6 @@
-    .text       start:0x02000000 end:0x02063d2c kind:code align:32
+    .text       start:0x02000000 end:0x02063a48 kind:code align:32
+    .exception  start:0x02063a48 end:0x02063a68 kind:rodata align:1
+    .exceptix   start:0x02063a68 end:0x02063d2c kind:rodata align:4
     .init       start:0x02063d2c end:0x02063dd8 kind:code align:4
     .rodata     start:0x02063dd8 end:0x020692a8 kind:rodata align:4
     .ctor       start:0x020692a8 end:0x020692ac kind:rodata align:4
@@ -2105,18 +2107,22 @@ src/nitro/std/std_string_2.c:
 src/msl/abort_exit_arm_eabi.c:
     complete
     .text       start:0x020592dc end:0x0205934c
+    .exceptix   start:0x02063a68 end:0x02063a80
 
 src/msl/math.c:
     complete
     .text       start:0x02059474 end:0x0205948c
+    .exceptix   start:0x02063a8c end:0x02063a98
 
 src/auto/func_0205948c.c:
     complete
     .text       start:0x0205948c end:0x020594a0
+    .exceptix   start:0x02063a98 end:0x02063aa4
 
 src/auto/__flush_all.c:
     complete
     .text       start:0x020594a0 end:0x02059508
+    .exceptix   start:0x02063aa4 end:0x02063ab0
 
 src/msl/arith.c:
     complete
@@ -2125,6 +2131,7 @@ src/msl/arith.c:
 src/auto/func_02059514.c:
     complete
     .text       start:0x02059514 end:0x02059550
+    .exceptix   start:0x02063ab0 end:0x02063abc
 
 src/msl/buffer_io.c:
     complete
@@ -2133,10 +2140,12 @@ src/msl/buffer_io.c:
 src/auto/__flush_buffer.c:
     complete
     .text       start:0x02059584 end:0x0205960c
+    .exceptix   start:0x02063abc end:0x02063ac8
 
 src/auto/fflush.c:
     complete
     .text       start:0x020598bc end:0x020599a4
+    .exceptix   start:0x02063ad4 end:0x02063ae0
 
 src/msl/mbstring.c:
     complete
@@ -2149,14 +2158,17 @@ src/auto/func_020599dc.c:
 src/msl/mbstring_2.c:
     complete
     .text       start:0x020599f0 end:0x02059a0c
+    .exceptix   start:0x02063ae0 end:0x02063aec
 
 src/msl/mbstring_3.c:
     complete
     .text       start:0x02059a0c end:0x02059a84
+    .exceptix   start:0x02063aec end:0x02063af8
 
 src/msl/mem.c:
     complete
     .text       start:0x02059a84 end:0x02059ae4
+    .exceptix   start:0x02063af8 end:0x02063b04
 
 src/auto/func_02059ae4.c:
     complete
@@ -2173,14 +2185,17 @@ src/msl/printf_2.c:
 src/auto/func_0205bc04.c:
     complete
     .text       start:0x0205bc04 end:0x0205bc30
+    .exceptix   start:0x02063b40 end:0x02063b4c
 
 src/msl/printf_3.c:
     complete
     .text       start:0x0205bc30 end:0x0205bc74
+    .exceptix   start:0x02063b4c end:0x02063b58
 
 src/msl/printf_4.c:
     complete
     .text       start:0x0205bd8c end:0x0205be20
+    .exceptix   start:0x02063b64 end:0x02063b7c
 
 src/auto/func_0205be20.c:
     complete
@@ -2209,14 +2224,17 @@ src/msl/strchr_2.c:
 src/auto/func_0205d8c4.c:
     complete
     .text       start:0x0205d8c4 end:0x0205d8d4
+    .exceptix   start:0x02063ba0 end:0x02063bac
 
 src/msl/strtol_2.c:
     complete
     .text       start:0x0205dcbc end:0x0205dd84
+    .exceptix   start:0x02063bb8 end:0x02063bc4
 
 src/auto/func_0205dd84.c:
     complete
     .text       start:0x0205dd84 end:0x0205dd98
+    .exceptix   start:0x02063bc4 end:0x02063bd0
 
 src/msl/s_copysign.c:
     complete
@@ -2229,18 +2247,22 @@ src/msl/s_fabs.c:
 src/msl/s_frexp.c:
     complete
     .text       start:0x0205fc00 end:0x0205fcbc
+    .exceptix   start:0x02063bf4 end:0x02063c00
 
 src/lib/fs_archive_10.c:
     complete
     .text       start:0x0205ff08 end:0x0205ff14
+    .exceptix   start:0x02063c0c end:0x02063c18
 
 src/msl/w_log.c:
     complete
     .text       start:0x0205ff14 end:0x0205ff20
+    .exceptix   start:0x02063c18 end:0x02063c24
 
 src/msl/w_pow.c:
     complete
     .text       start:0x0205ff20 end:0x0205ff2c
+    .exceptix   start:0x02063c24 end:0x02063c30
 
 src/msl/ansi_fp.c:
     complete
@@ -2249,18 +2271,22 @@ src/msl/ansi_fp.c:
 src/msl/ansi_fp_2.c:
     complete
     .text       start:0x0205ffe8 end:0x020600f4
+    .exceptix   start:0x02063c30 end:0x02063c48
 
 src/auto/__timesdec.c:
     complete
     .text       start:0x020600f4 end:0x02060278
+    .exceptix   start:0x02063c48 end:0x02063c54
 
 src/auto/__str2dec.c:
     complete
     .text       start:0x02060278 end:0x02060314
+    .exceptix   start:0x02063c54 end:0x02063c60
 
 src/auto/__num2dec.c:
     complete
     .text       start:0x02060c7c end:0x02060d24
+    .exceptix   start:0x02063c78 end:0x02063c84
 
 src/auto/func_02061348.c:
     complete
@@ -2277,10 +2303,12 @@ src/msl/math_api.c:
 src/msl/extras.c:
     complete
     .text       start:0x02061460 end:0x0206148c
+    .exceptix   start:0x02063c90 end:0x02063c9c
 
 src/lib/OSi_FreeStackAlloc_2.c:
     complete
     .text       start:0x0206148c end:0x020614a4
+    .exceptix   start:0x02063c9c end:0x02063ca8
 
 src/auto/_dfix.c:
     complete
@@ -2341,6 +2369,7 @@ src/auto/func_02063884.c:
 src/msl/console_io_2.c:
     complete
     .text       start:0x02063894 end:0x02063918
+    .exceptix   start:0x02063ca8 end:0x02063cc0
 
 src/auto/func_02063918.c:
     complete
@@ -2349,30 +2378,37 @@ src/auto/func_02063918.c:
 src/lib/gx_3.c:
     complete
     .text       start:0x02063920 end:0x02063934
+    .exceptix   start:0x02063cc0 end:0x02063ccc
 
 src/msl/__destroy_global_chain_2.c:
     complete
     .text       start:0x02063960 end:0x020639a4
+    .exceptix   start:0x02063cd8 end:0x02063ce4
 
 src/auto/func_020639a8.c:
     complete
     .text       start:0x020639a8 end:0x020639bc
+    .exceptix   start:0x02063ce4 end:0x02063cf0
 
 src/auto/func_020639bc.c:
     complete
     .text       start:0x020639bc end:0x020639d8
+    .exceptix   start:0x02063cf0 end:0x02063cfc
 
 src/auto/func_020639d8.c:
     complete
     .text       start:0x020639d8 end:0x020639ec
+    .exceptix   start:0x02063cfc end:0x02063d08
 
 src/auto/func_020639ec.c:
     complete
     .text       start:0x020639ec end:0x02063a00
+    .exceptix   start:0x02063d08 end:0x02063d14
 
 src/auto/func_02063a00.c:
     complete
     .text       start:0x02063a00 end:0x02063a1c
+    .exceptix   start:0x02063d14 end:0x02063d20
 
 src/msl/__register_global_object_2.c:
     complete
@@ -2381,6 +2417,7 @@ src/msl/__register_global_object_2.c:
 src/msl/__arm_eabi_init.c:
     complete
     .text       start:0x02063a3c end:0x02063a48
+    .exceptix   start:0x02063d20 end:0x02063d2c
 
 src/lib/crt0.c:
     complete
@@ -9901,6 +9938,7 @@ src/donor/STD_CompareString.c:
 src/donor/func_0205960c.c:
     complete
     .text       start:0x0205960c end:0x020598bc
+    .exceptix   start:0x02063ac8 end:0x02063ad4
 
 src/msl/printf.c:
     complete
@@ -9909,14 +9947,17 @@ src/msl/printf.c:
 src/donor/func_0205a150.c:
     complete
     .text       start:0x0205a150 end:0x0205a39c
+    .exceptix   start:0x02063b04 end:0x02063b10
 
 src/donor/func_0205bc74.c:
     complete
     .text       start:0x0205bc74 end:0x0205bd8c
+    .exceptix   start:0x02063b58 end:0x02063b64
 
 src/donor/func_0205bea4.c:
     complete
     .text       start:0x0205bea4 end:0x0205bfd4
+    .exceptix   start:0x02063b7c end:0x02063b88
 
 src/donor/func_0205c52c.c:
     complete
@@ -9925,6 +9966,7 @@ src/donor/func_0205c52c.c:
 src/donor/func_0205d8d4.c:
     complete
     .text       start:0x0205d8d4 end:0x0205dcbc
+    .exceptix   start:0x02063bac end:0x02063bb8
 
 src/donor/func_0205dd98.c:
     complete
@@ -9933,10 +9975,12 @@ src/donor/func_0205dd98.c:
 src/donor/func_0205fcbc.c:
     complete
     .text       start:0x0205fcbc end:0x0205ff08
+    .exceptix   start:0x02063c00 end:0x02063c0c
 
 src/donor/func_02060314.c:
     complete
     .text       start:0x02060314 end:0x02060698
+    .exceptix   start:0x02063c60 end:0x02063c6c
 
 src/donor/func_02060698.c:
     complete
@@ -9945,6 +9989,7 @@ src/donor/func_02060698.c:
 src/donor/func_02060afc.c:
     complete
     .text       start:0x02060afc end:0x02060c7c
+    .exceptix   start:0x02063c6c end:0x02063c78
 
 src/nitro/os/os_arena_4.c:
     complete
@@ -10901,6 +10946,7 @@ src/auto/func_0204b070.c:
 src/msl/abort_exit_arm_eabi_2.c:
     complete
     .text       start:0x0205934c end:0x02059474
+    .exceptix   start:0x02063a80 end:0x02063a8c
 
 src/auto/func_0205c258.c:
     complete
@@ -11593,6 +11639,7 @@ src/auto/func_02040614.c:
 src/auto/func_0205d7e4.c:
     complete
     .text       start:0x0205d7e4 end:0x0205d8c4
+    .exceptix   start:0x02063b94 end:0x02063ba0
 
 src/auto/func_02040094.c:
     complete
@@ -11761,6 +11808,7 @@ src/nitro/os/os_arena_3.c:
 src/msl/__call_static_initializers_2.c:
     complete
     .text       start:0x02063934 end:0x02063960
+    .exceptix   start:0x02063ccc end:0x02063cd8
 
 src/auto/__sinit_02063d2c.c:
     complete
@@ -11818,6 +11866,7 @@ src/auto/func_02044b1c.c:
 src/auto/__ieee754_log.c:
     complete
     .text       start:0x0205e2f8 end:0x0205ea30
+    .exceptix   start:0x02063bdc end:0x02063be8
 
 src/auto/FSi_FindPathCommand.c:
     complete
@@ -11834,10 +11883,12 @@ src/auto/FSi_GetPathCommand.c:
 src/auto/double2hex.c:
     complete
     .text       start:0x0205a67c end:0x0205ab58
+    .exceptix   start:0x02063b1c end:0x02063b28
 
 src/auto/float2str.c:
     complete
     .text       start:0x0205ac7c end:0x0205b3e0
+    .exceptix   start:0x02063b28 end:0x02063b34
 
 src/auto/func_02060858.c:
     complete
@@ -11855,14 +11906,20 @@ src/auto/__strtold.c:
     complete
     .text       start:0x0205c598 end:0x0205d7e4
     .rodata     start:0x02069238 end:0x02069248
+    .exception  start:0x02063a50 end:0x02063a58
+    .exceptix   start:0x02063b88 end:0x02063b94
 
 src/auto/__dec2num.c:
     complete
     .text       start:0x02060d24 end:0x02061348
+    .exception  start:0x02063a60 end:0x02063a68
+    .exceptix   start:0x02063c84 end:0x02063c90
 
 src/auto/__ieee754_pow.c:
     complete
     .text       start:0x0205ea30 end:0x0205fbb8
+    .exception  start:0x02063a58 end:0x02063a60
+    .exceptix   start:0x02063be8 end:0x02063bf4
 
 src/auto/MakeWaveData.c:
     complete
@@ -11872,10 +11929,13 @@ src/auto/__pformatter.c:
     complete
     .text       start:0x0205b3e0 end:0x0205bc04
     .data       start:0x0206e208 end:0x0206e210
+    .exception  start:0x02063a48 end:0x02063a50
+    .exceptix   start:0x02063b34 end:0x02063b40
 
 src/auto/func_0205a39c.c:
     complete
     .text       start:0x0205a39c end:0x0205a67c
+    .exceptix   start:0x02063b10 end:0x02063b1c
 
 src/auto/OS_VSNPrintf.c:
     complete
@@ -11897,6 +11957,7 @@ src/auto/func_0205de0c.c:
     complete
     .text       start:0x0205de0c end:0x0205e2f8
     .rodata     start:0x02069248 end:0x02069278
+    .exceptix   start:0x02063bd0 end:0x02063bdc
 
 src/data/main_bss_0206e6f4.c:
     complete
