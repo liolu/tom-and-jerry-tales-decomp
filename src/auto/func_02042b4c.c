@@ -19,7 +19,7 @@ void STD_GetStringLength(void);
 void STD_CompareString(void);
 void sprintf(void);
 void func_0205c3d4(void);
-void func_02062234(void);
+void _fadd(void);
 void func_02062750(void);
 void _ffix(void);
 void _fmul(void);
@@ -669,7 +669,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @52
 @51
     bl _fmul
@@ -688,7 +688,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @54
 @53
     bl _fmul
@@ -707,7 +707,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @56
 @55
     bl _fmul
@@ -822,7 +822,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @65
 @64
     bl _fmul
@@ -841,7 +841,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @67
 @66
     bl _fmul
@@ -860,7 +860,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @69
 @68
     bl _fmul
@@ -879,7 +879,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @71
 @70
     bl _fmul
@@ -989,7 +989,7 @@ asm void func_02042b4c(void) {
     bl _fmul
     mov r1, r0
     mov r0, #0x3f000000
-    bl func_02062234
+    bl _fadd
     b @80
 @79
     bl _fmul

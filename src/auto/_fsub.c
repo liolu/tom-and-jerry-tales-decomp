@@ -7,6 +7,9 @@ asm void _fsub(void) {
     eors r2, r0, r1
     eormi r1, r1, #0x80000000
     bmi _fadd_join
+}
+
+asm void _fsub_join(void) {
     subs ip, r0, r1
     eorlo ip, ip, #0x80000000
     sublo r0, r0, ip

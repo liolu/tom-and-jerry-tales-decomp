@@ -12100,3 +12100,27 @@ src/auto/func_020012c0.c:
 src/auto/func_0201109c.c:
     complete
     .text       start:0x0201109c end:0x02011430
+
+src/auto/_ll_mod.c:
+    complete
+    .text       start:0x02062d04 end:0x02062ec4
+
+src/auto/_ll_udiv.c:
+    complete
+    .text       start:0x02062ec4 end:0x02062f0c
+
+src/auto/_u32_div_f.c:
+    complete
+    .text       start:0x02063118 end:0x020632fc
+
+src/auto/_dadd.c:
+    complete
+    .text       start:0x020614a4 end:0x020617bc
+
+src/auto/_fadd.c:
+    complete
+    .text       start:0x02062234 end:0x02062450
+
+src/auto/_ddiv.c:
+    complete
+    .text       start:0x02063314 end:0x02063858

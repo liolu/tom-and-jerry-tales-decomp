@@ -8,6 +8,9 @@ asm void _dsub(void) {
     eors ip, r1, r3
     eormi r3, r3, #0x80000000
     bmi _dadd_join
+}
+
+asm void _dsub_join(void) {
     subs ip, r0, r2
     sbcs lr, r1, r3
     bhs L_02061eb0
