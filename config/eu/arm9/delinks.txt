@@ -11909,3 +11909,19 @@ src/auto/__strtold.c:
     complete
     .text       start:0x0205c598 end:0x0205d7e4
     .rodata     start:0x02069238 end:0x02069248
+
+src/auto/SND_CommandInit.c:
+    complete
+    .text       start:0x0205284c end:0x02052920
+
+src/auto/__dec2num.c:
+    complete
+    .text       start:0x02060d24 end:0x02061348
+
+src/auto/__ieee754_pow.c:
+    complete
+    .text       start:0x0205ea30 end:0x0205fbb8
+
+src/auto/MakeWaveData.c:
+    complete
+    .text       start:0x0204a4fc end:0x0204ad24

@@ -334,3 +334,7 @@ src/auto/func_02060858.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/_ll_ufrom_d.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02061808.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/__strtold.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/SND_CommandInit.c 2.0/sp1p5 -O2
+src/auto/__dec2num.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/__ieee754_pow.c 2.0/sp1p5
+src/auto/MakeWaveData.c 2.0/sp1p5
