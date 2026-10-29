@@ -1989,9 +1989,9 @@ __upper_mapC kind:data(any) addr:0x020690b8
 __ctype_mapC kind:data(short[128]) addr:0x02069138
 @strtold_nan kind:data(byte[5]) addr:0x02069238 local
 @strtold_inf kind:data(byte[9]) addr:0x0206923d local
-data_02069248 kind:data(any) addr:0x02069248
-data_02069258 kind:data(any) addr:0x02069258
-data_02069268 kind:data(any) addr:0x02069268
+ln2HI kind:data(word[4]) addr:0x02069248 local
+halF kind:data(word[4]) addr:0x02069258 local
+ln2LO kind:data(word[4]) addr:0x02069268 local
 dp_h kind:data(any) addr:0x02069278
 bp kind:data(any) addr:0x02069288
 dp_l kind:data(any) addr:0x02069298

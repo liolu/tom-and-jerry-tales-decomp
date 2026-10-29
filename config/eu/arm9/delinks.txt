@@ -9557,18 +9557,6 @@ src/data/main_rodata_020686c0.c:
     complete
     .rodata     start:0x020686c0 end:0x02068dc0
 
-src/data/main_rodata_02069248.c:
-    complete
-    .rodata     start:0x02069248 end:0x02069258
-
-src/data/main_rodata_02069258.c:
-    complete
-    .rodata     start:0x02069258 end:0x02069268
-
-src/data/main_rodata_02069268.c:
-    complete
-    .rodata     start:0x02069268 end:0x02069278
-
 src/data/main_rodata_02068560.c:
     complete
     .rodata     start:0x02068560 end:0x02068564
@@ -11942,3 +11930,8 @@ src/auto/_dsub.c:
 src/auto/CARDi_InitCommon.c:
     complete
     .text       start:0x02057408 end:0x0205750c
+
+src/auto/func_0205de0c.c:
+    complete
+    .text       start:0x0205de0c end:0x0205e2f8
+    .rodata     start:0x02069248 end:0x02069278
