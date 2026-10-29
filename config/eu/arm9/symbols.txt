@@ -3077,8 +3077,8 @@ data_0206e1f0 kind:data(any) addr:0x0206e1f0
 data_0206e1f8 kind:data(any) addr:0x0206e1f8
 data_0206e200 kind:data(any) addr:0x0206e200
 data_0206e204 kind:data(any) addr:0x0206e204
-data_0206e208 kind:data(any) addr:0x0206e208
-data_0206e20c kind:data(any) addr:0x0206e20c
+@pformatter_wempty kind:data(byte[2]) addr:0x0206e208 local
+@pformatter_empty kind:data(byte[1]) addr:0x0206e20c local
 data_0206e210 kind:data(any) addr:0x0206e210
 data_0206e214 kind:data(any) addr:0x0206e214
 data_0206e21c kind:data(any) addr:0x0206e21c

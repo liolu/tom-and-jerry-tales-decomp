@@ -10037,14 +10037,6 @@ src/data/main_data_0206dfb4.c:
     complete
     .data       start:0x0206dfb4 end:0x0206dfb8
 
-src/data/main_data_0206e208.c:
-    complete
-    .data       start:0x0206e208 end:0x0206e20c
-
-src/data/main_data_0206e20c.c:
-    complete
-    .data       start:0x0206e20c end:0x0206e210
-
 src/data/main_data_0206e210.c:
     complete
     .data       start:0x0206e210 end:0x0206e214
@@ -11925,3 +11917,8 @@ src/auto/__ieee754_pow.c:
 src/auto/MakeWaveData.c:
     complete
     .text       start:0x0204a4fc end:0x0204ad24
+
+src/auto/__pformatter.c:
+    complete
+    .text       start:0x0205b3e0 end:0x0205bc04
+    .data       start:0x0206e208 end:0x0206e210
