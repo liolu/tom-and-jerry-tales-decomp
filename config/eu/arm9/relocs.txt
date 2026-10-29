@@ -10557,8 +10557,8 @@ from:0x020528f8 kind:arm_call to:0x02052ab8 module:main
 from:0x02052900 kind:arm_call to:0x02052af0 module:main
 from:0x02052908 kind:load to:0x021b0ae0 module:main
 from:0x0205290c kind:load to:0x021b0800 module:main
-from:0x02052910 kind:load to:0x021b1800 module:main
-from:0x02052914 kind:load to:0x021b22c8 module:main
+from:0x02052910 kind:load to:0x021b0ae0 add:0xd20 module:main
+from:0x02052914 kind:load to:0x021b0ae0 add:0x17e8 module:main
 from:0x02052918 kind:load to:0x021b0860 module:main
 from:0x0205291c kind:load to:0x021b2340 module:main
 from:0x02052928 kind:arm_call to:0x020517f8 module:main

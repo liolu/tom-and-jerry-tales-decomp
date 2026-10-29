@@ -152,7 +152,6 @@ src/donor/func_02051bd0.c 2.0/sp1p5
 src/donor/func_02051d2c.c 2.0/sp1p5
 src/donor/MI_UncompressHuffman.c 1.2/sp2p3 -O4,p -lang c99 -inline on,noauto
 src/donor/func_02052374.c 2.0/sp1p5
-src/donor/func_02052af0.c 2.0/sp1p5 -O4,s
 src/donor/func_02053504.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02053604.c 2.0/sp1p5
 src/donor/func_02053650.c 2.0/sp1p5
@@ -284,7 +283,6 @@ src/nitro/os/os_vramExclusive.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,n
 src/nitro/mi/mi_dma_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/mi/mi_memory_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/mi/mi_memory_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/nitro/snd/snd_command_9.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/snd/snd_alarm.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/snd/snd_alarm_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/nitro/snd/snd_work_3.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
@@ -335,7 +333,6 @@ src/auto/func_02060858.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/_ll_ufrom_d.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/donor/func_02061808.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/__strtold.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
-src/auto/SND_CommandInit.c 2.0/sp1p5 -O2
 src/auto/__dec2num.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/__ieee754_pow.c 2.0/sp1p5
 src/auto/MakeWaveData.c 2.0/sp1p5
@@ -343,3 +340,4 @@ src/auto/__pformatter.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/func_0205a39c.c 2.0/sp1p2 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/OS_VSNPrintf.c 2.0/sp1p2 -O4,p -lang c99 -ipa file -inline on,noauto
 src/auto/CARDi_InitCommon.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/nitro/snd/snd_command.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
