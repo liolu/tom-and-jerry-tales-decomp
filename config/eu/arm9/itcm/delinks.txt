@@ -92,3 +92,23 @@ src/auto/OS_IrqHandler_ThreadSwitch.c:
 src/auto/OS_IrqHandler.c:
     complete
     .text       start:0x01ffa438 end:0x01ffa490
+
+src/auto/func_01ff9f5c.c:
+    complete
+    .text       start:0x01ff9f5c end:0x01ffa0b0
+
+src/auto/func_01ff87b4.c:
+    complete
+    .text       start:0x01ff87b4 end:0x01ff8ac4
+
+src/auto/func_01ff8520.c:
+    complete
+    .text       start:0x01ff8520 end:0x01ff87b4
+
+src/auto/func_01ff8ac4.c:
+    complete
+    .text       start:0x01ff8ac4 end:0x01ff8e94
+
+src/auto/func_01ff99e8.c:
+    complete
+    .text       start:0x01ff99e8 end:0x01ff9df0

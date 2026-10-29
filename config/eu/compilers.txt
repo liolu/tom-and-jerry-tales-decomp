@@ -323,3 +323,8 @@ src/msl/_dmul_2.c 1.2/sp2p3 -O4,p -lang c99 -inline on,noauto
 src/msl/console_io.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/console_io_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
 src/msl/__destroy_global_chain_2.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/func_01ff9f5c.c 2.0/sp1p5
+src/auto/func_01ff87b4.c 2.0/sp1p5
+src/auto/func_01ff8520.c 2.0/sp1p5
+src/auto/func_01ff8ac4.c 2.0/sp1p5
+src/auto/func_01ff99e8.c 2.0/sp1p5
