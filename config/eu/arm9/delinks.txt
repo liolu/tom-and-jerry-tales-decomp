@@ -11938,3 +11938,7 @@ src/auto/_fsub.c:
 src/auto/_dsub.c:
     complete
     .text       start:0x02061e80 end:0x02062234
+
+src/auto/CARDi_InitCommon.c:
+    complete
+    .text       start:0x02057408 end:0x0205750c
