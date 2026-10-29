@@ -328,3 +328,9 @@ src/auto/func_01ff87b4.c 2.0/sp1p5
 src/auto/func_01ff8520.c 2.0/sp1p5
 src/auto/func_01ff8ac4.c 2.0/sp1p5
 src/auto/func_01ff99e8.c 2.0/sp1p5
+src/auto/double2hex.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/float2str.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/func_02060858.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/_ll_ufrom_d.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/donor/func_02061808.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto
+src/auto/__strtold.c 2.0/sp1p5 -O4,p -lang c99 -ipa file -inline on,noauto

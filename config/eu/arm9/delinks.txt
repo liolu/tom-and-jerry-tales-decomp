@@ -9557,10 +9557,6 @@ src/data/main_rodata_020686c0.c:
     complete
     .rodata     start:0x020686c0 end:0x02068dc0
 
-src/data/main_rodata_02069238.c:
-    complete
-    .rodata     start:0x02069238 end:0x02069248
-
 src/data/main_rodata_02069248.c:
     complete
     .rodata     start:0x02069248 end:0x02069258
@@ -11888,3 +11884,28 @@ src/auto/RtcCommonCallback.c:
 src/auto/FSi_GetPathCommand.c:
     complete
     .text       start:0x02053f44 end:0x020542f0
+
+src/auto/double2hex.c:
+    complete
+    .text       start:0x0205a67c end:0x0205ab58
+
+src/auto/float2str.c:
+    complete
+    .text       start:0x0205ac7c end:0x0205b3e0
+
+src/auto/func_02060858.c:
+    complete
+    .text       start:0x02060858 end:0x02060afc
+
+src/auto/_ll_ufrom_d.c:
+    complete
+    .text       start:0x02061860 end:0x020618ec
+
+src/donor/func_02061808.c:
+    complete
+    .text       start:0x02061808 end:0x02061860
+
+src/auto/__strtold.c:
+    complete
+    .text       start:0x0205c598 end:0x0205d7e4
+    .rodata     start:0x02069238 end:0x02069248
