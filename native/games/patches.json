@@ -1,1 +1,6 @@
-{}
+{
+ "AJTP": {
+  "arm_stack": true,
+  "lift_parts": 4
+ }
+}
