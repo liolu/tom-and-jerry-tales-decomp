@@ -12171,3 +12171,31 @@ src/auto/OS_InitLock.c:
 src/auto/func_02037bb8.c:
     complete
     .text       start:0x02037bb8 end:0x02037d44
+
+src/auto/func_02013198.c:
+    complete
+    .text       start:0x02013198 end:0x020132c4
+
+src/auto/func_02031a14.c:
+    complete
+    .text       start:0x02031a14 end:0x02031be4
+
+src/auto/func_02039e84.c:
+    complete
+    .text       start:0x02039e84 end:0x0203a274
+
+src/auto/func_02001d4c.c:
+    complete
+    .text       start:0x02001d4c end:0x02001ed0
+
+src/auto/func_02001ed0.c:
+    complete
+    .text       start:0x02001ed0 end:0x020021c4
+
+src/auto/func_020021c4.c:
+    complete
+    .text       start:0x020021c4 end:0x02002580
+
+src/auto/func_02012e28.c:
+    complete
+    .text       start:0x02012e28 end:0x02013198
