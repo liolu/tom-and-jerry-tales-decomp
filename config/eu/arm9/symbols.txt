@@ -25,6 +25,7 @@ init_cp15 kind:function(arm,size=0xe8) addr:0x02000a6c
 func_02000b54 kind:function(arm,size=0x4) addr:0x02000b54
 OSi_ReferSymbol kind:function(arm,size=0x4) addr:0x02000b58
 BuildInfo kind:data(any) addr:0x02000b5c
+_SDK_NintendoBackup kind:data(any) addr:0x02000b80
 main kind:function(arm,size=0x194) addr:0x02000b98
 func_02000d2c kind:function(arm,size=0x168) addr:0x02000d2c
 func_02000e94 kind:function(arm,size=0x334) addr:0x02000e94
