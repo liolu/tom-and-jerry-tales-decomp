@@ -367,3 +367,4 @@ src/auto/func_020639d8.c 2.0/sp1p5 -Cpp_exceptions on
 src/auto/func_020639ec.c 2.0/sp1p5 -Cpp_exceptions on
 src/auto/func_02063a00.c 2.0/sp1p5 -Cpp_exceptions on
 src/msl/__arm_eabi_init.c 2.0/sp1p5 -Cpp_exceptions on
+src/auto/CTRDGi_InitModuleInfo.c 2.0/sp1p5 -O2 -pragma "opt_propagation off"

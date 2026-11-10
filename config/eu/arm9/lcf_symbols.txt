@@ -2,3 +2,5 @@
 SDK_IRQ_STACKSIZE = 0x320;
 SDK_SYS_STACKSIZE = 0xe60;
 SDK_AUTOLOAD_DTCM_START = 0x027e0000;
+# ctrdg file statics block: its first word is CTRDGi_InitModuleInfo's function-local static isInitialized
+data_021b38e0 = 0x021b38e0;

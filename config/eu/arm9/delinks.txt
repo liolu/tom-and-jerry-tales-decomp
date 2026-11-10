@@ -6317,7 +6317,16 @@ src/data/main_bss_021b2e20.c:
 
 src/data/main_bss_021b38c0.c:
     complete
-    .bss        start:0x021b38c0 end:0x021b3900
+    .bss        start:0x021b38c0 end:0x021b38e0
+
+src/auto/CTRDGi_InitModuleInfo.c:
+    complete
+    .text       start:0x02058d98 end:0x02058f4c
+    .bss        start:0x021b38e0 end:0x021b38e4
+
+src/data/main_bss_021b38e4.c:
+    complete
+    .bss        start:0x021b38e4 end:0x021b3900
 
 src/data/main_bss_021b3900.c:
     complete

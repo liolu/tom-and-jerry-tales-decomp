@@ -3638,7 +3638,8 @@ wmInitialized kind:bss addr:0x021b2e20
 bufMsgQ kind:bss addr:0x021b2e28
 CTRDGi_EnableFlag kind:bss addr:0x021b38c0
 CTRDGi_Work kind:bss addr:0x021b38c4
-data_021b38e0 kind:bss addr:0x021b38e0
+isInitialized$1 kind:bss(size=0x4) addr:0x021b38e0 local
+data_021b38e4 kind:bss addr:0x021b38e4
 data_021b3900 kind:bss addr:0x021b3900
 data_021b3904 kind:bss addr:0x021b3904
 data_021b39c0 kind:bss addr:0x021b39c0
