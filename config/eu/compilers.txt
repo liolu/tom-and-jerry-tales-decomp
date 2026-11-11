@@ -375,3 +375,4 @@ src/auto/func_02016a94.c 2.0/sp1p5 -pragma "opt_propagation off"
 src/auto/func_02028714.c 2.0/sp1p5 -pragma "opt_propagation off"
 src/auto/func_0202e838.c 2.0/sp1p5 -pragma "opt_propagation off"
 src/auto/func_0203afd8.c 2.0/sp1p5 -pragma "opt_propagation off"
+src/auto/func_0200c138.c 2.0/sp1p2
